@@ -132,10 +132,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
+    <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -273,6 +277,7 @@
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Shared\" />
     <Folder Include="Areas\USER\Models\" />
+    <Folder Include="Areas\USER\Views\tintuc\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
