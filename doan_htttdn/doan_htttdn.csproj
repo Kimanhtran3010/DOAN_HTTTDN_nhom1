@@ -212,6 +212,7 @@
     <Content Include="Assets\Image\t3.jpg" />
     <Content Include="Assets\Image\t4.jpg" />
     <Content Include="Assets\Image\tick1.png" />
+    <Content Include="Assets\USER\css\a.css" />
     <Content Include="Assets\USER\css\bootstrap.css" />
     <Content Include="Assets\USER\css\bootstrap.min.css" />
     <Content Include="Assets\USER\css\flexslider.css" />
