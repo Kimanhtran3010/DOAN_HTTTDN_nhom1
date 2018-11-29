@@ -132,11 +132,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
+    <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,11 +186,13 @@
     <Content Include="Assets\Image\black1.jpg" />
     <Content Include="Assets\Image\black2.jpg" />
     <Content Include="Assets\Image\blo.jpg" />
+    <Content Include="Assets\Image\Camera-hanh-trinh.jpg" />
     <Content Include="Assets\Image\cart.png" />
     <Content Include="Assets\Image\cart_gh.png" />
     <Content Include="Assets\Image\close_1.png" />
     <Content Include="Assets\Image\co.png" />
     <Content Include="Assets\Image\fb.png" />
+    <Content Include="Assets\Image\Galaxy-A8s %28Copy%29.jpg" />
     <Content Include="Assets\Image\google.png" />
     <Content Include="Assets\Image\img-sprite.png" />
     <Content Include="Assets\Image\lo.png" />
@@ -196,6 +202,7 @@
     <Content Include="Assets\Image\lo4.png" />
     <Content Include="Assets\Image\lo5.png" />
     <Content Include="Assets\Image\logo.png" />
+    <Content Include="Assets\Image\NGUOI DI TIM BUG %28Copy%29.jpg" />
     <Content Include="Assets\Image\p1.jpg" />
     <Content Include="Assets\Image\p2.jpg" />
     <Content Include="Assets\Image\p3.jpg" />
@@ -213,11 +220,14 @@
     <Content Include="Assets\Image\pic2.jpg" />
     <Content Include="Assets\Image\pro.jpg" />
     <Content Include="Assets\Image\product1.jpg" />
+    <Content Include="Assets\Image\R17-Pro.jpg" />
     <Content Include="Assets\Image\s1.jpg" />
     <Content Include="Assets\Image\si.jpg" />
     <Content Include="Assets\Image\si1.jpg" />
     <Content Include="Assets\Image\si2.jpg" />
     <Content Include="Assets\Image\slide1-4.png" />
+    <Content Include="Assets\Image\sonyXZ4.jpg" />
+    <Content Include="Assets\Image\SSD-860-QVO %28Copy%29.png" />
     <Content Include="Assets\Image\t1.jpg" />
     <Content Include="Assets\Image\t2.jpg" />
     <Content Include="Assets\Image\t3.jpg" />

@@ -2554,3 +2554,32 @@ a.item_add p.number {
 .article-content p span {
         font-size: 14px;
 }
+ .top-in1 span {
+  padding: 1.8em 0 0;
+}
+.top-in1 {
+  min-height: 92px;
+}
+.top-in2 span {
+  padding: 1.15em 0 0;
+}
+.top-in2 {
+  min-height: 81px;
+}
+}
+
+.canbottom {
+    background-color:white;
+}
+.post-tintuc1 {
+    text-indent:20px;
+    margin:0 0 15px;
+    padding:0;
+    list-style:none;
+    font-size:20px;
+    color:#999999;
+   
+}
+.tintucli{
+    list-style-type:circle;
+}
