@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
@@ -161,6 +162,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Admin\bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\Admin\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Admin\bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\Admin\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\Admin\css\local.css" />
+    <Content Include="Assets\Admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Assets\Admin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Admin\js\jquery-1.10.2.min.js" />
     <Content Include="Assets\Image\anti-sky.png" />
     <Content Include="Assets\Image\b1.jpg" />
     <Content Include="Assets\Image\b2.jpg" />
@@ -241,6 +252,43 @@
     <Content Include="Areas\USER\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\USER\Views\Home\Index.cshtml" />
     <Content Include="Areas\USER\Views\Vechungtoi\Index.cshtml" />
+    <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Admin\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Admin\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Assets\Admin\font-awesome\less\core.less" />
+    <Content Include="Assets\Admin\font-awesome\less\fixed-width.less" />
+    <Content Include="Assets\Admin\font-awesome\less\font-awesome.less" />
+    <Content Include="Assets\Admin\font-awesome\less\icons.less" />
+    <Content Include="Assets\Admin\font-awesome\less\larger.less" />
+    <Content Include="Assets\Admin\font-awesome\less\list.less" />
+    <Content Include="Assets\Admin\font-awesome\less\mixins.less" />
+    <Content Include="Assets\Admin\font-awesome\less\path.less" />
+    <Content Include="Assets\Admin\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Assets\Admin\font-awesome\less\spinning.less" />
+    <Content Include="Assets\Admin\font-awesome\less\stacked.less" />
+    <Content Include="Assets\Admin\font-awesome\less\variables.less" />
+    <Content Include="Assets\Admin\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_core.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_icons.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_larger.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_list.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_mixins.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_path.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_spinning.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_stacked.scss" />
+    <Content Include="Assets\Admin\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\ADMIN\Views\Shared\_LayoutADD.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -269,9 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ADMIN\Controllers\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\ADMIN\Views\Shared\" />
     <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
