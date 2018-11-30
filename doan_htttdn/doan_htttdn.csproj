@@ -138,6 +138,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\thongtinController.cs" />
+    <Compile Include="Areas\GIAOVIEN\GIAOVIENAreaRegistration.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
@@ -166,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Image\anti-sky.png" />
+    <Content Include="Assets\Image\avatar.png" />
     <Content Include="Assets\Image\b1.jpg" />
     <Content Include="Assets\Image\b2.jpg" />
     <Content Include="Assets\Image\b3.jpg" />
@@ -252,6 +255,10 @@
     <Content Include="Areas\USER\Views\Home\Index.cshtml" />
     <Content Include="Areas\USER\Views\Vechungtoi\Index.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\web.config" />
+    <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -283,6 +290,7 @@
     <Folder Include="Areas\ADMIN\Controllers\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Shared\" />
+    <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
