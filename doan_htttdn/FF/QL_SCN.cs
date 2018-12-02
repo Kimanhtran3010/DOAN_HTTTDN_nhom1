@@ -149,6 +149,10 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<PRODUCT>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.DETAIL_ORDERS)
                 .WithRequired(e => e.PRODUCT)
                 .WillCascadeOnDelete(false);

@@ -55,6 +55,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -139,11 +145,18 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
+    <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
+    <Compile Include="Areas\USER\Controllers\KhoaHocController.cs" />
+    <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
     <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
+    <Compile Include="Areas\USER\Models\Cart_items.cs" />
+    <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
+    <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
     <Compile Include="FF\ADMIN1.cs" />
@@ -221,6 +234,19 @@
     <Content Include="Assets\Image\pro.jpg" />
     <Content Include="Assets\Image\product1.jpg" />
     <Content Include="Assets\Image\R17-Pro.jpg" />
+    <Content Include="Assets\Image\robo1.jpg" />
+    <Content Include="Assets\Image\robo10.jpg" />
+    <Content Include="Assets\Image\robo11.jpg" />
+    <Content Include="Assets\Image\robo12.jpg" />
+    <Content Include="Assets\Image\robo13.jpg" />
+    <Content Include="Assets\Image\robo2.jpg" />
+    <Content Include="Assets\Image\robo3.jpg" />
+    <Content Include="Assets\Image\robo4.jpg" />
+    <Content Include="Assets\Image\robo5.jpg" />
+    <Content Include="Assets\Image\robo6.jpg" />
+    <Content Include="Assets\Image\robo7.jpg" />
+    <Content Include="Assets\Image\robo8.jpg" />
+    <Content Include="Assets\Image\robo9.jpg" />
     <Content Include="Assets\Image\s1.jpg" />
     <Content Include="Assets\Image\si.jpg" />
     <Content Include="Assets\Image\si1.jpg" />
@@ -240,6 +266,7 @@
     <Content Include="Assets\USER\css\memenu.css" />
     <Content Include="Assets\USER\css\style.css" />
     <Content Include="Assets\USER\js\bootstrap.min.js" />
+    <Content Include="Assets\USER\js\controller\cartController.js" />
     <Content Include="Assets\USER\js\jquery.flexslider.js" />
     <Content Include="Assets\USER\js\jquery.min.js" />
     <Content Include="Assets\USER\js\main.js" />
@@ -251,6 +278,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -299,6 +327,14 @@
     <Content Include="Assets\Admin\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\ADMIN\Views\Shared\_LayoutADD.cshtml" />
     <Content Include="Areas\ADMIN\Views\Home\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Areas\USER\Views\KhoaHoc\Index.cshtml" />
+    <Content Include="Areas\USER\Views\KhoaHoc\ChiTiet.cshtml" />
+    <Content Include="Areas\USER\Views\KhoaHoc\Register.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\Header_Cart.cshtml" />
+    <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
+    <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
+    <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -328,7 +364,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
