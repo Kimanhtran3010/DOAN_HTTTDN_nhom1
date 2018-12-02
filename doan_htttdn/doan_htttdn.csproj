@@ -149,7 +149,6 @@
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\KhoaHocController.cs" />
     <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
-    <Compile Include="Areas\USER\Controllers\thunhaController.cs" />
     <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
     <Compile Include="Areas\USER\Models\Cart_items.cs" />
@@ -336,7 +335,7 @@
     <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
-    <Content Include="Areas\USER\Views\thunha\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Cart\ThanhToan.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -5,7 +5,7 @@
     regEvents: function () {
 
         $('#btn_continue').on('click', function () {
-            window.location.href = "#";
+            window.location.href = "/USER/trang-chu";
         });
 
         $('#btn_update').on('click', function () {
@@ -33,7 +33,20 @@
 
             })
         });
+        $('#btn_delete').on('click', function () {
+            $.ajax({
+                url: 'gio-hang/delete',
+                data: { id: $(this).data('id') },
+                dataType: 'json',
+                type: 'POST',
 
+                success: function (res) {
+                    console.log(res);
+                    window.location.href = "gio-hang";
+                }
+
+            })
+        });
     }
 }
 cart.init();

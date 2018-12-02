@@ -20,6 +20,11 @@ namespace doan_htttdn.Areas.USER
                new { controller = "RoBo", action = "Index", id = UrlParameter.Optional }
            );
             context.MapRoute(
+               "Home Index",
+               "USER/trang-chu",
+               new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+            context.MapRoute(
                "Add Cart",
                "USER/them-gio-hang",
                new { controller = "Cart", action = "AddItems", id = UrlParameter.Optional }
@@ -33,6 +38,11 @@ namespace doan_htttdn.Areas.USER
                "Cart Update",
                "USER/gio-hang/update",
                new { controller = "Cart", action = "Update", id = UrlParameter.Optional }
+           );
+            context.MapRoute(
+               "Cart Delete",
+               "USER/gio-hang/delete",
+               new { controller = "Cart", action = "Delete", id = UrlParameter.Optional }
            );
             context.MapRoute(
                "Product_Detail",

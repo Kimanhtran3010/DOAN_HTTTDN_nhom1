@@ -1,0 +1,56 @@
+﻿@model doan_htttdn.FF.ORDER
+
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ThanhToan</h2>
+
+<form>
+    <div class="col-md-4 register-bottom-grid">
+        <h3>Personal infomation</h3>
+        <div class="form-group">
+            <span>Họ Tên :</span>
+            <input type="text" style="width:250px" id="txt_hoten">
+            <span>Số Điện Thoại :</span>
+            <input type="text" style="width:250px" id="txt_sdt">           
+            <span>Email</span>
+            <input type="email" style="width:250px" id="txt_email">
+
+
+
+        </div>
+        
+    </div>
+    <div class="col-md-4 register-bottom-grid">
+        <h3>Login information</h3>
+        <div class="form-group">
+            <span>Địa chỉ :</span>
+            <input type="text" style="width:250px" id="txt_diachi">
+            <span>Ghi Chú</span>
+            <input type="text" style="width:250px" id="txt_ghichu">
+            <span>Phương Thức Thanh Toán :</span>
+            <input type="text" style="width:250px" id=" txt_tt">
+
+        </div>
+
+    </div><div class="col-md-4 register-bottom-grid">
+        <h3>Login information</h3>
+        <div class="form-group">
+            <span>
+                Số lượng sản phẩm :
+            </span>
+            <span>Mã Khuyến Mãi :</span>
+            <input type="text">
+            <span>
+                Tổng Tiền :
+            </span>
+
+        </div>
+        <input type="submit" value="Thanh Toán">
+
+    </div>
+    
+    <div class="clearfix"> </div>
+</form>

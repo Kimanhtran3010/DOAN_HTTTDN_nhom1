@@ -15,7 +15,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         private QL_SCN db = new QL_SCN();
         DAO_Product dp = new DAO_Product();
 
-        public ActionResult Index(int page = 1, int pagesize = 6)
+        public ActionResult Index(int page = 2, int pagesize = 6)
         {
             var list = dp.listpd(page, pagesize);
             return View(list);

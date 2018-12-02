@@ -8,23 +8,15 @@
 }
 <div class="container">
     <div class="check">
-        <h1>My Shopping Bag (1)</h1>
+        <h1>My Shopping Bag ( @Model.Count )</h1>
         <div class="col-md-9 cart-items">
 
-            <script>
-                $(document).ready(function (c) {
-                    $('.close1').on('click', function (c) {
-                        $('.cart-header').fadeOut('slow', function (c) {
-                            $('.cart-header').remove();
-                        });
-                    });
-                });
-            </script>
+
             @foreach (var item in Model)
             {
                 //sản phẩm giỏ hàng
                 <div class="cart-header">
-                    <div class="close1"><img src="~/Assets/Image/close_1.png" /> </div>
+                    <div class="close1" id="btn_delete" data-id=@item.product.IDRobot><img src="~/Assets/Image/close_1.png" /> </div>
                     <div class="cart-sec simpleCart_shelfItem">
                         <div class="cart-item cyc">
                             <img src="@Url.Content(item.product.Image)" class="img-responsive" alt="" />
@@ -77,7 +69,7 @@
             <div class="total-item">
                 <h3>OPTIONS</h3>
                 <h4>COUPONS</h4>
-                <a class="cpns" href="#">Apply Coupons</a>
+                <a class="cpns" data-toggle="modal" data-target="#ThanhToan">Apply Coupons</a>
                 <p><a href="#">Log In</a> to use accounts - linked coupons</p>
             </div>
         </div>
@@ -119,4 +111,66 @@
             </script>*@
     </div>
 </div>
+<!-- Modal Them -->
+<form>
+    <div id="Them" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="dinhdang">
+                        <div class="dinhdang_1 dinhdang_2">
+                            <label for="usr">Ngày đăng ký:</label>
+                            <input type="date" class="form-control" id="ndk">
+                        </div>
+                        <div class="dinhdang_1">
+                            <label for="usr">Loại vé số:</label>
+                            <select class="form-control" id="lvs">
+                                <option value="chon">Tỉnh</option>
+                                <option value="bentre">Bến Tre</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <div class="form-group">
+                        <label for="usr">Mã đại lý:</label>
+                        <input type="text" class="form-control" id="mdl">
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Tên đại lý:</label>
+                        <input type="text" class="form-control" id="tdl">
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Địa chỉ:</label>
+                        <input type="text" class="form-control" id="dc">
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Điện thoại:</label>
+                        <input type="number" class="form-control" id="dt">
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Số lượng đăng ký:</label>
+                        <input type="number" class="form-control" id="sldk">
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Tình trạng:</label>
+                        <input type="number" class="form-control" id="tt">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
 
