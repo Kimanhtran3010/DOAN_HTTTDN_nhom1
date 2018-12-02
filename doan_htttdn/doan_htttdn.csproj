@@ -336,6 +336,7 @@
     <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\USER\Views\thunha\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -365,7 +366,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\USER\Views\thunha\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
