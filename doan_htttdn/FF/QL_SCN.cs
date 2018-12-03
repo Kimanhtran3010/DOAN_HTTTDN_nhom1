@@ -98,6 +98,10 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
@@ -163,10 +167,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.NameParent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()

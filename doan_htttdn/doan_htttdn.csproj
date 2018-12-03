@@ -204,6 +204,11 @@
     <Content Include="Assets\Image\cart_gh.png" />
     <Content Include="Assets\Image\close_1.png" />
     <Content Include="Assets\Image\co.png" />
+    <Content Include="Assets\Image\code_1-1.png" />
+    <Content Include="Assets\Image\code_2.png" />
+    <Content Include="Assets\Image\code_3.png" />
+    <Content Include="Assets\Image\code_3_1.png" />
+    <Content Include="Assets\Image\code_5.png" />
     <Content Include="Assets\Image\fb.png" />
     <Content Include="Assets\Image\Galaxy-A8s %28Copy%29.jpg" />
     <Content Include="Assets\Image\google.png" />
@@ -253,6 +258,7 @@
     <Content Include="Assets\Image\si2.jpg" />
     <Content Include="Assets\Image\slide1-4.png" />
     <Content Include="Assets\Image\sonyXZ4.jpg" />
+    <Content Include="Assets\Image\sratch.png" />
     <Content Include="Assets\Image\SSD-860-QVO %28Copy%29.png" />
     <Content Include="Assets\Image\t1.jpg" />
     <Content Include="Assets\Image\t2.jpg" />

@@ -97,16 +97,16 @@ a.item_add {
   background-color: #fff;
     margin-top: 11px;
 }
-.search input[type="text"] {
-	outline: none;
-  padding: 3px 15px;
-  background: none;
-  width: 91%;
-  border: none;
-  font-size: 1.2em;
-  color: #000; 
-   font-weight: 700; 	
-}
+    .search input[type="text"] {
+        outline: none;
+        padding: 3px 15px;
+        background: none;
+        width: 91%;
+        border: none;
+        font-size: 1.2em;
+        color: #e4dbdb;
+        font-weight: 700;
+    }
 .search input[type="submit"] {	
 	border: none;
 	cursor: pointer;
@@ -905,9 +905,9 @@ h3.cate {
 	font-size: 2em;
     font-family: 'Lato', sans-serif;
 }
-.of-left{
+/*.of-left{
 	 border-bottom: 1px solid #000;
-}
+}*/
 .product-go {
   margin-top: 2em;
 }
@@ -1026,9 +1026,9 @@ h3.tag {
 	font-size: 2em;
     font-family: 'Lato', sans-serif;
 }
-.of-left-in{
+/*.of-left-in{
 	 border-bottom: 1px solid #000;
-}
+}*/
 
 /*----*/
 .fashion-grid{
@@ -1171,9 +1171,9 @@ p.tun{
   font-family: 'Lato', serif;
 }
 .single-para p {
-  font-size: 1em;
-  color: #2c3e50;
-  font-family: 'Lato', serif;
+  font-size: 1.3em;
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif,'Lato', serif;
   line-height: 1.8em;
     margin: 1em 0;
 }
@@ -1217,9 +1217,9 @@ ul.tag-men {
 ul.tag-men li{
 	list-style:none;
 	color:#000;
-	 font-family: 'Lato', serif;
+	 font-family:Georgia, 'Times New Roman', Times, serif, 'Lato', serif;
 	 margin: 0.3em 0;
-	font-size:0.9em; 
+	font-size:1.3em; 
 }
 ul.tag-men li span.women1{
 	  margin-left: 9em;
@@ -1229,7 +1229,7 @@ a.add-cart {
   color: #fff;
   background: #EF5F21;
   padding: 0.4em 0.8em;
-  font-size:0.9em;
+  font-size:1.3em;
   text-transform: uppercase;
   margin-top: 2em;
   display: inline-block;
@@ -1409,7 +1409,7 @@ a.add-re:hover{
 .register-top-grid span, .register-bottom-grid span {
 	  font-size: 1em;
   display: block;
-  color: #A09F9F;
+  color: black;
 }
 .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
 	width: 100%;
