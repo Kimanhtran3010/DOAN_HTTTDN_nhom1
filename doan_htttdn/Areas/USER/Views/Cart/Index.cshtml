@@ -1,0 +1,122 @@
+﻿@model List<doan_htttdn.Areas.USER.Models.Cart_items>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Assets/USER/js/controller/cartController.js"></script>
+}
+<div class="container">
+    <div class="check">
+        <h1>My Shopping Bag (1)</h1>
+        <div class="col-md-9 cart-items">
+
+            <script>
+                $(document).ready(function (c) {
+                    $('.close1').on('click', function (c) {
+                        $('.cart-header').fadeOut('slow', function (c) {
+                            $('.cart-header').remove();
+                        });
+                    });
+                });
+            </script>
+            @foreach (var item in Model)
+            {
+                //sản phẩm giỏ hàng
+                <div class="cart-header">
+                    <div class="close1"><img src="~/Assets/Image/close_1.png" /> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="@Url.Content(item.product.Image)" class="img-responsive" alt="" />
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#">@item.product.Name</a><span> Mã sản phẩm : @item.product.IDRobot</span></h3>
+                            <ul class="qty">
+                                <li><p>Size : 5</p></li>
+                                <li><p>Số lượng :<input type="text" data-id="@item.product.IDRobot" id="txt_number" value="@item.Quantity" /> </p></li>
+                                <li><p> Giá : @item.product.Price</p></li>
+                            </ul>
+
+                            <div class="delivery">
+                                <p>Thành Tiền : @(item.product.Price.GetValueOrDefault(0) * item.Quantity) </p>
+                                <span>Delivered in 2-3 bussiness days</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        @*cột thanh toán*@
+        <div class="col-md-3 cart-total">
+            <button class="btn continue" id="btn_continue">Continue to basket</button>
+            <button class=" btn " id="btn_update"> Cập Nhật </button>
+            <div class="price-details">
+                <h3>Price Details</h3>
+                <span>Total</span>
+                <span class="total1">6200.00</span>
+                <span>Discount</span>
+                <span class="total1">---</span>
+                <span>Delivery Charges</span>
+                <span class="total1">150.00</span>
+                <div class="clearfix"></div>
+            </div>
+            <ul class="total_price">
+                <li class="last_price"> <h4>TOTAL</h4></li>
+                <li class="last_price"><span>6350.00</span></li>
+                <div class="clearfix"> </div>
+            </ul>
+
+
+            <div class="clearfix"></div>
+            <a class="order" href="#">Place Order</a>
+            <div class="total-item">
+                <h3>OPTIONS</h3>
+                <h4>COUPONS</h4>
+                <a class="cpns" href="#">Apply Coupons</a>
+                <p><a href="#">Log In</a> to use accounts - linked coupons</p>
+            </div>
+        </div>
+
+        <div class="clearfix"> </div>
+        @*<script>
+                $(document).ready(function () {
+                    $('#btn_continue').on('click', function () {
+                        window.location.href = "#";
+                    })
+                });
+                $(document).ready(function () {
+                    $('#btn_update').on('click', function () {
+                        var listproduct = $('#txt_number');
+
+                        var cartList = [];
+                        jQuery.each(listproduct, function (i, item) {
+                            cartList.push({
+                            Quantity: $(item).val(),
+                            Product: {
+                                IDRoBot: $(item).data('id')
+                            }
+                        });
+                    });
+                    $.ajax({
+                        url: 'gio-hang/update',
+                        data: { cartModel: JSON.stringify(cartList) },
+                        dataType: 'json',
+                        type: 'POST',
+
+                        success: function (res) {
+                            console.log(res);
+                            window.location.href = "gio-hang";
+                        }
+
+                    })
+            });
+            })
+            </script>*@
+    </div>
+</div>
+
