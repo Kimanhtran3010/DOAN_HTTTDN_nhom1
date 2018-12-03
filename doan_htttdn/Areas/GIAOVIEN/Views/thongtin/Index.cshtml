@@ -1,7 +1,52 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
+<h2 align="center" style="color:red" ><b>THÔNG TIN GIÁO VIÊN</b></h2><br />
+<div class="row">
+    <div class="col-md-8">
+        <table align="center">
+            <tr>
+                <td style="width:25%;"><b>Mã giáo viên:</b></td>
+                <td><input class="dto" type="text" id="idgv" name="" size="50"/></td>
+            </tr>
+            <tr>
+                <td style="width:25%;"><b>Họ và tên:</b></td>
+                <td class="dto"><input type="text" id="namegv" name="" size="50"  class="dto"/></td>
+            </tr>
+            <tr>
+                <td style="width:25%;"><b>Email:</b></td>
+                <td><input type="text" id="emailegv" name="" size="50"  class="dto" /></td>
+            </tr>
+            <tr>
+                <td style="width:25%;"><b>Số điện thoại:</b></td>
+                <td><input type="text" id="phonegv" name="" size="50"  class="dto" /></td>
+            </tr>
+            <tr>
+                <td style="width:25%;"><b>Trình độ:</b></td>
+                <td><input type="text" id="dtgv" name="" size="50" class="dto" /></td>
+            </tr>
+            <tr>
+                <td style="width:25%;"><b>Ảnh đại diện:</b></td>
+                <td><input type="file" name="file" value="" style="margin-bottom:10px;" /></td>
+            </tr>
 
-<h2>Index</h2>
 
+        </table>
+        <b> <input type="button" name="btchange" value="CẬP NHẬT" style="margin-left:60%;"/></b>
+        <b><input type="button" name="btsave" value="LƯU" /></b>
+        <div>
+
+        </div>
+    </div>
+<div class="col-md-4">
+   <div style="width:170px;border:dotted;height:170px">
+       
+       <div style="padding-left:10%;padding-bottom:50%; align-content:center">
+           <span style="text-align:center"> </span></div>
+   </div>
+</div>
+</div>
+
+                                            

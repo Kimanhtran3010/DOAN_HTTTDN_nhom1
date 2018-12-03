@@ -138,6 +138,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\thongtinController.cs" />
     <Compile Include="Areas\GIAOVIEN\GIAOVIENAreaRegistration.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
@@ -167,6 +169,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
+    <Content Include="Assets\GIAOVIEN\css\gv.css" />
     <Content Include="Assets\Image\anti-sky.png" />
     <Content Include="Assets\Image\avatar.png" />
     <Content Include="Assets\Image\b1.jpg" />
@@ -194,6 +198,7 @@
     <Content Include="Assets\Image\lo4.png" />
     <Content Include="Assets\Image\lo5.png" />
     <Content Include="Assets\Image\logo.png" />
+    <Content Include="Assets\Image\logout.png" />
     <Content Include="Assets\Image\NGUOI DI TIM BUG %28Copy%29.jpg" />
     <Content Include="Assets\Image\p1.jpg" />
     <Content Include="Assets\Image\p2.jpg" />
@@ -214,6 +219,7 @@
     <Content Include="Assets\Image\product1.jpg" />
     <Content Include="Assets\Image\R17-Pro.jpg" />
     <Content Include="Assets\Image\s1.jpg" />
+    <Content Include="Assets\Image\settings.png" />
     <Content Include="Assets\Image\si.jpg" />
     <Content Include="Assets\Image\si1.jpg" />
     <Content Include="Assets\Image\si2.jpg" />
@@ -225,6 +231,7 @@
     <Content Include="Assets\Image\t3.jpg" />
     <Content Include="Assets\Image\t4.jpg" />
     <Content Include="Assets\Image\tick1.png" />
+    <Content Include="Assets\Image\user.png" />
     <Content Include="Assets\USER\css\a.css" />
     <Content Include="Assets\USER\css\bootstrap.css" />
     <Content Include="Assets\USER\css\bootstrap.min.css" />
@@ -259,6 +266,8 @@
     <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
