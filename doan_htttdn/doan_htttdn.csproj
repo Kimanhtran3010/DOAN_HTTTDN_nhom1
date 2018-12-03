@@ -145,7 +145,12 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\thongtinController.cs" />
+    <Compile Include="Areas\GIAOVIEN\GIAOVIENAreaRegistration.cs" />
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\KhoaHocController.cs" />
     <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
@@ -155,7 +160,9 @@
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
     <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAO\DAO_Admin.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
@@ -171,6 +178,7 @@
     <Compile Include="FF\QL_SCN.cs" />
     <Compile Include="FF\RIGISTRATION_COURSE.cs" />
     <Compile Include="FF\STUDENT.cs" />
+    <Compile Include="FF\sysdiagram.cs" />
     <Compile Include="FF\TEACHER.cs" />
     <Compile Include="FF\TEACHING_CLASS.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,11 +193,15 @@
     <Content Include="Assets\Admin\bootstrap\js\bootstrap.js" />
     <Content Include="Assets\Admin\bootstrap\js\bootstrap.min.js" />
     <Content Include="Assets\Admin\css\local.css" />
+    <Content Include="Assets\Admin\css\Login_admin.css" />
     <Content Include="Assets\Admin\font-awesome\css\font-awesome.css" />
     <Content Include="Assets\Admin\font-awesome\css\font-awesome.min.css" />
     <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\Admin\js\jquery-1.10.2.min.js" />
+    <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
+    <Content Include="Assets\GIAOVIEN\css\gv.css" />
     <Content Include="Assets\Image\anti-sky.png" />
+    <Content Include="Assets\Image\avatar.png" />
     <Content Include="Assets\Image\b1.jpg" />
     <Content Include="Assets\Image\b2.jpg" />
     <Content Include="Assets\Image\b3.jpg" />
@@ -220,6 +232,8 @@
     <Content Include="Assets\Image\lo4.png" />
     <Content Include="Assets\Image\lo5.png" />
     <Content Include="Assets\Image\logo.png" />
+    <Content Include="Assets\Image\logo_main.PNG" />
+    <Content Include="Assets\Image\logout.png" />
     <Content Include="Assets\Image\NGUOI DI TIM BUG %28Copy%29.jpg" />
     <Content Include="Assets\Image\p1.jpg" />
     <Content Include="Assets\Image\p2.jpg" />
@@ -253,6 +267,7 @@
     <Content Include="Assets\Image\robo8.jpg" />
     <Content Include="Assets\Image\robo9.jpg" />
     <Content Include="Assets\Image\s1.jpg" />
+    <Content Include="Assets\Image\settings.png" />
     <Content Include="Assets\Image\si.jpg" />
     <Content Include="Assets\Image\si1.jpg" />
     <Content Include="Assets\Image\si2.jpg" />
@@ -265,6 +280,7 @@
     <Content Include="Assets\Image\t3.jpg" />
     <Content Include="Assets\Image\t4.jpg" />
     <Content Include="Assets\Image\tick1.png" />
+    <Content Include="Assets\Image\user.png" />
     <Content Include="Assets\USER\css\a.css" />
     <Content Include="Assets\USER\css\bootstrap.css" />
     <Content Include="Assets\USER\css\bootstrap.min.css" />
@@ -341,6 +357,15 @@
     <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Shared\_Layout-login.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Login\Index.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\web.config" />
+    <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -370,6 +395,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
+    <Folder Include="Areas\ADMIN\Views\Shared\" />
+    <Folder Include="Areas\GIAOVIEN\Models\" />
+    <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
