@@ -25,7 +25,6 @@ namespace doan_htttdn.FF
         public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
         public virtual DbSet<RIGISTRATION_COURSE> RIGISTRATION_COURSE { get; set; }
         public virtual DbSet<STUDENT> STUDENTs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TEACHER> TEACHERs { get; set; }
         public virtual DbSet<TEACHING_CLASS> TEACHING_CLASS { get; set; }
 

@@ -82,6 +82,7 @@
 
 .open > .dropdown-menu {
     display: block;
+    margin-left: 500px;
 }
 
 .open > a {
@@ -146,9 +147,25 @@ dropdown-menu
 }
 .dto {
     margin-bottom: 10px;
- 
+    width: 350px;
+    height: 40px;
 }
 .sm{
     color:white;
     background-color:coral;
 }
+.table_th{
+    font-family:'Times New Roman';
+    align-self:center;
+    
+}
+    .table_th .th {
+        text-align: center;
+        height: 40px;
+        background-color: #7bf7f5
+    }
+    .table_th .td {
+        text-align: center;
+        height: 30px
+    }
+    
