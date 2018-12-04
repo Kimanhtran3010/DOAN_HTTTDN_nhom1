@@ -33,6 +33,9 @@ namespace Model1.db
 
         public int? State { get; set; }
 
+        [StringLength(100)]
+        public string Image { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
     }

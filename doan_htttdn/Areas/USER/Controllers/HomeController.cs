@@ -16,7 +16,17 @@ namespace doan_htttdn.Areas.USER.Controllers
             return View();
         }
 
-        
+        [ChildActionOnly]
+        public PartialViewResult Header_Cart()
+        {
+            var cart = Session[Common.CommonConstant.CartSession];
+            var list = (List<USER.Models.Cart_items>)cart;
+            if (cart != null)
+            {
+                list = (List<USER.Models.Cart_items>)cart;
+            }
+            return PartialView(list);
+        }
     }
     
        

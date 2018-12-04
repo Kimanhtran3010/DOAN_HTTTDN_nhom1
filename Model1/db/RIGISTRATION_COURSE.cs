@@ -24,6 +24,7 @@ namespace Model1.db
         [StringLength(100)]
         public string NameStudent { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? BIRTHDAY { get; set; }
 
         [Required]

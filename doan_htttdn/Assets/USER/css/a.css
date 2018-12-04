@@ -13,9 +13,7 @@
     line-height: 20px;
     font-size: 15px;
 }
-    .article-content p {
-        text-align: justify;
-        color: #704825;
+    .article-content p span {
         font-size: 14px;
         background-color: aqua;
         
