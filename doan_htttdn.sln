@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doan_htttdn", "doan_htttdn\doan_htttdn.csproj", "{268ABF6B-733E-4751-A66C-EAF6D3A0A775}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model1", "Model1\Model1.csproj", "{5E7EDCB0-F65A-471F-A51F-9C336360E3A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{268ABF6B-733E-4751-A66C-EAF6D3A0A775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{268ABF6B-733E-4751-A66C-EAF6D3A0A775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268ABF6B-733E-4751-A66C-EAF6D3A0A775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7EDCB0-F65A-471F-A51F-9C336360E3A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7EDCB0-F65A-471F-A51F-9C336360E3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7EDCB0-F65A-471F-A51F-9C336360E3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7EDCB0-F65A-471F-A51F-9C336360E3A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

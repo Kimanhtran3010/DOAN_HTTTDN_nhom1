@@ -1,4 +1,4 @@
-namespace doan_htttdn.FF
+namespace Model1.db
 {
     using System;
     using System.Collections.Generic;
@@ -18,9 +18,13 @@ namespace doan_htttdn.FF
         [Required]
         public string Article1 { get; set; }
 
-        public DateTime Date { get; set; }
-
         [Required]
+        public string Summary { get; set; }
+
+        public DateTime? Date { get; set; }
+
+        public string Img { get; set; }
+
         public string Folder_Text { get; set; }
 
         [Key]
@@ -28,6 +32,13 @@ namespace doan_htttdn.FF
         [StringLength(20)]
         public string IDAdmin { get; set; }
 
+        [Key]
+        [Column(Order = 2)]
+        [StringLength(20)]
+        public string ID_Menu { get; set; }
+
         public virtual ADMIN1 ADMIN { get; set; }
+
+        public virtual Menu_Article Menu_Article { get; set; }
     }
 }

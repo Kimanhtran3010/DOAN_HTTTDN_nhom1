@@ -1,14 +1,14 @@
-namespace doan_htttdn.FF
+namespace doan_htttdn.Areas.USER.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class QL_SCN : DbContext
+    public partial class Web1 : DbContext
     {
-        public QL_SCN()
-            : base("name=QL_SCN")
+        public Web1()
+            : base("name=Web1")
         {
         }
 

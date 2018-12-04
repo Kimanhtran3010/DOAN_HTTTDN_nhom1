@@ -1,0 +1,69 @@
+﻿@model doan_htttdn.Areas.USER.Models.Article1
+@{
+    ViewBag.Title = "EditAr";
+    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditAr</h2>
+@using (Html.BeginForm("EditAr", "tintuc", FormMethod.Post))
+{
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <label>ID_Article :</label>
+                @Html.TextBoxFor(x => x.ID_Article)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Title :</label>
+                @Html.TextBoxFor(x => x.Title)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Summary :</label>
+                @Html.TextBoxFor(x => x.Summary)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Contents :</label>
+                @Html.TextBoxFor(x => x.Contents)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Image :</label>
+                @Html.TextBoxFor(x => x.Image)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Day : </label>
+                @Html.TextBoxFor(x => x.Day)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>ID_Admin :</label>
+                @Html.TextBoxFor(x => x.ID_Admin)
+            </td>
+        </tr>
+         
+        <tr>
+            <td>
+                <input type="submit" value="update" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+}

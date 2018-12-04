@@ -6,15 +6,13 @@ namespace doan_htttdn.FF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ADMIN")]
-    public partial class ADMIN
+    public partial class Admin_Article
     {
         [Key]
-        [StringLength(20)]
-        public string IDAmin { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID_Admin { get; set; }
 
         [Required]
-        [StringLength(200)]
-        public string Password { get; set; }
+        public string Pass { get; set; }
     }
 }
