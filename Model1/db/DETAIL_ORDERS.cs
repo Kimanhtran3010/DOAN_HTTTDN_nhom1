@@ -1,4 +1,4 @@
-namespace doan_htttdn.FF
+namespace Model1.db
 {
     using System;
     using System.Collections.Generic;

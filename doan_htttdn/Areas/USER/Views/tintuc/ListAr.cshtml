@@ -1,0 +1,23 @@
+﻿@model List<doan_htttdn.Areas.USER.Models.Article1>
+@{
+    ViewBag.Title = "ListAr";
+    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <td style="width:80px">ID_Article</td>
+                <td style="width:80px">Title</td>
+                <td style="width:80px">Summart</td>
+                <td style="width:80px">Contents</td>
+                <td style="width:80px">Image</td>
+                <td style="width:150px">Day</td>
+                <td style="width:80px">ID_Admin</td>
+            </tr>
+           @Html.Action("PartialListAr","tintuc")
+
+        </tbody>
+    </table>
+</div>

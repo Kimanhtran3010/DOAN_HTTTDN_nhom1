@@ -1,0 +1,22 @@
+﻿@model IEnumerable<doan_htttdn.Areas.USER.Models.Article1>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>@item.ID_Article</td>
+    <td>@item.Title</td>
+    <td>@item.Summary</td>
+    <td>@item.Contents</td>
+    <td>@item.Image</td>
+    <td>@item.Day</td>
+    <td>@item.ID_Admin</td>
+    <td><a href="@Url.Action("ShowAr","tintuc",new { id = item.ID_Article})">Show</a></td>
+    <td><a href="@Url.Action("EditAr","tintuc",new { id = item.ID_Article})">Edit</a></td>
+    <td>
+        @using (Html.BeginForm("DeleteAr", "tintuc", FormMethod.Post))
+        {
+            <a href="@Url.Action("DeleteAr","tintuc",new { id = item.ID_Article})">Delete</a>
+        }
+    </td>
+</tr>
+}

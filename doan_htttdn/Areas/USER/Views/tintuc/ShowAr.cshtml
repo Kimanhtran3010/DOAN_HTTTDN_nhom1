@@ -1,0 +1,36 @@
+﻿@model doan_htttdn.Areas.USER.Models.Article1
+@{
+    ViewBag.Title = "ShowAr";
+}
+
+<div>
+    <p>
+        <label>ID_Article :</label>
+        @Html.Label(Model.ID_Article.ToString())
+    </p>
+    <p>
+        <label>Title :</label>
+        @Html.Label(Model.Title.ToString())
+    </p>
+    <p>
+        <label>Summary :</label>
+        @Html.Label(Model.Summary.ToString())
+    </p>
+    <p>
+        <label>Contents :</label>
+        @Html.Label(Model.Contents.ToString())
+    </p>
+    <p>
+        <label>Image :</label>
+        @Html.Label(Model.Image.ToString())
+    </p>
+    <p>
+        <label>Day : </label>
+        @Html.Label(Model.Day.ToString())
+    </p>
+    <p>
+        <label>ID_Admin :</label>
+        @Html.Label(Model.ID_Admin.ToString())
+    </p>
+</div>
+

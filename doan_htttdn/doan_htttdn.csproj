@@ -156,8 +156,12 @@
     <Compile Include="Areas\USER\Controllers\HomeController.cs" />
     <Compile Include="Areas\USER\Controllers\KhoaHocController.cs" />
     <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
+    <Compile Include="Areas\USER\Controllers\LoginController.cs" />
     <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
+    <Compile Include="Areas\USER\Models\Admin_Article.cs" />
+    <Compile Include="Areas\USER\Models\Article1.cs" />
+    <Compile Include="Areas\USER\Models\Web1.cs" />
     <Compile Include="Areas\USER\Models\Cart_items.cs" />
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
@@ -177,6 +181,8 @@
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
+    <Compile Include="FF\Admin_Article.cs" />
+    <Compile Include="FF\Article1.cs" />
     <Compile Include="FF\QL_SCN.cs" />
     <Compile Include="FF\RIGISTRATION_COURSE.cs" />
     <Compile Include="FF\STUDENT.cs" />
@@ -381,6 +387,16 @@
     <Content Include="Areas\ADMIN\Views\Shared\_Layout-login.cshtml" />
     <Content Include="Areas\ADMIN\Views\Login\Index.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\Index.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Login.cshtml" />
+    <Content Include="Areas\USER\Views\Login\Index.cshtml" />
+    <Content Include="Areas\USER\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\USER\Views\Home\ListNews.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ListAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ShowAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\PartialListAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\EditAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\DeleteAr.cshtml" />
+    <Content Include="Areas\USER\Views\Login\Login.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\web.config" />
     <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
@@ -419,6 +435,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
+    <Folder Include="Areas\USER\Models\" />
+    <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

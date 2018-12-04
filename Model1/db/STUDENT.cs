@@ -1,4 +1,4 @@
-namespace doan_htttdn.FF
+namespace Model1.db
 {
     using System;
     using System.Collections.Generic;
@@ -6,37 +6,39 @@ namespace doan_htttdn.FF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("TEACHER")]
-    public partial class TEACHER
+    [Table("STUDENT")]
+    public partial class STUDENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TEACHER()
+        public STUDENT()
         {
-            TEACHING_CLASS = new HashSet<TEACHING_CLASS>();
+            CLASS_STUDENT = new HashSet<CLASS_STUDENT>();
         }
 
         [Key]
         [StringLength(20)]
-        public string IDTeacher { get; set; }
+        public string IDStudent { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime? Born { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string NameParent { get; set; }
+
         [StringLength(12)]
-        public string Phone { get; set; }
+        public string PHONE { get; set; }
 
         [StringLength(200)]
         public string ADDRESS { get; set; }
 
-        [StringLength(100)]
-        public string Email { get; set; }
-
-        [StringLength(100)]
-        public string Knowledge { get; set; }
-
-        public virtual ACCOUNT ACCOUNT { get; set; }
+        [StringLength(200)]
+        public string EMAIL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TEACHING_CLASS> TEACHING_CLASS { get; set; }
+        public virtual ICollection<CLASS_STUDENT> CLASS_STUDENT { get; set; }
     }
 }
