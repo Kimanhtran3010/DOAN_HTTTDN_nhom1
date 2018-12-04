@@ -197,6 +197,7 @@
     <Content Include="Assets\Admin\js\jquery-1.10.2.min.js" />
     <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
     <Content Include="Assets\GIAOVIEN\css\gv.css" />
+    <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
     <Content Include="Assets\Image\anti-sky.png" />
     <Content Include="Assets\Image\avatar.png" />
     <Content Include="Assets\Image\b1.jpg" />
@@ -386,9 +387,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\ADMIN\Views\Shared\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
-    <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

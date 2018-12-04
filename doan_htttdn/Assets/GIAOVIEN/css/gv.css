@@ -146,7 +146,8 @@ dropdown-menu
 }
 .dto {
     margin-bottom: 10px;
- 
+    width: 300px;
+    height: 40px;
 }
 .sm{
     color:white;
