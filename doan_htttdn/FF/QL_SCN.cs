@@ -27,6 +27,8 @@ namespace doan_htttdn.FF
         public virtual DbSet<STUDENT> STUDENTs { get; set; }
         public virtual DbSet<TEACHER> TEACHERs { get; set; }
         public virtual DbSet<TEACHING_CLASS> TEACHING_CLASS { get; set; }
+        public virtual DbSet<Admin_Article> Admin_Article { get; set; }
+        public virtual DbSet<Article1> Article1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -98,6 +100,10 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
@@ -163,10 +169,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.NameParent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()

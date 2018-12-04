@@ -10,17 +10,8 @@
             <div class="col-md-5 single-top">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="/Assets/Image/si.jpg">
-                            <img src="/Assets/Image/si.jpg" />
-                        </li>
-                        <li data-thumb="/Assets/Image/si1.jpg">
-                            <img src="/Assets/Image/si1.jpg" />
-                        </li>
-                        <li data-thumb="/Assets/Image/si2.jpg">
-                            <img src="/Assets/Image/si2.jpg" />
-                        </li>
-                        <li data-thumb="/Assets/Image/si.jpg">
-                            <img src="/Assets/Image/si.jpg" />
+                        <li data-thumb="@Url.Content(Model.Image)">
+                            <img src="@Url.Content(Model.Image)" />
                         </li>
                     </ul>
                 </div>
@@ -49,28 +40,28 @@
                             <li><a href="#"><i> </i></a></li>
                             <li><a href="#"><i> </i></a></li>
                         </ul>
-                        <div class="review">
+                        @*<div class="review">
                             <a href="#"> 1 customer review </a>
 
-                        </div>
+                        </div>*@
                         <div class="clearfix"> </div>
                     </div>
 
-                    <h5 class="item_price">@Model.Fee</h5>
+                    <h5 class="item_price">Giá:&nbsp; @Model.Fee</h5>
                     <p>
-                        @Model.Contents
+                        Nội dung:&nbsp;@Model.Contents
                     </p>
                     <ul class="tag-men">
                         <li>
-                            <span>Tuổi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>Tuổi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <span class="women1">: @Model.Age</span>
                         </li>
                         <li>
-                            <span>Học viên&nbsp;</span>
+                            <span>Học viên&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <span class="women1 " style="width:10%">: @Model.Maxnumber</span>
                         </li>
                         <li>
-                            <span>Thời gian</span>
+                            <span>Thời Lượng</span>
                             <span class="women1">: @Model.Time</span>
                         </li>
                     </ul>
@@ -144,7 +135,7 @@
                         </div>
 
                     </li>
-                    <div class="clearfix"></div>
+                    <div> class="clearfix"></div>
                 </ul>
             </div>
         </div>

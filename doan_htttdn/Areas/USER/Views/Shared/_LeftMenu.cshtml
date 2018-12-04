@@ -4,8 +4,8 @@
         <div class="search" style="width:auto; border-style:solid; margin-bottom:10%">
             @using (Html.BeginForm("Index", "KhoaHoc", FormMethod.Get))
             {
-                <input type="text" , name="searchString" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                <input type="submit" value="Go">
+                <input type="text" , name="searchString" value="Nhập từ khóa cần tìm " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nhập từ khóa cần tìm';}">
+                <input type="submit" value="Tìm">
             }
 
         </div>
@@ -15,20 +15,21 @@
             <h3 class="cate">Tuổi</h3>
         </div>
         <ul class="menu">
+
+
+            <li class="item3">
+                <a href="#">5-18</a>
+                <ul class="cute">
+                    <li class="subitem1">@Html.ActionLink("5 - 10 tuổi", "Index", new { AgeSort = "5-10" })</li>
+                    <li class="subitem2">@Html.ActionLink("10 - 18 tuổi", "Index", new { AgeSort = "10-18" })</li>
+                </ul>
+            </li>
             <li class="item1">
-                <a href="#">Aldults </a>
+                <a href="#">Trên 18 </a>
                 <ul class="cute">
                     <li class="subitem1">@Html.ActionLink("18 - 20 tuổi", "Index", new { AgeSort = "18-20" })</li>
                     <li class="subitem2">@Html.ActionLink("20 - 25 tuổi", "Index", new { AgeSort = "20-25" })</li>
                     <li class="subitem3">@Html.ActionLink("Từ 25 tuổi trở lên", "Index", new { AgeSort = "25" })</li>
-                </ul>
-            </li>
-
-            <li class="item3">
-                <a href="#">Kids</a>
-                <ul class="cute">
-                    <li class="subitem1">@Html.ActionLink("5 - 10 tuổi", "Index", new { AgeSort = "5-10" })</li>
-                    <li class="subitem2">@Html.ActionLink("10 - 18 tuổi", "Index", new { AgeSort = "10-18" })</li>
                 </ul>
             </li>
         </ul>

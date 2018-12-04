@@ -1,8 +1,31 @@
-﻿
+﻿@model doan_htttdn.Areas.USER.Models.Admin_Article
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
 }
+
+<div>
+    <div>
+       @using (Html.BeginForm("Index", "tintuc", FormMethod.Post))
+       {
+        <div>
+            <div>
+                <p>ID : </p>
+                @Html.TextBoxFor(x => x.ID_Admin)
+            </div>
+            <div>
+                <p>Pass : </p>
+                @Html.TextBoxFor(x => x.Pass)
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </div>
+       }
+    </div>
+
+</div>
 
 <div class="blog">
     <div class="container">
@@ -24,7 +47,7 @@
                     </li>
                 </ul>
             </div>
-
+           
             <div class="col-md-6 grid-top grid_3 canbottom">
                 <a href="#" class="b-link-stripe b-animate-go  thickbox">
                     <img class="img-responsive" src="~/Assets/Image/Camera-hanh-trinh.jpg" alt="">
@@ -114,13 +137,5 @@
 
             <div class="clearfix"> </div>
         </div>
-
-        
-        <div class="blog-bottom">
-            
-            
-            <div class="clearfix"> </div>
-        </div>
-    </div>
 </div>
 
