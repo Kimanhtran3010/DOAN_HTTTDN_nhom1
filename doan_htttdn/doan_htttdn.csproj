@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -144,6 +144,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
@@ -160,13 +161,13 @@
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
     <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAO\DAO_Admin.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
     <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
@@ -178,7 +179,6 @@
     <Compile Include="FF\QL_SCN.cs" />
     <Compile Include="FF\RIGISTRATION_COURSE.cs" />
     <Compile Include="FF\STUDENT.cs" />
-    <Compile Include="FF\sysdiagram.cs" />
     <Compile Include="FF\TEACHER.cs" />
     <Compile Include="FF\TEACHING_CLASS.cs" />
     <Compile Include="Global.asax.cs">
@@ -366,6 +366,7 @@
     <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\GiaoVien\GiaoVien.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -395,9 +396,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\ADMIN\Views\Shared\" />
+    <Folder Include="Areas\ADMIN\Views\Base\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
-    <Folder Include="Areas\USER\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
