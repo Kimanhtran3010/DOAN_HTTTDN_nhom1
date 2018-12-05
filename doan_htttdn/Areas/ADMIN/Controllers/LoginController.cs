@@ -46,7 +46,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
 
         public ActionResult UserDashBoard()
         {
-            if (Session["UserID"] != null)
+            if (Session[CommonConstant.USER_SESSION] != null)
             {
                 return View();
             }
