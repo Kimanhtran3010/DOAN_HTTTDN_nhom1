@@ -12,14 +12,15 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         // GET: ADMIN/Home
         public ActionResult Index()
         {
-            if (Session[CommonConstant.USER_SESSION] != null)
+            if(Session[Common.CommonConstant.USER_SESSION] != null)
             {
                 return View();
             }
             else
             {
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index", "Login");
             }
+           
         }
     }
 }

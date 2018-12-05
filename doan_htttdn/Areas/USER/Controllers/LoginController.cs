@@ -18,15 +18,15 @@ namespace doan_htttdn.Areas.USER.Controllers
             return View( );
         }
 
-       public async Task<ActionResult> Login()
-        {
-            string usernamecookies = System.Web.HttpContext.Current.User.Identity.Name;
-            if (!String.IsNullOrEmpty(usernamecookies))
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            return View(new Admin_Article());
-        }
+       //public async Task<ActionResult> Login()
+       // {
+       //     string usernamecookies = System.Web.HttpContext.Current.User.Identity.Name;
+       //     if (!String.IsNullOrEmpty(usernamecookies))
+       //     {
+       //         return RedirectToAction("Index", "Home");
+       //     }
+       //     return View(new Admin_Article());
+       // }
 
         
     }
