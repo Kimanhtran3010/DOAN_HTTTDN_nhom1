@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -147,8 +147,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\ChamcongController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\DiemdanhController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\DShocvienController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\LoginController.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
@@ -169,13 +174,13 @@
     <Compile Include="Areas\ViewModel\CheckBoxList.cs" />
     <Compile Include="Areas\ViewModel\DropDownList.cs" />
     <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAO\DAO_Admin.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
     <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
@@ -207,8 +212,24 @@
     <Content Include="Assets\Admin\font-awesome\css\font-awesome.min.css" />
     <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\Admin\js\jquery-1.10.2.min.js" />
+    <Content Include="Assets\GIAOVIEN\css\a.css" />
+    <Content Include="Assets\GIAOVIEN\css\bootstrap.css" />
+    <Content Include="Assets\GIAOVIEN\css\bootstrap.min.css" />
     <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
+    <Content Include="Assets\GIAOVIEN\css\flexslider.css" />
     <Content Include="Assets\GIAOVIEN\css\gv.css" />
+    <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
+    <Content Include="Assets\GIAOVIEN\css\memenu.css" />
+    <Content Include="Assets\GIAOVIEN\css\style.css" />
+    <Content Include="Assets\GIAOVIEN\js\bootstrap.min.js" />
+    <Content Include="Assets\GIAOVIEN\js\controller\cartController.js" />
+    <Content Include="Assets\GIAOVIEN\js\jquery.flexslider.js" />
+    <Content Include="Assets\GIAOVIEN\js\jquery.min.js" />
+    <Content Include="Assets\GIAOVIEN\js\main.js" />
+    <Content Include="Assets\GIAOVIEN\js\memenu.js" />
+    <Content Include="Assets\GIAOVIEN\js\responsiveslides.min.js" />
+    <Content Include="Assets\GIAOVIEN\js\simpleCart.min.js" />
+    <Content Include="Assets\GIAOVIEN\js\slideshow_banner.js" />
     <Content Include="Assets\Image\anti-sky.png" />
     <Content Include="Assets\Image\avatar.png" />
     <Content Include="Assets\Image\b1.jpg" />
@@ -216,11 +237,16 @@
     <Content Include="Assets\Image\b3.jpg" />
     <Content Include="Assets\Image\b4.jpg" />
     <Content Include="Assets\Image\b5.jpg" />
+    <Content Include="Assets\Image\backgroud1.jpeg" />
+    <Content Include="Assets\Image\backgroud2.jpeg" />
+    <Content Include="Assets\Image\backgroud3.jpeg" />
+    <Content Include="Assets\Image\backgroud4.jpeg" />
     <Content Include="Assets\Image\background-2.jpg" />
     <Content Include="Assets\Image\black1.jpg" />
     <Content Include="Assets\Image\black2.jpg" />
     <Content Include="Assets\Image\blo.jpg" />
     <Content Include="Assets\Image\Camera-hanh-trinh.jpg" />
+    <Content Include="Assets\Image\Capture.PNG" />
     <Content Include="Assets\Image\cart.png" />
     <Content Include="Assets\Image\cart_gh.png" />
     <Content Include="Assets\Image\close_1.png" />
@@ -755,6 +781,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
+    <Folder Include="Areas\ADMIN\Views\Base\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Models\" />

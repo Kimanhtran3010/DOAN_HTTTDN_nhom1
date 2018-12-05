@@ -8,13 +8,12 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN")
+            : base("name=QL_SCN1")
         {
         }
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<ADMIN> ADMINs { get; set; }
-        public virtual DbSet<ADMIN1> ADMINs1 { get; set; }
         public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
         public virtual DbSet<CLASS> CLASSes { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
@@ -40,18 +39,10 @@ namespace doan_htttdn.FF
                 .WithRequired(e => e.ACCOUNT);
 
             modelBuilder.Entity<ADMIN>()
-                .Property(e => e.IDAmin)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ADMIN>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ADMIN1>()
                 .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ADMIN1>()
+            modelBuilder.Entity<ADMIN>()
                 .HasMany(e => e.ARTICLEs)
                 .WithRequired(e => e.ADMIN)
                 .WillCascadeOnDelete(false);

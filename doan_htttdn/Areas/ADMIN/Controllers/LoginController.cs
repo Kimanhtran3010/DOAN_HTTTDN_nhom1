@@ -24,20 +24,32 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             
             if (ModelState.IsValid) // kiem tra rong
             {
-                 var dao = new DAO_Admin();
-                var obj = dao.Login(objUser.IDAmin, objUser.Password);
-                if (obj != null)
+                var dao = new DAO_Admin();
+                var obj = dao.Login(objUser.IDAdmin, Encryptor.MD5Hash(objUser.Pass).ToString());
+                if (obj == 1)
                 {
+
                     var userSession = new UserLogin();
-                    userSession.IDuser = obj.IDAmin;
+                    userSession.IDuser = objUser.IDAdmin;
                     Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
                     return RedirectToAction("Index", "Home");
                 }
-                else
+                else if(obj == 0)
                 {
-                    ModelState.AddModelError("", "Đăng nhập không đúng.");
+                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
 
                 }
+                else if(obj == -1)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Đang bị Khóa");
+                }
+                else if (obj == -2)
+                {
+                    ModelState.AddModelError("", "Mật Khẩu Không Đúng");
+                }
+                else
+                    ModelState.AddModelError("", "Đăng Nhập Không Đúng");
+
             }
            
 
