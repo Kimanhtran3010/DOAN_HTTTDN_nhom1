@@ -11,8 +11,11 @@ namespace doan_htttdn.Areas.USER.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Admin { get; set; }
+        //[Required(ErrorMessage ="Ban nhap sai ten !!!")]
 
-        [Required]
+        
         public string Pass { get; set; }
+        //[Required(ErrorMessage ="Ban nhap sai mat khau !!!")]
+
     }
 }

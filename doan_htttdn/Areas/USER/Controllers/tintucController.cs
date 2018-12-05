@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using doan_htttdn.Areas.USER.Models;
+using System.IO;
+using doan_htttdn.Areas.ViewModel;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -87,6 +89,88 @@ namespace doan_htttdn.Areas.USER.Controllers
             return Content("Success!!!");
         }
 
+        public ActionResult Examdropdown()
+        {
+            var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
+            List<object> obj = new List<object>();
+            foreach (var item in cate)
+            {
+                obj.Add(new { Text = item.Title, Value = item.ID_Article });
+            }
+
+            var model = new DropDownList()
+            {
+                selectlistar = new SelectList(obj.ToList(), "Value", "Text")
+            };
+            return View(model);
+        }
+
+        public ActionResult ChooseCheck()
+        {
+            var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
+            var model = new CheckBoxList
+            {
+                AvariableCheck = cate
+            };
+            
+            model.SelectedCheck = new List<Article1> { cate[1], cate[2] };
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ChooseCheck(int[] choosedcheck)
+        {
+            return View();
+        }
+
+        public ActionResult Ckeditor()
+        {
+            return View();
+        }
+
+        public ActionResult ListNews()
+        {
+            var model = db.Article1.Where(x => x.ID_Admin >= 1).ToList();
+            return View(model);
+        }
+        //public ActionResult SaveUploadedFile()
+        //{
+        //    bool isSavedSuccessfully = true;
+        //    string fName = "";
+        //    foreach (string fileName in Request.Files)
+        //    {
+        //        HttpPostedFileBase file = Request.Files(fileName);
+        //        // save file content goes here
+        //        fName = file.FileName;
+        //        if (file != null && file.ContentLength > 0)
+        //        {
+        //            var originaDirectory = new DirectoryInfo(string.Format("{0}Image\\WallImages", Server.MapPath(@"\")));
+        //            string pashString = System.IO.Path.Combine(originaDirectory.ToString(),"imagepath");
+        //            var fileName1 = Path.GetFileName(file.FileName);
+        //            bool isExists = System.IO.Directory.Exists(pashString);
+
+        //            if (!isExists)
+        //            {
+        //                System.IO.Directory.CreateDirectory(pashString);
+        //            }
+        //            var path = string.Format("{0}\\{1}", pashString, file.FileName);
+        //            file.SaveAs(path);
+
+        //        }
+        //    }
+        //    if (isSavedSuccessfully)
+        //    {
+        //        return Json(new { Message = fName });
+        //    }
+        //    else
+        //    {
+        //        return Json(new { Message = "Error in saving file" });
+        //    }
+        //}
+        //public ActionResult UploadImage()
+        //{
+
+        //    return View();
+        //}
 
 
 
