@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -175,9 +176,11 @@
     <Compile Include="Areas\ViewModel\DropDownList.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\SessionTeacher.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAO\DAO_Admin.cs" />
+    <Compile Include="DAO\DAO_GIAOVIEN.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
@@ -186,7 +189,6 @@
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
-    <Compile Include="FF\Menu_Article.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />

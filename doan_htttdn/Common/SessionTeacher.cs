@@ -6,9 +6,9 @@ using System.Web;
 namespace doan_htttdn.Common
 {
     [Serializable]
-    public class UserLogin
-    { 
+    public class SessionTeacher
+    {
         public string IDuser { get; set; }
+        public string user { get; set; } // ten teacher
     }
-   
 }
