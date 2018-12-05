@@ -1,24 +1,26 @@
-namespace doan_htttdn.FF
+namespace Model1.db
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class QL_SCN : DbContext
+    public partial class web1db : DbContext
     {
-        public QL_SCN()
-            : base("name=QL_SCN1")
+        public web1db()
+            : base("name=web1db")
         {
         }
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<ADMIN> ADMINs { get; set; }
+        public virtual DbSet<ADMIN1> ADMINs1 { get; set; }
         public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
         public virtual DbSet<CLASS> CLASSes { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
         public virtual DbSet<COURSE> COURSEs { get; set; }
         public virtual DbSet<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
+        public virtual DbSet<Menu_Article> Menu_Article { get; set; }
         public virtual DbSet<ORDER> ORDERS { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
@@ -38,10 +40,18 @@ namespace doan_htttdn.FF
                 .WithRequired(e => e.ACCOUNT);
 
             modelBuilder.Entity<ADMIN>()
-                .Property(e => e.IDAdmin)
+                .Property(e => e.IDAmin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ADMIN>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ADMIN1>()
+                .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ADMIN1>()
                 .HasMany(e => e.ARTICLEs)
                 .WithRequired(e => e.ADMIN)
                 .WillCascadeOnDelete(false);
@@ -52,6 +62,10 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<ARTICLE>()
                 .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ARTICLE>()
+                .Property(e => e.ID_Menu)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -89,10 +103,6 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
-                .Property(e => e.Image)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
@@ -113,6 +123,15 @@ namespace doan_htttdn.FF
             modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Menu_Article>()
+                .Property(e => e.ID_Menu)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Menu_Article>()
+                .HasMany(e => e.ARTICLEs)
+                .WithRequired(e => e.Menu_Article)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.IDOrders)
@@ -144,10 +163,6 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<PRODUCT>()
-                .Property(e => e.Image)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.DETAIL_ORDERS)
                 .WithRequired(e => e.PRODUCT)
                 .WillCascadeOnDelete(false);
@@ -158,6 +173,10 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<RIGISTRATION_COURSE>()
+                .Property(e => e.NameParent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()

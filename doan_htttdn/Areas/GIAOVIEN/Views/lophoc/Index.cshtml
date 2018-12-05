@@ -4,30 +4,36 @@
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh sách lớp học</h2>
-<div class="row">
-    <div class="col-md-4">
-        <label>Khóa học:</label><br />
-        <label>Độ tuổi:</label><br />
-        <b><input type="submit" name="sbct" value="CHI TIẾT" class="sm"/></b>
-        
-    </div>
-    <div class="col-md-4">
-        <label>Khóa học:</label><br />
-        <label>Độ tuổi:</label>
-    </div>+9 
-    <div class="col-md-4">
-        <label>Khóa học:</label><br />
-        <label>Độ tuổi:</label>
-    </div>
-    <div class="col-md-4">
-        <label>Khóa học:</label><br />
-        <label>Độ tuổi:</label>
-        <label></label>
-    </div><br />
-    <div class="col-md-4">
-        <label>Khóa học:</label><br />
-        <label>Độ tuổi:</label>
+<h4 align="left" style="color:blue; padding-top:30px"><b>Giáo viên/Danh sách lớp học</b></h4><br />
+<div class="row" style=" width:100%; height:500px; border:double">
+<div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
+    <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn loại khóa học</h4>
+    <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px"/>
+    <button  style="margin-left:20px">Tìm kiếm</button>
+</div>
+    <div style="padding-top:20px">
+        <table align="center" border="1" style="width:90%">
+            <tr class="table_th">
+                <th class="th">MÃ LỚP</th>
+                <th class="th">MÃ KHÓ HỌC</th>
+                <th class="th">TÊN LỚP</th>
+                <th class="th">NGÀY BẮT ĐẦU</th>
+                <th class="th">NGÀY KẾT THÚC</th>
+                <th class="th">SỐ LƯỢNG HV</th>
+                <th class="th">TÌNH TRẠNG</th>
+                <th class="th"> HOẠT ĐỘNG </th>
+            </tr>
+            <tr class="table_th">
+                <td class="td">Robo1.1</td>
+                <td class="td">ROBOTIC1</td>
+                <td class="td">Robotic khóa 1_1</td>
+                <td class="td">1/1/2018</td>
+                <td class="td">1/3/2018</td>
+                <td class="td">8</td>
+                <td class="td">Đang học</td>
+                <td class="td"><a href="#" target="_self">Xem DS học viên</a></td>
+            </tr>
+        </table>
     </div>
 
 </div>
