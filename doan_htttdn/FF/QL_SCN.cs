@@ -8,7 +8,7 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN")
+            : base("name=QL_SCN1")
         {
         }
 
@@ -27,8 +27,6 @@ namespace doan_htttdn.FF
         public virtual DbSet<STUDENT> STUDENTs { get; set; }
         public virtual DbSet<TEACHER> TEACHERs { get; set; }
         public virtual DbSet<TEACHING_CLASS> TEACHING_CLASS { get; set; }
-        public virtual DbSet<Admin_Article> Admin_Article { get; set; }
-        public virtual DbSet<Article1> Article1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

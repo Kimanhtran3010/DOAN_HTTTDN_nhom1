@@ -146,8 +146,10 @@
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\ChamcongController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\DiemdanhController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\DShocvienController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Controllers\LoginController.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
@@ -181,8 +183,6 @@
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
-    <Compile Include="FF\Admin_Article.cs" />
-    <Compile Include="FF\Article1.cs" />
     <Compile Include="FF\QL_SCN.cs" />
     <Compile Include="FF\RIGISTRATION_COURSE.cs" />
     <Compile Include="FF\STUDENT.cs" />
@@ -405,6 +405,8 @@
     <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Diemdanh\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\DShocvien\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -435,7 +437,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
-    <Folder Include="Areas\USER\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Models\" />
   </ItemGroup>
