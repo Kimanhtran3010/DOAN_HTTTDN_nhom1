@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -167,24 +168,23 @@
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
     <Compile Include="Areas\USER\Models\Admin_Article.cs" />
     <Compile Include="Areas\USER\Models\Article1.cs" />
-    <Compile Include="Areas\USER\Models\Web1.cs" />
     <Compile Include="Areas\USER\Models\Cart_items.cs" />
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
+    <Compile Include="Areas\USER\Models\Web1.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
-    <Compile Include="Areas\ViewModel\CheckBoxList.cs" />
-    <Compile Include="Areas\ViewModel\DropDownList.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAO\DAO_Admin.cs" />
-    <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ARTICLE.cs" />
+    <Compile Include="FF\ADMIN1.cs" />
+    <Compile Include="FF\Admin_Article.cs" />
+    <Compile Include="FF\ARTICLEs.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
+    <Compile Include="FF\C__MigrationHistory.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
     <Compile Include="FF\Menu_Article.cs" />
     <Compile Include="FF\ORDER.cs" />
@@ -198,6 +198,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -723,8 +726,6 @@
     <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
     <Content Include="Areas\USER\Views\Shared\_Layout - 1.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\Examdropdown.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\ChooseCheck.cshtml" />
     <Content Include="Assets\USER\ckeditor\CHANGES.md" />
     <Content Include="Assets\USER\ckeditor\LICENSE.md" />
     <Content Include="Assets\USER\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -744,6 +745,10 @@
     <Content Include="Assets\USER\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\USER\Views\tintuc\Ckeditor.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\ListNews.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Detail.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\DeleteCate.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Menu.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\InNewscate.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -784,6 +789,8 @@
     <Folder Include="Areas\ADMIN\Views\Base\" />
     <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
+    <Folder Include="Areas\ViewModel\" />
+    <Folder Include="DAO\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

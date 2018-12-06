@@ -12,17 +12,17 @@ namespace doan_htttdn.FF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ADMIN1()
         {
-            ARTICLEs = new HashSet<ARTICLE>();
+            ARTICLEs = new HashSet<ARTICLEs>();
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDAdmin { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDAdmin { get; set; }
 
         [StringLength(100)]
         public string Pass { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICLE> ARTICLEs { get; set; }
+        public virtual ICollection<ARTICLEs> ARTICLEs { get; set; }
     }
 }
