@@ -8,7 +8,7 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN1")
+            : base("name=QL_SCN")
         {
         }
 
@@ -29,14 +29,6 @@ namespace doan_htttdn.FF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ACCOUNT>()
-                .Property(e => e.IDTeacher)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ACCOUNT>()
-                .HasOptional(e => e.TEACHER)
-                .WithRequired(e => e.ACCOUNT);
-
             modelBuilder.Entity<ADMIN>()
                 .Property(e => e.IDAdmin)
                 .IsUnicode(false);
@@ -55,10 +47,6 @@ namespace doan_htttdn.FF
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
-                .Property(e => e.IDClass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CLASS>()
                 .Property(e => e.IDCourse)
                 .IsUnicode(false);
 
@@ -71,14 +59,6 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<CLASS_STUDENT>()
-                .Property(e => e.IDClass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CLASS_STUDENT>()
-                .Property(e => e.IDStudent)
-                .IsUnicode(false);
 
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)
@@ -103,20 +83,12 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
-                .Property(e => e.IDOrders)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.IDRobot)
                 .IsUnicode(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<ORDER>()
-                .Property(e => e.IDOrders)
-                .IsUnicode(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.Phone)
@@ -169,10 +141,6 @@ namespace doan_htttdn.FF
                 .IsUnicode(false);
 
             modelBuilder.Entity<STUDENT>()
-                .Property(e => e.IDStudent)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<STUDENT>()
                 .Property(e => e.PHONE)
                 .IsUnicode(false);
 
@@ -182,25 +150,17 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TEACHER>()
-                .Property(e => e.IDTeacher)
+                .Property(e => e.Phone)
                 .IsUnicode(false);
 
             modelBuilder.Entity<TEACHER>()
-                .Property(e => e.Phone)
-                .IsUnicode(false);
+                .HasOptional(e => e.ACCOUNT)
+                .WithRequired(e => e.TEACHER);
 
             modelBuilder.Entity<TEACHER>()
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.TEACHER)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TEACHING_CLASS>()
-                .Property(e => e.IDClass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TEACHING_CLASS>()
-                .Property(e => e.IDTeacher)
-                .IsUnicode(false);
         }
     }
 }

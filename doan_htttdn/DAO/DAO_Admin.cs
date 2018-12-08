@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using doan_htttdn.FF;
+using doan_htttdn.Common;
 
 namespace doan_htttdn.DAO
 {
@@ -48,5 +49,73 @@ namespace doan_htttdn.DAO
             
         }
 
+
+        //TEACHER-------------------------------------------------------
+        public List<TEACHER> List_Teacher()
+        {
+            var ds = db.TEACHERs.ToList();
+            return ds;
+        }
+        public TEACHER GetTeacher(int id)
+        {
+            return db.TEACHERs.Find(id);
+        }
+        public void Insert_Teacher(TEACHER teacher)
+        {
+            db.TEACHERs.Add(teacher);
+            db.SaveChanges();
+        }
+
+        public bool Update_Teacher(TEACHER tc)
+        {
+            var teacher = db.TEACHERs.Find(tc.IDTeacher);
+            if (teacher != null)
+            {
+                teacher.Name = tc.Name;
+                teacher.Phone = tc.Phone;
+                teacher.ADDRESS = tc.ADDRESS;
+                teacher.Email = tc.Email;
+                teacher.Knowledge = tc.Knowledge;
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
+            
+
+        }
+        //public bool Delete_Teacher(int id_teacher)
+        //{
+        //    TEACHER tc = db.TEACHERs.Find(id_teacher);
+        //    if (tc == null)
+        //    {
+        //        return false;
+        //    }
+                
+        //    else
+        //    {
+        //        db.TEACHERs.Remove(tc);
+        //        db.SaveChanges();
+        //    }
+        //    return true;
+
+        //}
+
+        public bool Delete_teacher(int id)
+        {
+            var bien = db.TEACHERs.Find(id);
+            if (bien != null)
+            {
+                db.TEACHERs.Remove(bien);
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
+
+        }
+
+        
+        
     }
 }

@@ -16,8 +16,8 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDStudent { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDStudent { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }
@@ -25,7 +25,6 @@ namespace doan_htttdn.FF
         [Column(TypeName = "date")]
         public DateTime? Born { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string NameParent { get; set; }
 
