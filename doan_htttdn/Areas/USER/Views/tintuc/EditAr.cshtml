@@ -1,4 +1,4 @@
-﻿@model doan_htttdn.Areas.USER.Models.Article1
+﻿@model doan_htttdn.FF.ARTICLEs
 @{
     ViewBag.Title = "EditAr";
     Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
@@ -40,21 +40,21 @@
         <tr>
             <td>
                 <label>Image :</label>
-                @Html.TextBoxFor(x => x.Image)
+                @Html.TextBoxFor(x => x.Img)
             </td>
         </tr>
 
         <tr>
             <td>
                 <label>Day : </label>
-                @Html.TextBoxFor(x => x.Day)
+                @Html.TextBoxFor(x => x.Date)
             </td>
         </tr>
 
         <tr>
             <td>
                 <label>ID_Admin :</label>
-                @Html.TextBoxFor(x => x.ID_Admin)
+                @Html.TextBoxFor(x => x.IDAdmin)
             </td>
         </tr>
          

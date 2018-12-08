@@ -10,4 +10,5 @@ namespace doan_htttdn.Common
     { 
         public string IDuser { get; set; }
     }
+   
 }

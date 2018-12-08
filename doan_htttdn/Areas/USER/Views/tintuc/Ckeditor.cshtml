@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Ckeditor";
+    Layout = "~/Areas/USER/Views/Shared/_Layout - 1.cshtml";
+}
+
+<h2>Ckeditor</h2>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            @Html.TextArea("area")
+
+        </div>
+    </div>
+</section>
+<script src="~/Assets/USER/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("area"); 
+</script>

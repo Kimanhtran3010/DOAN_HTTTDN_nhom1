@@ -1,4 +1,4 @@
-﻿@model IEnumerable<doan_htttdn.Areas.USER.Models.Article1>
+﻿@model IEnumerable<doan_htttdn.FF.ARTICLEs>
 
 @foreach (var item in Model)
 {
@@ -7,9 +7,9 @@
     <td>@item.Title</td>
     <td>@item.Summary</td>
     <td>@item.Contents</td>
-    <td>@item.Image</td>
-    <td>@item.Day</td>
-    <td>@item.ID_Admin</td>
+    <td>@item.Img</td>
+    <td>@item.Date</td>
+    <td>@item.IDAdmin</td>
     <td><a href="@Url.Action("ShowAr","tintuc",new { id = item.ID_Article})">Show</a></td>
     <td><a href="@Url.Action("EditAr","tintuc",new { id = item.ID_Article})">Edit</a></td>
     <td>

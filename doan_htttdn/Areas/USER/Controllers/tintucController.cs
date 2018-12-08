@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
-using doan_htttdn.Areas.USER.Models;
+//using doan_htttdn.Areas.USER.Models;
+using System.IO;
+//using doan_htttdn.Areas.ViewModel;
+using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -14,23 +17,23 @@ namespace doan_htttdn.Areas.USER.Controllers
 
         // GET: USER/tintuc
 
-        Web1 db = new Web1();
+        QL_SCN db = new QL_SCN();
 
         public ActionResult ListAr()
         {
-            var a = db.Article1.Where(x => x.ID_Article > 0).ToList();
+            var a = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
             return View(a);
         }
        
         public ActionResult PartialListAr()
         {
-            var a = db.Article1.Where(x => x.ID_Article > 0).ToList();
+            var a = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
             return PartialView("PartialListAr",a);
         }
         public ActionResult ShowAr(string id)
         {
             int Aid = int.Parse(id);
-            var a = db.Article1.FirstOrDefault(x => x.ID_Article == Aid);
+            var a = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == Aid);
             return View(a);
         }
 
@@ -43,27 +46,27 @@ namespace doan_htttdn.Areas.USER.Controllers
         private void Delete(string id)
         {
             int arid = int.Parse(id);
-            var ar = db.Article1.FirstOrDefault(x => x.ID_Article == arid);
-            db.Article1.Remove(ar);
+            var ar = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == arid);
+            db.ARTICLEs.Remove(ar);
             db.SaveChanges();
         }
         public ActionResult EditAr(string id)
         {
             int Air = int.Parse(id);
-            var a = db.Article1.FirstOrDefault(x => x.ID_Article == Air);
+            var a = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == Air);
             return View(a);
         }
         [HttpPost]
-        public ActionResult EditAr(Article1 di)
+        public ActionResult EditAr(ARTICLEs di)
         {
-            Article1 ar = new Article1();
+            ARTICLEs ar = new ARTICLEs();
             ar.ID_Article = di.ID_Article;
             ar.Title = di.Title;
             ar.Summary = di.Summary;
             ar.Contents = di.Contents;
-            ar.Image = di.Image;
-            ar.Day = di.Day;
-            ar.ID_Admin = di.ID_Admin;
+            ar.Img = di.Img;
+            ar.Date = di.Date;
+            ar.IDAdmin = di.IDAdmin;
             db.Entry(ar).State = EntityState.Modified;
             db.SaveChanges();
             return View("ListAr");
@@ -88,7 +91,92 @@ namespace doan_htttdn.Areas.USER.Controllers
         }
 
 
+      
+     
+
+        
 
 
+        //public ActionResult Examdropdown()
+        //{
+        //    var cate = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
+        //    List<object> obj = new List<object>();
+        //    foreach (var item in cate)
+        //    {
+        //        obj.Add(new { Text = item.Title, Value = item.ID_Article });
+        //    }
+
+        //    var model = new DropDownList()
+        //    {
+        //        selectlistar = new SelectList(obj.ToList(), "Value", "Text")
+        //    };
+        //    return View(model);
+        //}
+
+        //public ActionResult ChooseCheck()
+        //{
+        //    var cate = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
+        //    var model = new CheckBoxList
+        //    {
+        //        AvariableCheck = cate
+        //    };
+
+        //    model.SelectedCheck = new List<ARTICLE> { cate[1], cate[2] };
+        //    return View(model);
+        //}
+        [HttpPost]
+        public ActionResult ChooseCheck(int[] choosedcheck)
+        {
+            return View();
+        }
+
+        public ActionResult Ckeditor()
+        {
+            return View();
+        }
+
+        public ActionResult ListNews()
+        {
+            var model = db.ARTICLEs.Where(x => x.State > 0).ToList();
+            return View(model);
+        }
+
+        public ActionResult Detail(string id)
+        {
+            //id = 1;
+            if (id!=null)
+            {
+                var model = db.ARTICLEs.FirstOrDefault(xx => xx.ID_Article == int.Parse(id));
+                ViewBag.title = model.Title;
+                ViewBag.abtract = model.Summary;
+                ViewBag.detail = model.Contents;
+                ViewBag.image = model.Img;
+                ViewBag.ad = model.IDAdmin;
+
+            }
+            return View();
+        }
+        
+        public ActionResult InNewscate (string cateid)
+        {
+            if (cateid != null)
+            {
+                int idcate = int.Parse(cateid);
+                var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
+
+                var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
+                ViewBag.catename = cate.Name_Menu;
+                return View(model);
+            }
+            else {
+                return View("Index","tintuc");
+            }
+            
+        }
+        public ActionResult Menu()
+        {
+            var model = db.Menu_Article.Where(x => x.ID_Menu > 0).ToList();
+            return View(model);
+        }
     }
 }
