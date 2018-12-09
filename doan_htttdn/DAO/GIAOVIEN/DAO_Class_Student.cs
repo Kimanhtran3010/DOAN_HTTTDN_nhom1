@@ -10,7 +10,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
     public class DAO_Class_Student
     {
         QL_SCN db = new QL_SCN();
-        public IEnumerable<Student_Attendance> GetALl( string IDclass)
+        public IEnumerable<Student_Attendance> GetALl( int IDclass)
         {
             var list = (from a in db.CLASS_STUDENT
                        join b in db.STUDENTs

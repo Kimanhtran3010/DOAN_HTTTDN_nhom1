@@ -13,7 +13,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
         {
             return db.STUDENTs.ToList();
         }
-        public IEnumerable<STUDENT> GetbyIDClass (string IDclass)
+        public IEnumerable<STUDENT> GetbyIDClass (int IDclass)
         {
             IEnumerable<STUDENT> list = (from a in db.CLASS_STUDENT
                        join b in db.STUDENTs

@@ -10,31 +10,28 @@ namespace doan_htttdn.FF
     public partial class ARTICLE
     {
         [Key]
-        [Column(Order = 0)]
-        [StringLength(20)]
-        public string ID_Article { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID_Article { get; set; }
 
         [Required]
         public string Title { get; set; }
 
+        [Required]
         public string Summary { get; set; }
 
         [Required]
         public string Contents { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime Date { get; set; }
-
-        [Required]
+        [StringLength(100)]
         public string Image { get; set; }
 
-        public int State { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? Day { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(20)]
-        public string ID_Admin { get; set; }
+        public int IDAdmin { get; set; }
 
-        public virtual ADMIN ADMIN { get; set; }
+        public int? State { get; set; }
+
+        public virtual Admin_Article Admin_Article { get; set; }
     }
 }

@@ -8,12 +8,12 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN1")
+            : base("name=QL_SCN3")
         {
         }
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
-        public virtual DbSet<ADMIN> ADMINs { get; set; }
+        public virtual DbSet<Admin_Article> Admin_Article { get; set; }
         public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
         public virtual DbSet<CLASS> CLASSes { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
@@ -29,30 +29,17 @@ namespace doan_htttdn.FF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ACCOUNT>()
-                .HasOptional(e => e.TEACHER)
-                .WithRequired(e => e.ACCOUNT);
-
-            modelBuilder.Entity<ADMIN>()
-                .Property(e => e.IDAdmin)
+            modelBuilder.Entity<Admin_Article>()
+                .Property(e => e.Pass)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ADMIN>()
-                .Property(e => e.ID_Admin)
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ADMIN1>()
+            modelBuilder.Entity<Admin_Article>()
                 .HasMany(e => e.ARTICLEs)
-                .WithRequired(e => e.ADMIN)
+                .WithRequired(e => e.Admin_Article)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.ID_Article)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.ID_Admin)
+                .Property(e => e.Image)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -68,10 +55,6 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<CLASS_STUDENT>()
-                .Property(e => e.IDClass)
-                .IsUnicode(false);
 
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)
@@ -174,10 +157,6 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.TEACHER)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TEACHING_CLASS>()
-                .Property(e => e.IDClass)
-                .IsUnicode(false);
         }
     }
 }

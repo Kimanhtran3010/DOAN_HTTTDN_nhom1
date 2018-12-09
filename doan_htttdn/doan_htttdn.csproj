@@ -188,7 +188,7 @@
     <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
-    <Compile Include="FF\ADMIN.cs" />
+    <Compile Include="FF\Admin_Article.cs" />
     <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />

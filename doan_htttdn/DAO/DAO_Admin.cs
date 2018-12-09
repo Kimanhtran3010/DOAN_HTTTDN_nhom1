@@ -13,9 +13,9 @@ namespace doan_htttdn.DAO
         //{
         //    return db.ADMINs.Where(x => x.IDAmin == user && x.Password == pass).SingleOrDefault();
         //}
-        public int Login(String user, string pass)
+        public int Login(int user, string pass)
         {
-            var result = db.ADMINs.SingleOrDefault(x => x.IDAdmin == user);
+            var result = db.Admin_Article.SingleOrDefault(x => x.IDAdmin == user);
             if (result == null)
                 return 0;
             else
@@ -32,12 +32,12 @@ namespace doan_htttdn.DAO
             }
 
         }
- 
-        public bool Insert(ADMIN aDMIN)
+
+        public bool Insert(Admin_Article aDMIN)
         {
             try
             {
-                db.ADMINs.Add(aDMIN);
+                db.Admin_Article.Add(aDMIN);
                 db.SaveChanges();
                 return true;
             }
@@ -45,9 +45,9 @@ namespace doan_htttdn.DAO
             {
                 return false;
             }
-            
+
         }
-        
+
 
         //-------------------------------------------------
         public List<TEACHER> List_Teacher()
@@ -61,7 +61,7 @@ namespace doan_htttdn.DAO
                 db.SaveChanges();
                 return true;
             }
-                
+
             else
                 return false;
         }
@@ -72,7 +72,7 @@ namespace doan_htttdn.DAO
         public bool Update_Teacher(TEACHER tc)
         {
             var bien = db.TEACHERs.Find(tc.IDTeacher);
-            if (bien!=null)
+            if (bien != null)
             {
                 bien.Name = tc.Name;
                 bien.Phone = tc.Phone;

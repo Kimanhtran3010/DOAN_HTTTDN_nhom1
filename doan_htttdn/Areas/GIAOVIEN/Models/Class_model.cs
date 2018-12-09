@@ -11,7 +11,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Models
     {
         [System.ComponentModel.DataAnnotations.Key]
         [StringLength(20)]
-        public string IDClass { get; set; }
+        public int IDClass { get; set; }
 
         [Required]
         [StringLength(20)]
