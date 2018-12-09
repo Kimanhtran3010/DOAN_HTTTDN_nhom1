@@ -90,6 +90,14 @@ namespace doan_htttdn.Areas.USER.Controllers
             return Content("Success!!!");
         }
 
+        //public ActionResult Examdropdown()
+        //{
+        //    var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
+        //    List<object> obj = new List<object>();
+        //    foreach (var item in cate)
+        //    {
+        //        obj.Add(new { Text = item.Title, Value = item.ID_Article });
+        //    }
 
       
      

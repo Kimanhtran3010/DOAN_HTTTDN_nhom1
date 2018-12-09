@@ -29,21 +29,30 @@ namespace doan_htttdn.FF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ACCOUNT>()
+                .HasOptional(e => e.TEACHER)
+                .WithRequired(e => e.ACCOUNT);
+
             modelBuilder.Entity<ADMIN>()
                 .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ADMIN>()
+                .Property(e => e.ID_Admin)
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ADMIN1>()
                 .HasMany(e => e.ARTICLEs)
                 .WithRequired(e => e.ADMIN)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.IDArticler)
+                .Property(e => e.ID_Article)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.IDAdmin)
+                .Property(e => e.ID_Admin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -59,6 +68,10 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CLASS_STUDENT>()
+                .Property(e => e.IDClass)
+                .IsUnicode(false);
 
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)
@@ -161,6 +174,10 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.TEACHER)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TEACHING_CLASS>()
+                .Property(e => e.IDClass)
+                .IsUnicode(false);
         }
     }
 }

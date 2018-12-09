@@ -16,6 +16,7 @@ namespace doan_htttdn.FF
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDTeacher { get; set; }
 
         [Required]

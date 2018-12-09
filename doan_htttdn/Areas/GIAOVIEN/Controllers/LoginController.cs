@@ -28,9 +28,11 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 if (obj == 1)
                 {
 
-                    var userSession = new UserLogin();
-                    userSession.IDuser = objUser.IDTeacher;
-                    Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
+                    var userTeacher = new SessionTeacher ();
+                    userTeacher.IDuser = objUser.IDTeacher;
+                    userTeacher.user = dao.GetbyID(objUser.IDTeacher).Name;
+                    Session.Add(CommonConstant.USER_SESSION, userTeacher.user);
+                    Session.Add(CommonConstant.ID_SESSION, userTeacher.IDuser);
                     return RedirectToAction("Index", "thongtin");
                 }
                 else if (obj == 0)
