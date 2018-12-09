@@ -181,13 +181,12 @@
     <Compile Include="Common\WebMsgBox.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAO\DAO_Admin.cs" />
+    <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Class_Student.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Course.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_GIAOVIEN.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
-    <Compile Include="DAO\DAO_Product.cs" />
-    <Compile Include="DAO\DAO_GIAOVIEN.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
     <Compile Include="FF\ARTICLE.cs" />
@@ -806,7 +805,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Base\" />
-    <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Areas\ViewModel\" />
     <Folder Include="Models\" />

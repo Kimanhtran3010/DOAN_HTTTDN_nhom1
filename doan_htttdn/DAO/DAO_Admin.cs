@@ -15,7 +15,7 @@ namespace doan_htttdn.DAO
         //}
         public int Login(String user, string pass)
         {
-            var result = db.ADMINs.SingleOrDefault(x => x.ID_Admin == user);
+            var result = db.ADMINs.SingleOrDefault(x => x.IDAdmin == user);
             if (result == null)
                 return 0;
             else
@@ -49,5 +49,50 @@ namespace doan_htttdn.DAO
         }
         
 
+        //-------------------------------------------------
+        public List<TEACHER> List_Teacher()
+        {
+            return db.TEACHERs.ToList();
+        }
+        public bool Insert_Teacher(TEACHER tc)
+        {
+            if (db.TEACHERs.Add(tc) != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+                
+            else
+                return false;
+        }
+        public TEACHER Get_Teacher(int id)
+        {
+            return db.TEACHERs.Find(id);
+        }
+        public bool Update_Teacher(TEACHER tc)
+        {
+            var bien = db.TEACHERs.Find(tc.IDTeacher);
+            if (bien!=null)
+            {
+                bien.Name = tc.Name;
+                bien.Phone = tc.Phone;
+                bien.ADDRESS = tc.ADDRESS;
+                bien.Email = tc.Email;
+                bien.Knowledge = tc.Knowledge;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool Delete_Teacher(int id)
+        {
+            var bien = db.TEACHERs.Find(id);
+            if (bien != null)
+            {
+                db.TEACHERs.Remove(bien);
+                return true;
+            }
+            return false;
+        }
     }
 }
