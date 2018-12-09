@@ -17,8 +17,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -178,18 +177,13 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Common\WebMsgBox.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAO\DAO_Admin.cs" />
     <Compile Include="DAO\DAO_GIAOVIEN.cs" />
-    <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
-    <Compile Include="FF\Admin_Article.cs" />
-    <Compile Include="FF\ARTICLEs.cs" />
+    <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
-    <Compile Include="FF\C__MigrationHistory.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
@@ -802,7 +796,6 @@
     <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Areas\ViewModel\" />
-    <Folder Include="DAO\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,16 +8,13 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN")
+            : base("name=QL_SCN1")
         {
         }
 
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<ADMIN> ADMINs { get; set; }
-        public virtual DbSet<Admin_Article> Admin_Article { get; set; }
-        public virtual DbSet<ADMIN1> ADMINs1 { get; set; }
-        public virtual DbSet<ARTICLEs> ARTICLEs { get; set; }
+        public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
         public virtual DbSet<CLASS> CLASSes { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
         public virtual DbSet<COURSE> COURSEs { get; set; }
@@ -33,14 +30,10 @@ namespace doan_htttdn.FF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ADMIN>()
-                .Property(e => e.IDAmin)
+                .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ADMIN>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ADMIN1>()
                 .HasMany(e => e.ARTICLEs)
                 .WithRequired(e => e.ADMIN)
                 .WillCascadeOnDelete(false);
@@ -96,11 +89,6 @@ namespace doan_htttdn.FF
             modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Menu_Article>()
-                .HasMany(e => e.ARTICLEs)
-                .WithRequired(e => e.Menu_Article)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.Phone)
