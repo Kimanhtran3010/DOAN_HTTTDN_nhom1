@@ -17,6 +17,8 @@ namespace doan_htttdn.FF
         [StringLength(200)]
         public string Password { get; set; }
 
+        public int? Status { get; set; }
+
         public virtual TEACHER TEACHER { get; set; }
     }
 }

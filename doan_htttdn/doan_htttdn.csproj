@@ -187,16 +187,12 @@
     <Compile Include="DAO\GIAOVIEN\DAO_GIAOVIEN.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
-    <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
-    <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
     <Compile Include="FF\Admin_Article.cs" />
-    <Compile Include="FF\ARTICLEs.cs" />
+    <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
-    <Compile Include="FF\C__MigrationHistory.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
@@ -809,10 +805,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Base\" />
-    <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Areas\ViewModel\" />
-    <Folder Include="DAO\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

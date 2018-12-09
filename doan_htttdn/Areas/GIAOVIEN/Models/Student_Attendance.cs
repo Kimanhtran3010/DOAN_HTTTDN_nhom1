@@ -13,7 +13,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Models
         [Key]
         [Column(Order = 0)]
         [StringLength(20)]
-        public string IDClass { get; set; }
+        public int IDClass { get; set; }
 
         [Key]
         [Column(Order = 1)]

@@ -37,7 +37,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         
         public ActionResult Sua(int id)
         {
-            var bien = dao.GetTeacher(id);
+            var bien = dao.Get_Teacher(id);
             return View(bien);
         }
         [HttpPost]
@@ -60,7 +60,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         public ActionResult Delete(int id)
         {
            
-                if (dao.Delete_teacher(id) == true)
+                if (dao.Delete_Teacher(id) == true)
 
                 {
                     ModelState.AddModelError("", "Xóa Thành Công!");

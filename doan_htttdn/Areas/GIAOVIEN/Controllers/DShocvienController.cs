@@ -12,7 +12,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         DAO_Hocvien dao = new DAO_Hocvien();
         // GET: GIAOVIEN/DShocvien
         
-        public ActionResult Index(string x)
+        public ActionResult Index(int x)
         {
             
             if (Session[Common.CommonConstant.USER_SESSION] != null)

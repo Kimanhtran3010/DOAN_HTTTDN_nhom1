@@ -57,15 +57,15 @@ namespace doan_htttdn.Areas.USER.Controllers
             return View(a);
         }
         [HttpPost]
-        public ActionResult EditAr(ARTICLEs di)
+        public ActionResult EditAr(ARTICLE di)
         {
-            ARTICLEs ar = new ARTICLEs();
+            ARTICLE ar = new ARTICLE();
             ar.ID_Article = di.ID_Article;
             ar.Title = di.Title;
             ar.Summary = di.Summary;
             ar.Contents = di.Contents;
-            ar.Img = di.Img;
-            ar.Date = di.Date;
+            ar.Image = di.Image;
+            ar.Day = di.Day;
             ar.IDAdmin = di.IDAdmin;
             db.Entry(ar).State = EntityState.Modified;
             db.SaveChanges();
@@ -158,33 +158,33 @@ namespace doan_htttdn.Areas.USER.Controllers
                 ViewBag.title = model.Title;
                 ViewBag.abtract = model.Summary;
                 ViewBag.detail = model.Contents;
-                ViewBag.image = model.Img;
+                ViewBag.image = model.Image;
                 ViewBag.ad = model.IDAdmin;
 
             }
             return View();
         }
         
-        public ActionResult InNewscate (string cateid)
-        {
-            if (cateid != null)
-            {
-                int idcate = int.Parse(cateid);
-                var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
+        //public ActionResult InNewscate (string cateid)
+        //{
+        //    if (cateid != null)
+        //    {
+        //        int idcate = int.Parse(cateid);
+        //        var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
 
-                var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
-                ViewBag.catename = cate.Name_Menu;
-                return View(model);
-            }
-            else {
-                return View("Index","tintuc");
-            }
+        //        var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
+        //        ViewBag.catename = cate.Name_Menu;
+        //        return View(model);
+        //    }
+        //    else {
+        //        return View("Index","tintuc");
+        //    }
             
-        }
-        public ActionResult Menu()
-        {
-            var model = db.Menu_Article.Where(x => x.ID_Menu > 0).ToList();
-            return View(model);
-        }
-    }
+        //}
+    //    public ActionResult Menu()
+    //    {
+    //        var model = db.Menu_Article.Where(x => x.ID_Menu > 0).ToList();
+    //        return View(model);
+    //    }
+   }
 }
