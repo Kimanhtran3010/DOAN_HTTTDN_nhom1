@@ -1,0 +1,31 @@
+﻿@model List<doan_htttdn.FF.ARTICLEs>
+@{
+    ViewBag.Title = "InNewscate";
+    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Action("Menu", "tintuc")
+
+@foreach (var item in Model)
+
+{
+    int i = 0;
+    if (i < 3)
+    {
+        <li>
+            <a href="#">
+                <div> <img src="~/Assets/Image/@item.Img" /></div>
+            </a>
+            <a href="#"><h1>@item.Title</h1></a>
+            <p>@ViewBag.catename  | @item.Date</p>
+            <samp>@item.Contents</samp>
+        </li>
+    }
+    else
+    {
+        break;
+    }
+    i++;
+}
+    }
+

@@ -2583,3 +2583,11 @@ a.item_add p.number {
 .tintucli{
     list-style-type:circle;
 }
+
+.tintucheader {
+    border-bottom: 1px solid #000
+}
+
+.tintuctable {
+    border ="20px" cellpadding="100px" cellspacing="100px"
+}

@@ -25,7 +25,6 @@ namespace doan_htttdn.FF
         [Column(TypeName = "date")]
         public DateTime? Born { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string NameParent { get; set; }
 

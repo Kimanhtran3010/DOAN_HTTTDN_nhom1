@@ -8,7 +8,7 @@ namespace doan_htttdn.Areas.USER.Models
     public partial class Web1 : DbContext
     {
         public Web1()
-            : base("name=Web1")
+            : base("name=Web11")
         {
         }
 
