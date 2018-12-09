@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using doan_htttdn.FF;
+
 
 namespace doan_htttdn.DAO
 {
@@ -13,7 +15,7 @@ namespace doan_htttdn.DAO
         //{
         //    return db.ADMINs.Where(x => x.IDAmin == user && x.Password == pass).SingleOrDefault();
         //}
-        public int Login_Giaovien(String user, string pass)
+        public int Login_Giaovien(int user, string pass)
         {
             var result = db.ACCOUNTs.SingleOrDefault(x => x.IDTeacher == user);
             if (result == null)
@@ -32,19 +34,25 @@ namespace doan_htttdn.DAO
             }
 
         }
-
-        public bool Insert(ADMIN aDMIN)
+        public TEACHER GetbyID(int ID)
         {
-            try
+            return db.TEACHERs.Where(x => x.IDTeacher == ID).SingleOrDefault();
+        }
+        
+        public bool Update(TEACHER tEACHER)
+        {
+            var tc = db.TEACHERs.Where(x => x.IDTeacher == tEACHER.IDTeacher).SingleOrDefault();
+            if (tc != null)
             {
-                db.ADMINs.Add(aDMIN);
+               tc.Name = tEACHER.Name;
+                tc.Phone = tEACHER.Phone;
+                tc.ADDRESS = tEACHER.ADDRESS;
+                tc.Email = tEACHER.Email;
+                tc.Knowledge = tEACHER.Knowledge;
                 db.SaveChanges();
                 return true;
             }
-            catch
-            {
-                return false;
-            }
+            return false;
 
         }
 

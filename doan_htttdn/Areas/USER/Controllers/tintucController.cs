@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using doan_htttdn.Areas.USER.Models;
 using System.IO;
-using doan_htttdn.Areas.ViewModel;
+//using doan_htttdn.Areas.ViewModel;
+using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -89,38 +90,38 @@ namespace doan_htttdn.Areas.USER.Controllers
             return Content("Success!!!");
         }
 
-        public ActionResult Examdropdown()
-        {
-            var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
-            List<object> obj = new List<object>();
-            foreach (var item in cate)
-            {
-                obj.Add(new { Text = item.Title, Value = item.ID_Article });
-            }
+        //public ActionResult Examdropdown()
+        //{
+        //    var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
+        //    List<object> obj = new List<object>();
+        //    foreach (var item in cate)
+        //    {
+        //        obj.Add(new { Text = item.Title, Value = item.ID_Article });
+        //    }
 
-            var model = new DropDownList()
-            {
-                selectlistar = new SelectList(obj.ToList(), "Value", "Text")
-            };
-            return View(model);
-        }
+        //    var model = new DropDownList()
+        //    {
+        //        selectlistar = new SelectList(obj.ToList(), "Value", "Text")
+        //    };
+        //    return View(model);
+        //}
 
-        public ActionResult ChooseCheck()
-        {
-            var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
-            var model = new CheckBoxList
-            {
-                AvariableCheck = cate
-            };
+        //public ActionResult ChooseCheck()
+        //{
+        //    var cate = db.Article1.Where(x => x.ID_Article > 0).ToList();
+        //    var model = new CheckBoxList
+        //    {
+        //        AvariableCheck = cate
+        //    };
             
-            model.SelectedCheck = new List<Article1> { cate[1], cate[2] };
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult ChooseCheck(int[] choosedcheck)
-        {
-            return View();
-        }
+        //    model.SelectedCheck = new List<Article1> { cate[1], cate[2] };
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //public ActionResult ChooseCheck(int[] choosedcheck)
+        //{
+        //    return View();
+        //}
 
         public ActionResult Ckeditor()
         {

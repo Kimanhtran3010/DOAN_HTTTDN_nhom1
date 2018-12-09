@@ -16,8 +16,8 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDStudent { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDStudent { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }

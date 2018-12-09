@@ -15,7 +15,7 @@ namespace doan_htttdn.DAO
         //}
         public int Login(String user, string pass)
         {
-            var result = db.ADMINs.SingleOrDefault(x => x.IDAdmin == user);
+            var result = db.ADMINs.SingleOrDefault(x => x.ID_Admin == user);
             if (result == null)
                 return 0;
             else
@@ -47,6 +47,7 @@ namespace doan_htttdn.DAO
             }
             
         }
+        
 
     }
 }

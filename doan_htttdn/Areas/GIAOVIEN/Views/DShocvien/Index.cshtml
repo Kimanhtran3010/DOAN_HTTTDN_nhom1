@@ -1,37 +1,50 @@
-﻿
+﻿@model IEnumerable<doan_htttdn.FF.STUDENT>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
 
-<h4 align="left" style="color:blue; padding-top:30px"><b>Giáo viên/Danh sách lớp học/Danh sách học viên</b></h4><br />
-<div class="row" style=" width:100%; height:500px; border:double">
-    <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
-        <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn mã lớp học</h4>
-        <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
-        <button style="margin-left:20px">Tìm kiếm</button>
-    </div>
-    <div style="padding-top:20px">
-        <table align="center" border="1" style="width:90%">
-            <tr class="table_th">
-                <th class="th">Mã học viên</th>
-                <th class="th">Tên HV</th>
-                <th class="th">Ngày sinh</th>
-                <th class="th">Phụ huynh</th>
-                <th class="th">Số điện thoại</th>
-                <th class="th">Địa chỉ</th>
-                <th class="th">Email</th>
-            </tr>
-            <tr class="table_th">
-                <td class="td">HV001</td>
-                <td class="td">Phạm Thành Nhân1</td>
-                <td class="td">02/11/2014</td>
-                <td class="td">Phạm Minh Đức</td>
-                <td class="td">09318503328</td>
-                <td class="td">123, Phạm Ngủ Lão, Bình Thạnh, TPHCM</td>
-                <td class="td">DucPT@gmail.com</td>
-            </tr>
-        </table>
-    </div>
+<h4 align="left" style="color:blue; padding-top:30px"><b>
+    <a href="@Url.Action("Index","Login")">Giáo viên</a>/
+    <a href="@Url.Action("Index","lophoc")">Danh sách lớp học</a>/
+    <a href="@Url.Action("Index","DShocvien")">Danh sách học viên</a>
+</b></h4><br />
 
-</div>
+@*@using (Html.BeginForm())
+{*@
+    <div class="row" style=" width:100%; height:auto; border:double">
+        <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
+            <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn mã lớp học</h4>
+            <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
+            <button style="margin-left:20px">Tìm kiếm</button>
+        </div>
+        <div style="padding-top:20px">
+            <table align="center" border="1" style="width:98%">
+                <tr class="table_th">
+                    <th class="th">Mã học viên</th>
+                    <th class="th">Tên HV</th>
+                    <th class="th">Ngày sinh</th>
+                    <th class="th">Phụ huynh</th>
+                    <th class="th">Số điện thoại</th>
+                    <th class="th">Địa chỉ</th>
+                    <th class="th">Email</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr class="table_th">
+                        <td class="td">@item.IDStudent</td>
+                        <td class="td">@item.Name</td>
+                        <td class="td">@item.Born</td>
+                        <td class="td">@item.NameParent</td>
+                        <td class="td">@item.PHONE</td>
+                        <td class="td">@item.ADDRESS</td>
+                        <td class="td">@item.EMAIL</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+@*}*@
+

@@ -17,7 +17,7 @@ namespace doan_htttdn.FF
 
         [Key]
         [StringLength(20)]
-        public string IDAdmin { get; set; }
+        public string ID_Admin { get; set; }
 
         [StringLength(100)]
         public string Pass { get; set; }

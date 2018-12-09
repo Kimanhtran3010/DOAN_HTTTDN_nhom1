@@ -155,6 +155,9 @@
     <Compile Include="Areas\GIAOVIEN\Controllers\DiemdanhController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\DShocvienController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\LoginController.cs" />
+    <Compile Include="Areas\GIAOVIEN\Models\Class_model.cs" />
+    <Compile Include="Areas\GIAOVIEN\Models\Student_Attendance.cs" />
+    <Compile Include="Areas\GIAOVIEN\Models\Student_Change__Attendance.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
@@ -180,7 +183,11 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAO\DAO_Admin.cs" />
-    <Compile Include="DAO\DAO_GIAOVIEN.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Class_Student.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Course.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_GIAOVIEN.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
@@ -645,6 +652,8 @@
     <Content Include="Assets\USER\js\responsiveslides.min.js" />
     <Content Include="Assets\USER\js\simpleCart.min.js" />
     <Content Include="Assets\USER\js\slideshow_banner.js" />
+    <Content Include="bin\doan_htttdn.dll" />
+    <Content Include="bin\doan_htttdn.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -746,6 +755,10 @@
     <Content Include="Assets\USER\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\USER\Views\tintuc\Ckeditor.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\ListNews.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Diemdanh\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\DShocvien\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -784,7 +797,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Base\" />
-    <Folder Include="Areas\GIAOVIEN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Models\" />
   </ItemGroup>

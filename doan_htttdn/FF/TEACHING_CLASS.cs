@@ -15,8 +15,8 @@ namespace doan_htttdn.FF
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(20)]
-        public string IDTeacher { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDTeacher { get; set; }
 
         [Key]
         [Column(Order = 2)]

@@ -11,7 +11,15 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         // GET: GIAOVIEN/Chamcong
         public ActionResult Index()
         {
-            return View();
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
     }
 }

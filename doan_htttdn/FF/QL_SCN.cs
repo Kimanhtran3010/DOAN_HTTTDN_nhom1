@@ -30,15 +30,11 @@ namespace doan_htttdn.FF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ACCOUNT>()
-                .Property(e => e.IDTeacher)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ACCOUNT>()
                 .HasOptional(e => e.TEACHER)
                 .WithRequired(e => e.ACCOUNT);
 
             modelBuilder.Entity<ADMIN>()
-                .Property(e => e.IDAdmin)
+                .Property(e => e.ID_Admin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ADMIN>()
@@ -47,11 +43,11 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.IDArticler)
+                .Property(e => e.ID_Article)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.IDAdmin)
+                .Property(e => e.ID_Admin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -74,10 +70,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<CLASS_STUDENT>()
                 .Property(e => e.IDClass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CLASS_STUDENT>()
-                .Property(e => e.IDStudent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<COURSE>()
@@ -161,10 +153,6 @@ namespace doan_htttdn.FF
                 .IsUnicode(false);
 
             modelBuilder.Entity<STUDENT>()
-                .Property(e => e.IDStudent)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<STUDENT>()
                 .Property(e => e.PHONE)
                 .IsUnicode(false);
 
@@ -172,10 +160,6 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.CLASS_STUDENT)
                 .WithRequired(e => e.STUDENT)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TEACHER>()
-                .Property(e => e.IDTeacher)
-                .IsUnicode(false);
 
             modelBuilder.Entity<TEACHER>()
                 .Property(e => e.Phone)
@@ -188,10 +172,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<TEACHING_CLASS>()
                 .Property(e => e.IDClass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TEACHING_CLASS>()
-                .Property(e => e.IDTeacher)
                 .IsUnicode(false);
         }
     }

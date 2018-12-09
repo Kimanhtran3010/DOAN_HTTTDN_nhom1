@@ -1,13 +1,15 @@
-namespace doan_htttdn.FF
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
-    public partial class CLASS_STUDENT
+namespace doan_htttdn.Areas.GIAOVIEN.Models
+{
+    public class Student_Attendance
     {
+
         [Key]
         [Column(Order = 0)]
         [StringLength(20)]
@@ -24,12 +26,13 @@ namespace doan_htttdn.FF
         public int Session { get; set; }
 
         [Column(TypeName = "date")]
+        public string NameStudent { get; set; }
+
+
+        [Column(TypeName = "date")]
         public DateTime Day { get; set; }
 
         public int? State { get; set; }
 
-        public virtual CLASS CLASS { get; set; }
-
-        public virtual STUDENT STUDENT { get; set; }
     }
 }
