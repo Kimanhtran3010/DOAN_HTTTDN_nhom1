@@ -8,7 +8,7 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN3")
+            : base("name=QL_SCN")
         {
         }
 

@@ -13,10 +13,10 @@ namespace doan_htttdn.DAO
         {
             return db.COURSEs.ToList();
         }
-        public List<string> GetNamecouse ()
+        public List<COURSE> GetNamecouse ()
         {
             var a = from x in db.COURSEs
-                  select x.Name;
+                  select x;
             return a.ToList();
         }
     }

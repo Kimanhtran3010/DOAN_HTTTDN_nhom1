@@ -33,8 +33,30 @@ namespace doan_htttdn.DAO
                         }).Distinct();
             return list.ToList().Distinct();
         }
-        
-       
-        
+        public IEnumerable<Class_model> GetByIDTeacherandNameCourse(int IDteacher , string nameCouser)
+        {
+            // return db.CLASSes.ToList();
+            var list = (from x in db.TEACHING_CLASS
+                        join y in db.CLASSes
+                        on x.IDClass equals y.IDClass
+                        join z in db.COURSEs
+                        on y.IDCourse equals z.IDCourse
+                        where x.IDTeacher == IDteacher &&  z.Name == nameCouser
+                        orderby y.IDClass ascending
+                        select new Class_model
+                        {
+                            IDClass = y.IDClass,
+                            NameCourse = z.Name,
+                            NameClass = y.NameClass,
+                            StartDay = y.StartDay,
+                            FinishDay = y.FinishDay,
+                            Number = y.Number,
+                            State = y.State
+                        }).Distinct();
+            return list.ToList().Distinct();
+        }
+
+
+
     }
 }

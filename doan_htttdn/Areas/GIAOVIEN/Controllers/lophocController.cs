@@ -28,14 +28,20 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         }
         private void PopulateCoursetsDropDownList(object selectedDepartment = null)
         {
-            ViewBag.CoursesList = new SelectList(dao_course.GetNamecouse());
+            ViewBag.CoursesList = new SelectList(dao_course.GetNamecouse(),"IDCourse","Name");
         }
         [HttpPost]
-        public ActionResult Search()
+        public ActionResult Search( string search_table)
         {
-
-            return View();
+            var a = dao_lop.GetByIDTeacherandNameCourse((int)Session[Common.CommonConstant.ID_SESSION], search_table);
+            PopulateCoursetsDropDownList();
+            return RedirectToAction("Index","lophoc");
+            //return View(a);
         }
-       
+        public ActionResult Xem_DShocvien(int IDclass = 1 )
+        {
+            return RedirectToAction("Index", "DShocvien", new {@id = IDclass });
+        }
+
     }
 }

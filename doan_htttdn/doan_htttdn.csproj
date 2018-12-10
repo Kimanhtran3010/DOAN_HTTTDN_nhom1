@@ -157,6 +157,7 @@
     <Compile Include="Areas\GIAOVIEN\Models\Class_model.cs" />
     <Compile Include="Areas\GIAOVIEN\Models\Student_Attendance.cs" />
     <Compile Include="Areas\GIAOVIEN\Models\Student_Change__Attendance.cs" />
+    <Compile Include="Areas\GIAOVIEN\Models\Teacher_Attendance.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="DAO\GIAOVIEN\DAO_GIAOVIEN.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Teaching_class.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\Admin_Article.cs" />
     <Compile Include="FF\ARTICLE.cs" />
@@ -228,11 +230,11 @@
     <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
     <Content Include="Assets\GIAOVIEN\css\flexslider.css" />
     <Content Include="Assets\GIAOVIEN\css\gv.css" />
-    <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
     <Content Include="Assets\GIAOVIEN\css\memenu.css" />
     <Content Include="Assets\GIAOVIEN\css\style.css" />
     <Content Include="Assets\GIAOVIEN\js\bootstrap.min.js" />
     <Content Include="Assets\GIAOVIEN\js\controller\cartController.js" />
+    <Content Include="Assets\GIAOVIEN\js\ddtf.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.flexslider.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.min.js" />
     <Content Include="Assets\GIAOVIEN\js\main.js" />
@@ -668,7 +670,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\USER\Views\web.config" />
-    <Content Include="Areas\ADMIN\Views\web.config" />
+    <Content Include="Areas\ADMIN\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\USER\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\USER\Views\Home\Index.cshtml" />
     <Content Include="Areas\USER\Views\Vechungtoi\Index.cshtml" />
@@ -728,7 +732,6 @@
     <Content Include="Areas\USER\Views\tintuc\EditAr.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\DeleteAr.cshtml" />
     <Content Include="Areas\USER\Views\Login\Login.cshtml" />
-    <Content Include="Areas\GIAOVIEN\Views\web.config" />
     <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
@@ -765,6 +768,7 @@
     <Content Include="Areas\ADMIN\Views\GiaoVien\GiaoVien.cshtml" />
     <Content Include="Areas\ADMIN\Views\GiaoVien\Them.cshtml" />
     <Content Include="Areas\ADMIN\Views\GiaoVien\Sua.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />

@@ -5,20 +5,28 @@
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
 
-<h4 align="left" style="color:blue; padding-top:30px"><b>
-    <a href="@Url.Action("Index","Login")">Giáo viên</a>/
-    <a href="@Url.Action("Index","lophoc")">Danh sách lớp học</a>
-</b></h4><br />
-
-   <div class="row" style=" width:98%; height:auto; border:double">
-        <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
-            <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn loại khóa học</h4>
-            @Html.DropDownList("Met", (SelectList)ViewBag.CoursesList, new { @style = "width:200px; height:30px ; border:groove;  margin-left:20px" })
-            @*<input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />*@
-            <button style="margin-left:20px">Tìm kiếm</button>
-        </div>
-        <div style="padding-top:20px">
-            <table align="center" border="1" style="width:90%">
+<h4 align="left" style="color:blue; padding-top:30px">
+    <b>
+        <a href="@Url.Action("Index","Login")">Giáo viên</a>/
+        <a href="@Url.Action("Index","lophoc")">Danh sách lớp học</a>
+    </b>
+</h4><br />
+@*@Html.BeginForm("Search", "lophoc", FormMethod.Post)
+    {*@
+<div class="row" style=" width:98%; height:auto; border:double">
+    <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
+        <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn loại khóa học</h4>
+        @*@Html.DropDownList("projectcats", (SelectList)ViewBag.CoursesList, "--Chọn tên khóa học--", new { @id = "filterText", @style = "width:200px; height:30px ; border:groove;  margin-left:20px" })*@
+        <select id="projectcat" style="width:200px; height:30px ; border:groove;  margin-left:20px">
+                <option value="CODE-S">CODE-S</option>
+                <option value="CODE-1">CODE-1</option>
+                <option value="CODE-2">CODE-2</option>
+            </select>
+        <button style="margin-left:20px">Tìm kiếm</button>
+    </div>
+    <div style="padding-top:20px">
+        <table id="table1" align="center" border="1" style="width:90%">
+            <thead>
                 <tr class="table_th">
                     <th class="th">MÃ LỚP</th>
                     <th class="th">KHÓA HỌC</th>
@@ -29,7 +37,8 @@
                     <th class="th">TÌNH TRẠNG</th>
                     <th class="th"> HOẠT ĐỘNG </th>
                 </tr>
-               
+            </thead>
+            <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="table_th">
@@ -41,17 +50,35 @@
                         <td class="td">@item.Number</td>
                         <td class="td">@item.State</td>
                         <td class="td">
-                        @*@using (Html.BeginForm("DeleteAr", "tintuc", FormMethod.Post))
-                            {*@
-                                <a href="@Url.Action("Index","DShocvien",new { @id = item.IDClass })">Xem DS học viên |</a> 
-                                <a href="@Url.Action("Index","Diemdanh",new { @id = item.IDClass })">| Điểm danh</a>
-                           @*}*@
+
+                            <a href="@Url.Action("Xem_DShocvien","lophoc",new { @id = item.IDClass })">Xem DS học viên |</a>
+                            <a href="@Url.Action("Index","Diemdanh",new { @id = item.IDClass })">| Điểm danh</a>
+
                         </td>
                     </tr>
                 }
+            </tbody>
 
-            </table>
-        </div>
 
+
+        </table>
     </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<script>
+    $(document).ready(function () {
+        var table = $("#table1").data();
+
+        $("#projectcat").change(function () {
+            console.log('Groing for folter : ' + this.value);
+            table.search(this.value).draw();
+        });
+
+    });
+</script>
+
+
 
