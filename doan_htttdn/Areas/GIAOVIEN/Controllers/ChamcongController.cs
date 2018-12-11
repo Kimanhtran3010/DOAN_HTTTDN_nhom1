@@ -20,6 +20,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 var model = new ChamCongIndexViewModel();
                 model.All_Teacher_Attendance = dao.GetALL((int)Session[Common.CommonConstant.ID_SESSION]).ToList();
                 model.Custom_Teacher_Attendance = dao.GetTodayClasses().ToList();
+                model.Custom_Teacher_Attendance_del = dao.GetTodayAdded((int)Session[Common.CommonConstant.ID_SESSION]).ToList();
                 return View(model);
             }
             else
@@ -33,7 +34,6 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         {
             DAO_Class_Student dao_cs = new DAO_Class_Student();
             DAO_Teaching_class dao_tc = new DAO_Teaching_class();
-            dao_tc.delete((int)Session[Common.CommonConstant.ID_SESSION]);
             //lay tat ca id class tu form post len
             string[] keys = Request.Form.AllKeys;
             for (int i = 0; i < keys.Length; i++)
@@ -51,6 +51,23 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 tc.Day = class_info.Day;
                 //luu vao db
                 dao_tc.Insert(tc);
+            }
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete()
+        {
+            DAO_Class_Student dao_cs = new DAO_Class_Student();
+            DAO_Teaching_class dao_tc = new DAO_Teaching_class();
+            //lay tat ca id class tu form post len
+            string[] keys = Request.Form.AllKeys;
+            for (int i = 0; i < keys.Length; i++)
+            {
+                string s_id = Request.Form[keys[i]];
+                int IDClass = int.Parse(s_id);
+                int IDTeacher = (int)Session[Common.CommonConstant.ID_SESSION];
+                dao_tc.Delete(IDClass, IDTeacher);
             }
             return RedirectToAction("index");
         }
