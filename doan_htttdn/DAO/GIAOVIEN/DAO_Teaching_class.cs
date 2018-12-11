@@ -28,5 +28,35 @@ namespace doan_htttdn.DAO.GIAOVIEN
                         }).Distinct();
             return list.Distinct();
         }
+        public IEnumerable<Teacher_Attendance> GetTodayClasses()
+        {
+            var list = (from a in db.CLASS_STUDENT
+                        join b in db.CLASSes
+                        on a.IDClass equals b.IDClass
+                        where a.Day.Day == DateTime.Now.Day
+                        && a.Day.Month == DateTime.Now.Month
+                        && a.Day.Year == DateTime.Now.Year
+                        select new Teacher_Attendance
+                        {
+                            IDClass = a.IDClass,
+                            NameClass = b.NameClass,
+                            session = a.Session,
+                            Day = a.Day,
+                            State = a.State
+                        }
+                        ).ToList();
+            return list;
+        }
+        public void Insert(TEACHING_CLASS tc)
+        {
+            db.TEACHING_CLASS.Add(tc);
+            db.SaveChanges();
+        }
+        public void delete(int IDTeacher)
+        {
+            db.TEACHING_CLASS.RemoveRange(db.TEACHING_CLASS.Where(x => x.IDTeacher == IDTeacher && x.Day.Day == DateTime.Now.Day 
+                                                            && x.Day.Month == DateTime.Now.Month && x.Day.Year == DateTime.Now.Year));
+            db.SaveChanges();
+        }
     }
 }
