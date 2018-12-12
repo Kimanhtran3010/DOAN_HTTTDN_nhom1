@@ -29,6 +29,10 @@ namespace doan_htttdn.FF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ACCOUNT>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Admin_Article>()
                 .Property(e => e.Pass)
                 .IsUnicode(false);

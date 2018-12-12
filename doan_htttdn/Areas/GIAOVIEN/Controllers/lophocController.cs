@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.DAO;
+using doan_htttdn.Areas.GIAOVIEN.Models;
+using doan_htttdn.DAO.GIAOVIEN;
 
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers
 {
@@ -12,13 +14,13 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         DAO_Course dao_course = new DAO_Course();
         DAO_Lop dao_lop = new DAO_Lop();
         // GET: GIAOVIEN/lophoc
-        public ActionResult Index()
+        public ActionResult Index(string search_table)
         {
            
             if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
                 var a = dao_lop.GetByIDTeacher((int)Session[Common.CommonConstant.ID_SESSION]);
-                PopulateCoursetsDropDownList();
+                SetViewBag();
                 return View(a);
             }
             else
@@ -26,21 +28,29 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 return RedirectToAction("Index", "Login");
             }
         }
-        private void PopulateCoursetsDropDownList(object selectedDepartment = null)
+        private void SetViewBag ( string selectName = null)
         {
-            ViewBag.CoursesList = new SelectList(dao_course.GetNamecouse(),"IDCourse","Name");
+            ViewBag.search = new SelectList(dao_course.GetNamecouse(), "Name", "Name", selectName);
         }
-        [HttpPost]
-        public ActionResult Search( string search_table)
+        //[HttpPost]
+        //public ActionResult Search( string search_table)
+        //{
+        //    var a = dao_lop.GetByIDTeacherandNameCourse((int)Session[Common.CommonConstant.ID_SESSION], search_table);
+        //    PopulateCoursetsDropDownList();
+        //    return RedirectToAction("Index","lophoc");
+        //    //return View(a);
+        //}
+        public ActionResult Xem_DShocvien(int IDclass = 1)
         {
-            var a = dao_lop.GetByIDTeacherandNameCourse((int)Session[Common.CommonConstant.ID_SESSION], search_table);
-            PopulateCoursetsDropDownList();
-            return RedirectToAction("Index","lophoc");
-            //return View(a);
+            return RedirectToAction("Index", "DShocvien", new { @id = IDclass });
         }
-        public ActionResult Xem_DShocvien(int IDclass = 1 )
+
+        public ActionResult Search(string search)
         {
-            return RedirectToAction("Index", "DShocvien", new {@id = IDclass });
+
+            List<Class_model> list = dao_lop.GetClassModels(search, (int)Session[Common.CommonConstant.ID_SESSION]);
+            SetViewBag();
+            return View("Index",list);
         }
 
     }

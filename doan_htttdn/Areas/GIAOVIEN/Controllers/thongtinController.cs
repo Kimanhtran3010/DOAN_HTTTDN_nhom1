@@ -29,11 +29,13 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         {
            if(dao.Update(tEACHER))
             {
+                TempData["msg"] = "<script>alert('Sửa thông tin thành công');</script>";
                 return RedirectToAction("Index", "thongtin");
             }
            else
             {
-                return Content("Erorr!!!");
+                TempData["msg"] = "<script>alert('Sửa thông tin không thành công');</script>";
+                return RedirectToAction("Index", "thongtin");
             }
 
         }

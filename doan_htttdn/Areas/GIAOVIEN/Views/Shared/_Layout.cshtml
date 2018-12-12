@@ -33,31 +33,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="~/Assets/GIAOVIEN/js/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     
+   
 </head>
 <body>
 
-    <div class="header" style="    background-color: #fffbea;height: 120px">
+    <div class="header" style="    background-color: #b533b2    ;height: 120px">
         <div class="container" >
             <div class="head-top">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="~/Assets/Image/Capture.PNG" alt="">
+
+                        <img src="~/Assets/Image/logogiaovien.png" />
                     </a>
                 </div>
                 <div class=" h_menu4">
                     <ul class="memenu skyblue">
-                        <li> <a class="color1" style="" href="@Url.Action("Index","lophoc")"><h3> Lớp Học</h3></a></li>
-                        <li class="grid"><a class="color2" href="@Url.Action("Index","Diemdanh")"><h3>Điểm Danh</h3> </a></li>
-                        <li><a class="color4" href="@Url.Action("Index","Chamcong")"><h3> Chấm Công</h3></a></li>
+                        <li> <a class="color1" style="" href="@Url.Action("Index","lophoc")"><h3 style="color: WHITE;"> Lớp Học</h3></a></li>
+                        <li class="grid"><a class="color2" href="@Url.Action("Index","Diemdanh")"><h3 style="color: WHITE;">Điểm Danh</h3> </a></li>
+                        <li><a class="color4" href="@Url.Action("Index","Chamcong")"><h3 style="color: WHITE;"> Chấm Công</h3></a></li>
                         <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="color: #45c6e4;">
                                 <img src="~/Assets/Image/user.png" width="20px" height="18px" />Hello! @Session[CommonConstant.USER_SESSION] <b class="caret"> </b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li> <a href="#"><img src="~/Assets/Image/user.png" width="10px" height="10px" /> Thông tin cá nhân</a> </li>
-                                <li> <a href="#"><img src="~/Assets/Image/settings.png" width="15px" height="13px" /> Đổi Mật Khẩu</a> </li>
+                                <li> <a href="@Url.Action("Index","thongtin")"><img src="~/Assets/Image/user.png" width="10px" height="10px" /> Thông tin cá nhân</a> </li>
+                                <li> <a href="@Url.Action("Index","matkhau")">><img src="~/Assets/Image/settings.png" width="15px" height="13px" /> Đổi Mật Khẩu</a> </li>
                                 <li class="divider"> </li>
-                                <li> <a href="#"><img src="~/Assets/Image/logout.png" width="15px" height="13px" /> Đăng Xuất</a> </li>
+                                <li> <a href="@Url.Action("Index","Login")">><img src="~/Assets/Image/logout.png" width="15px" height="13px" /> Đăng Xuất</a> </li>
                             </ul>
                         </li>
                     </ul>
@@ -73,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @RenderBody()
 
-    <div style="width:100% ; height:20px; background-color:#fffbea ; margin-top:20px"></div>
+    <div style="width:100% ; height:20px; background-color:#b533b2 ; margin-top:20px"></div>
 
 </body>
 

@@ -13,11 +13,15 @@ namespace doan_htttdn.FF
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDTeacher { get; set; }
 
+        [StringLength(100)]
+        public string Username { get; set; }
+
         [Required]
         [StringLength(200)]
         public string Password { get; set; }
 
-        public int? Status { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Status { get; set; }
 
         public virtual TEACHER TEACHER { get; set; }
     }
