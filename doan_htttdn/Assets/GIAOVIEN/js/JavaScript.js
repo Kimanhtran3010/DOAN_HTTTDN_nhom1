@@ -20,35 +20,31 @@
         alert("Đổi mật khẩu thành công!")
 
 }
-function matchin4() {
-    var id = document.getElementById('id').value;
+function matchinfor() {
     var name = document.getElementById('namegv').value;
     var phone = document.getElementById('phonegv').value;
-    var dt = document.getElementById('dtgv').value;
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (id == '') {
-        alert("Bạn chưa nhập mã giáo viên!");
-    }
-    if (name == '') {
-        alert("Bạn chưa nhập họ và tên!");
-    }
+    //var dt = document.getElementById('dtgv').value;
+    //var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+ 
+    //if (name == '') {
+    //    alert("Bạn chưa nhập họ và tên!");
+    //}
 
-    if (!filter.test(email.value)) {
-        alert('Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com');
-        email.focus;
+    //if (!filter.test(email.value)) {
+    //    alert('Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com');
+    //    email.focus;
 
-    }
-    if (phone == '') {
-        alert("Bạn chưa nhập số điện thoại!");
-    }
-    if (phone != '' && Number.isNaN(phone) == false) {
+    //}
+    
+    if (phone =='' || ( phone != '' && Number.isNaN(phone)) == false) {
         alert("Bạn phải nhập số ở mục số điện thoại");
+        return false;
     }
-    if (dt == '') {
-        alert("Bạn chưa nhập trình độ!");
-    }
+    //if (dt == '') {
+    //    alert("Bạn chưa nhập trình độ!");
+    //}
 
 
     else
-        return false;
+        return true;
 }

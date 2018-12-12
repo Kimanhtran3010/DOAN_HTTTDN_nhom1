@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -141,15 +142,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\ClassController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\StudentController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\ChamcongController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\DiemdanhController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\DShocvienController.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
+    <Compile Include="FF\Menu_Article.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
@@ -765,6 +768,9 @@
     <Content Include="Areas\ADMIN\Views\GiaoVien\GiaoVien.cshtml" />
     <Content Include="Areas\ADMIN\Views\GiaoVien\Them.cshtml" />
     <Content Include="Areas\ADMIN\Views\GiaoVien\Sua.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Class\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Student\Student.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Student\Them.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -804,7 +810,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
-    <Folder Include="Areas\ADMIN\Views\Base\" />
     <Folder Include="Areas\USER\Views\CMS\" />
     <Folder Include="Areas\ViewModel\" />
     <Folder Include="Models\" />

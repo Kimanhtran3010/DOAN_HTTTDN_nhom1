@@ -14,6 +14,10 @@ namespace doan_htttdn.FF
         public int IDTeacher { get; set; }
 
         [Required]
+        [StringLength(100)]
+        public string Username { get; set; }
+
+        [Required]
         [StringLength(200)]
         public string Password { get; set; }
 

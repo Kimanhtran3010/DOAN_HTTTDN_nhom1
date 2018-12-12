@@ -1,18 +1,17 @@
 ﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<doan_htttdn.FF.TEACHER>
-
+@model PagedList.IPagedList<doan_htttdn.FF.CLASS>
 @{
-    ViewBag.Title = "GiaoVien";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/ADMIN/Views/Shared/_LayoutADD.cshtml";
 }
 
-<div class="content_table" >
+<div class="content_table">
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> QUẢN LÝ GIÁO VIÊN </h3>
-                    @using (Html.BeginForm("GiaoVien", "GiaoVien", FormMethod.Get))
+                    @using (Html.BeginForm("Index", "Class", FormMethod.Get))
                     {
                         <div class="row">
                             <div class="col-lg-6">
@@ -28,9 +27,9 @@
 
                 </div>
                 <div>
-                    <a href="@Url.Action("Them", "GiaoVien")" id="them011"> <button> Thêm Giáo Viên </button> </a>
+                    <a href="@Url.Action("Them", "Class")"> <button> Thêm Lớp </button> </a>
                 </div>
-                <div  class="panel-body">
+                <div class="panel-body">
 
 
                     <table border="1">
@@ -45,7 +44,7 @@
                                 <th colspan="2"></th>
                             </tr>
                         </thead>
-                        @Html.Raw(TempData["msg"]) 
+                        @Html.Raw(TempData["msg"])
                         @foreach (var item in Model)
                         {
                             <tbody>
@@ -60,12 +59,8 @@
                                     <td>
                                         @Ajax.ActionLink("Xóa", "Delete","GiaoVien",new { @id = item.IDTeacher }, new AjaxOptions
                                    {
-                                       //Confirm = "Bạn có Chắc Xóa ?",
-                                       UpdateTargetId = "testid",
-
-                                       OnComplete = "$('#row _" + @item.IDTeacher + "').remove()",
-
-
+                                       Confirm = "Bạn có Chắc Xóa ?",
+                                       OnComplete = "$('#row _"+@item.IDTeacher+"').remove()",
                                        HttpMethod = "Delete"
                                    })
                                     </td>
@@ -75,11 +70,10 @@
                         }
 
                     </table>
-                    @Html.PagedListPager(Model, Page => Url.Action("GiaoVien", new { Page, Search=ViewBag.Search}))
+                    @Html.PagedListPager(Model, Page => Url.Action("GiaoVien", new { Page, Search = ViewBag.Search }))
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-
