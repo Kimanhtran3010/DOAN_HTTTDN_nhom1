@@ -1,175 +1,123 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
-//using doan_htttdn.Areas.USER.Models;
-using System.IO;
-//using doan_htttdn.Areas.ViewModel;
 using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
-    public class tintucController : Controller
+    public class TinTucController : Controller
     {
-
-
-        // GET: USER/tintuc
-
+        // GET: USER/TinTuc
         QL_SCN db = new QL_SCN();
-
         public ActionResult ListAr()
         {
-            var a = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
-            return View(a);
+            
+            return View();
         }
-       
         public ActionResult PartialListAr()
         {
-            var a = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
-            return PartialView("PartialListAr",a);
+            var model = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
+            return PartialView("PartialListAr",model);
         }
-        public ActionResult ShowAr(string id)
-        {
-            int Aid = int.Parse(id);
-            var a = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == Aid);
-            return View(a);
-        }
-
-        public ActionResult DeleteAr(string id)
-        {
-            Delete(id);
-            return Content("Xoa thanh cong !!!");
-        }
-        [HttpPost]
-        private void Delete(string id)
+        public ActionResult Showar(string id)
         {
             int arid = int.Parse(id);
-            var ar = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == arid);
-            db.ARTICLEs.Remove(ar);
-            db.SaveChanges();
+            var cate = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == arid);
+            return View(cate);
         }
-        public ActionResult EditAr(string id)
+        public ActionResult Aredit(string id)
         {
-            int Air = int.Parse(id);
-            var a = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == Air);
-            return View(a);
+            int cateid = int.Parse(id);
+            var cate = db.ARTICLEs.FirstOrDefault(x => x.ID_Article == cateid);
+            return View(cate);
         }
         [HttpPost]
-        public ActionResult EditAr(ARTICLEs di)
+        public ActionResult Aredit(ARTICLE model)
         {
-            ARTICLEs ar = new ARTICLEs();
-            ar.ID_Article = di.ID_Article;
-            ar.Title = di.Title;
-            ar.Summary = di.Summary;
-            ar.Contents = di.Contents;
-            ar.Img = di.Img;
-            ar.Date = di.Date;
-            ar.IDAdmin = di.IDAdmin;
-            db.Entry(ar).State = EntityState.Modified;
+            ARTICLE cate = new ARTICLE();
+            cate.ID_Article = model.ID_Article;
+            cate.Title = model.Title;
+            cate.Summary = model.Summary;
+            cate.Contents = model.Contents;
+            cate.Img = model.Img;
+            cate.Date = model.Date;
+            cate.State = model.State;
+            cate.Date = model.Date;
+            cate.IDAdmin = model.IDAdmin;
+            cate.ID_Menu = model.ID_Menu;
+            db.Entry(cate).State = EntityState.Modified;
             db.SaveChanges();
             return View("ListAr");
         }
-        public ActionResult Index()
+        public ActionResult EditAr()
         {
             return View();
-
         }
+
         [HttpPost]
-        public ActionResult Index(Admin_Article ad)
+        public ActionResult EditAr(ARTICLE ar)
         {
             if (ModelState.IsValid)
             {
-                //creat
-                db.Admin_Article.Add(ad);
+                db.ARTICLEs.Add(ar);
                 db.SaveChanges();
-
-
             }
-            return Content("Success!!!");
+            return View();
         }
 
-
-      
-     
-
+        public ActionResult Index()
+        {
+            return View();
+        }
         
-
-
-        //public ActionResult Examdropdown()
-        //{
-        //    var cate = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
-        //    List<object> obj = new List<object>();
-        //    foreach (var item in cate)
-        //    {
-        //        obj.Add(new { Text = item.Title, Value = item.ID_Article });
-        //    }
-
-        //    var model = new DropDownList()
-        //    {
-        //        selectlistar = new SelectList(obj.ToList(), "Value", "Text")
-        //    };
-        //    return View(model);
-        //}
-
-        //public ActionResult ChooseCheck()
-        //{
-        //    var cate = db.ARTICLEs.Where(x => x.ID_Article > 0).ToList();
-        //    var model = new CheckBoxList
-        //    {
-        //        AvariableCheck = cate
-        //    };
-
-        //    model.SelectedCheck = new List<ARTICLE> { cate[1], cate[2] };
-        //    return View(model);
-        //}
-        [HttpPost]
-        public ActionResult ChooseCheck(int[] choosedcheck)
+        public ActionResult TrangChu()
         {
             return View();
         }
-
-        public ActionResult Ckeditor()
-        {
-            return View();
-        }
-
         public ActionResult ListNews()
         {
-            var model = db.ARTICLEs.Where(x => x.State > 0).ToList();
+            var model = db.ARTICLEs.Where(x => x.ID_Article > 1).ToList();
             return View(model);
         }
 
-        public ActionResult Detail(string id)
-        {
-            //id = 1;
-            if (id!=null)
-            {
-                var model = db.ARTICLEs.FirstOrDefault(xx => xx.ID_Article == int.Parse(id));
-                ViewBag.title = model.Title;
-                ViewBag.abtract = model.Summary;
-                ViewBag.detail = model.Contents;
-                ViewBag.image = model.Img;
-                ViewBag.ad = model.IDAdmin;
-
-            }
-            return View();
-        }
-        
-        public ActionResult InNewscate (string cateid)
+        public ActionResult InNewscate(string cateid, int? page)
         {
             if (cateid != null)
-            {
+                {
+
                 int idcate = int.Parse(cateid);
                 var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
-
                 var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
-                ViewBag.catename = cate.Name_Menu;
+                ViewBag.cateName = cate.Name_Menu;
                 return View(model);
             }
-            else {
-                return View("Index","tintuc");
+          else
+            {
+                return View("Index","TinTuc");
+            }
+            
+        }
+
+        [HttpGet]
+        public ActionResult Detail (long id)
+        {
+            if (id > 0 )
+            {
+                var cate = db.ARTICLEs.Where(x => x.ID_Article == id).FirstOrDefault();
+                ViewBag.tieude = cate.Title;
+                ViewBag.summary = cate.Summary;
+                ViewBag.content = cate.Contents;
+                ViewBag.img = cate.Img;
+                ViewBag.date = cate.Date;
+                
+                return View();
+            }
+           else
+            {
+                return Content("Error !!!");
             }
             
         }
@@ -178,5 +126,8 @@ namespace doan_htttdn.Areas.USER.Controllers
             var model = db.Menu_Article.Where(x => x.ID_Menu > 0).ToList();
             return View(model);
         }
+
+        
+
     }
 }

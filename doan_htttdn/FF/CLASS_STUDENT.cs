@@ -19,11 +19,7 @@ namespace doan_htttdn.FF
         public string IDStudent { get; set; }
 
         [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Session { get; set; }
-
-        [Column(TypeName = "date")]
+        [Column(Order = 2, TypeName = "date")]
         public DateTime Day { get; set; }
 
         public int? State { get; set; }

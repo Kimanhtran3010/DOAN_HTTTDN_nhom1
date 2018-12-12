@@ -7,7 +7,7 @@ namespace doan_htttdn.FF
     using System.Data.Entity.Spatial;
 
     [Table("ARTICLE")]
-    public partial class ARTICLEs
+    public partial class ARTICLE
     {
         [Key]
         [Column(Order = 0)]

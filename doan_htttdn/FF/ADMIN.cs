@@ -9,24 +9,12 @@ namespace doan_htttdn.FF
     [Table("ADMIN")]
     public partial class ADMIN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ADMIN()
-        {
-            ARTICLEs = new HashSet<ARTICLEs>();
-        }
-
         [Key]
         [StringLength(20)]
-        public string IDAdmin { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID_Menu { get; set; }
+        public string IDAmin { get; set; }
 
-        [StringLength(100)]
-        public string Pass { get; set; }
-
-        public int? Status { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICLEs> ARTICLEs { get; set; }
+        [Required]
+        [StringLength(200)]
+        public string Password { get; set; }
     }
 }

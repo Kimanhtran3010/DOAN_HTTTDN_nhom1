@@ -12,7 +12,7 @@ namespace doan_htttdn.FF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ADMIN1()
         {
-            ARTICLEs = new HashSet<ARTICLEs>();
+            ARTICLEs = new HashSet<ARTICLE>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace doan_htttdn.FF
         public string Pass { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICLEs> ARTICLEs { get; set; }
+        public virtual ICollection<ARTICLE> ARTICLEs { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<doan_htttdn.FF.ARTICLEs>
+﻿@model IEnumerable<doan_htttdn.FF.ARTICLE>
 
 @foreach (var item in Model)
 {
@@ -6,17 +6,10 @@
     <td>@item.ID_Article</td>
     <td>@item.Title</td>
     <td>@item.Summary</td>
-    <td>@item.Contents</td>
     <td>@item.Img</td>
     <td>@item.Date</td>
     <td>@item.IDAdmin</td>
-    <td><a href="@Url.Action("ShowAr","tintuc",new { id = item.ID_Article})">Show</a></td>
-    <td><a href="@Url.Action("EditAr","tintuc",new { id = item.ID_Article})">Edit</a></td>
-    <td>
-        @using (Html.BeginForm("DeleteAr", "tintuc", FormMethod.Post))
-        {
-            <a href="@Url.Action("DeleteAr","tintuc",new { id = item.ID_Article})">Delete</a>
-        }
-    </td>
+    <td><a href="@Url.Action("Showar", "TinTuc", new { id = item.ID_Article })">Show</a></td>
+    <td><a href="@Url.Action("Aredit", "TinTuc", new { id = item.ID_Article })">Update</a></td>
 </tr>
 }

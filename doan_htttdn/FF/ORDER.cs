@@ -16,7 +16,8 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        public int IDOrders { get; set; }
+        [StringLength(20)]
+        public string IDOrders { get; set; }
 
         [StringLength(100)]
         public string NameCustomer { get; set; }

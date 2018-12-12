@@ -10,8 +10,8 @@ namespace doan_htttdn.FF
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDOrders { get; set; }
+        [StringLength(20)]
+        public string IDOrders { get; set; }
 
         [Key]
         [Column(Order = 1)]
