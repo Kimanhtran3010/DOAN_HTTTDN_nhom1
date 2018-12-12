@@ -159,6 +159,7 @@
     <Compile Include="Areas\GIAOVIEN\Models\Class_model.cs" />
     <Compile Include="Areas\GIAOVIEN\Models\Student_Attendance.cs" />
     <Compile Include="Areas\GIAOVIEN\Models\Student_Change__Attendance.cs" />
+    <Compile Include="Areas\GIAOVIEN\Models\Teacher_Attendance.cs" />
     <Compile Include="Areas\USER\Controllers\CartController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\lophocController.cs" />
     <Compile Include="Areas\GIAOVIEN\Controllers\matkhauController.cs" />
@@ -168,14 +169,12 @@
     <Compile Include="Areas\USER\Controllers\KhoaHocController.cs" />
     <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
     <Compile Include="Areas\USER\Controllers\LoginController.cs" />
-    <Compile Include="Areas\USER\Controllers\tintucController.cs" />
+    <Compile Include="Areas\USER\Controllers\TinTucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
-    <Compile Include="Areas\USER\Models\Admin_Article.cs" />
-    <Compile Include="Areas\USER\Models\Article1.cs" />
     <Compile Include="Areas\USER\Models\Cart_items.cs" />
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
-    <Compile Include="Areas\USER\Models\Web1.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
+    <Compile Include="Areas\ViewModel\ChamCongIndexViewModel.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\SessionTeacher.cs" />
@@ -189,6 +188,7 @@
     <Compile Include="DAO\GIAOVIEN\DAO_GIAOVIEN.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Hocvien.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
+    <Compile Include="DAO\GIAOVIEN\DAO_Teaching_class.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\Admin_Article.cs" />
     <Compile Include="FF\ARTICLE.cs" />
@@ -225,17 +225,61 @@
     <Content Include="Assets\Admin\font-awesome\css\font-awesome.min.css" />
     <Content Include="Assets\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\Admin\js\jquery-1.10.2.min.js" />
+    <Content Include="Assets\Article\magnews\css\bootstrap.min.css" />
+    <Content Include="Assets\Article\magnews\css\font-awesome.min.css" />
+    <Content Include="Assets\Article\magnews\css\owl.carousel.css" />
+    <Content Include="Assets\Article\magnews\css\owl.theme.default.css" />
+    <Content Include="Assets\Article\magnews\css\style.css" />
+    <Content Include="Assets\Article\magnews\img\ad-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\ad-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\ad-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\av-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\av-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-lg-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-lg-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-lg-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-md-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-md-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-md-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-md-4.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-post.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-sm-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-sm-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-sm-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-sm-4.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-thumb-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-thumb-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-thumb-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-thumb-4.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-1.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-10.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-2.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-3.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-4.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-5.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-6.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-7.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-8.jpg" />
+    <Content Include="Assets\Article\magnews\img\img-widget-9.jpg" />
+    <Content Include="Assets\Article\magnews\img\logo-alt.png" />
+    <Content Include="Assets\Article\magnews\img\logo.png" />
+    <Content Include="Assets\Article\magnews\index.html" />
+    <Content Include="Assets\Article\magnews\js\bootstrap.min.js" />
+    <Content Include="Assets\Article\magnews\js\jquery.min.js" />
+    <Content Include="Assets\Article\magnews\js\main.js" />
+    <Content Include="Assets\Article\magnews\js\owl.carousel.min.js" />
+    <Content Include="Assets\Article\magnews\post.html" />
     <Content Include="Assets\GIAOVIEN\css\a.css" />
     <Content Include="Assets\GIAOVIEN\css\bootstrap.css" />
     <Content Include="Assets\GIAOVIEN\css\bootstrap.min.css" />
     <Content Include="Assets\GIAOVIEN\css\fa.min.css" />
     <Content Include="Assets\GIAOVIEN\css\flexslider.css" />
     <Content Include="Assets\GIAOVIEN\css\gv.css" />
-    <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
     <Content Include="Assets\GIAOVIEN\css\memenu.css" />
     <Content Include="Assets\GIAOVIEN\css\style.css" />
     <Content Include="Assets\GIAOVIEN\js\bootstrap.min.js" />
     <Content Include="Assets\GIAOVIEN\js\controller\cartController.js" />
+    <Content Include="Assets\GIAOVIEN\js\ddtf.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.flexslider.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.min.js" />
     <Content Include="Assets\GIAOVIEN\js\main.js" />
@@ -270,7 +314,7 @@
     <Content Include="Assets\Image\code_3_1.png" />
     <Content Include="Assets\Image\code_5.png" />
     <Content Include="Assets\Image\fb.png" />
-    <Content Include="Assets\Image\Galaxy-A8s %28Copy%29.jpg" />
+    <Content Include="Assets\Image\Galaxy-A8s.jpg" />
     <Content Include="Assets\Image\google.png" />
     <Content Include="Assets\Image\img-sprite.png" />
     <Content Include="Assets\Image\lo.png" />
@@ -282,7 +326,7 @@
     <Content Include="Assets\Image\logo.png" />
     <Content Include="Assets\Image\logo_main.PNG" />
     <Content Include="Assets\Image\logout.png" />
-    <Content Include="Assets\Image\NGUOI DI TIM BUG %28Copy%29.jpg" />
+    <Content Include="Assets\Image\NGUOI DI TIM BUG.jpg" />
     <Content Include="Assets\Image\p1.jpg" />
     <Content Include="Assets\Image\p2.jpg" />
     <Content Include="Assets\Image\p3.jpg" />
@@ -300,6 +344,7 @@
     <Content Include="Assets\Image\pic2.jpg" />
     <Content Include="Assets\Image\pro.jpg" />
     <Content Include="Assets\Image\product1.jpg" />
+    <Content Include="Assets\Image\R17-Pro %28Copy%29.jpg" />
     <Content Include="Assets\Image\R17-Pro.jpg" />
     <Content Include="Assets\Image\robo1.jpg" />
     <Content Include="Assets\Image\robo10.jpg" />
@@ -322,7 +367,7 @@
     <Content Include="Assets\Image\slide1-4.png" />
     <Content Include="Assets\Image\sonyXZ4.jpg" />
     <Content Include="Assets\Image\sratch.png" />
-    <Content Include="Assets\Image\SSD-860-QVO %28Copy%29.png" />
+    <Content Include="Assets\Image\SSD-860-QVO.png" />
     <Content Include="Assets\Image\t1.jpg" />
     <Content Include="Assets\Image\t2.jpg" />
     <Content Include="Assets\Image\t3.jpg" />
@@ -671,7 +716,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\USER\Views\web.config" />
-    <Content Include="Areas\ADMIN\Views\web.config" />
+    <Content Include="Areas\ADMIN\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\USER\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\USER\Views\Home\Index.cshtml" />
     <Content Include="Areas\USER\Views\Vechungtoi\Index.cshtml" />
@@ -721,23 +768,15 @@
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Login\Index.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\Index.cshtml" />
     <Content Include="Areas\USER\Views\Login\Index.cshtml" />
     <Content Include="Areas\USER\Views\_ViewStart.cshtml" />
     <Content Include="Areas\USER\Views\Home\ListNews.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\ListAr.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\ShowAr.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\PartialListAr.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\EditAr.cshtml" />
-    <Content Include="Areas\USER\Views\tintuc\DeleteAr.cshtml" />
     <Content Include="Areas\USER\Views\Login\Login.cshtml" />
-    <Content Include="Areas\GIAOVIEN\Views\web.config" />
     <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
-    <Content Include="Areas\USER\Views\Shared\_Layout - 1.cshtml" />
     <Content Include="Assets\USER\ckeditor\CHANGES.md" />
     <Content Include="Assets\USER\ckeditor\LICENSE.md" />
     <Content Include="Assets\USER\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -755,6 +794,24 @@
     <Content Include="Assets\USER\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Assets\USER\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Assets\USER\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Assets\USER\css\bootstrap.min.rar" />
+    <Content Include="Areas\USER\Views\TinTuc\EditAr.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\Showar.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\PartialListAr.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\ListAr.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\Aredit.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\ListNews.cshtml" />
+    <Content Include="Assets\Article\magnews\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Article\magnews\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Article\magnews\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Article\magnews\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Article\magnews\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Article\magnews\fonts\FontAwesome.otf" />
+    <Content Include="Areas\USER\Views\TinTuc\Menu.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\InNewscate.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\Index.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\TrangChu.cshtml" />
+    <Content Include="Areas\USER\Views\TinTuc\Detail.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\Ckeditor.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\ListNews.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\Detail.cshtml" />
@@ -771,6 +828,7 @@
     <Content Include="Areas\ADMIN\Views\Class\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Student\Student.cshtml" />
     <Content Include="Areas\ADMIN\Views\Student\Them.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -811,7 +869,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
-    <Folder Include="Areas\ViewModel\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -867,4 +924,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>

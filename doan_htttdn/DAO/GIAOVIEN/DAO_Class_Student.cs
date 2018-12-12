@@ -38,6 +38,19 @@ namespace doan_htttdn.DAO.GIAOVIEN
 
         //    }
         //}
+        public Teacher_Attendance getByClassInfoByID(int ID)
+        {
+            var model = (from a in db.CLASS_STUDENT
+                        where a.IDClass == ID
+                        select new Teacher_Attendance
+                        {
+                            IDClass = ID,
+                            session = a.Session,
+                            Day = a.Day,
+                            State = a.State
+                        }).FirstOrDefault();
+            return model;
+        }
     }
    
 }

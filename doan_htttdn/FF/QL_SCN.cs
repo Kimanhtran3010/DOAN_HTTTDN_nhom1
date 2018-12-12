@@ -47,6 +47,8 @@ namespace doan_htttdn.FF
                 .WithRequired(e => e.Admin_Article)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<CLASS>()
+                .Property(e => e.IDClass)
             modelBuilder.Entity<ARTICLE>()
                 .Property(e => e.Image)
                 .IsUnicode(false);
@@ -78,10 +80,6 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
-                .Property(e => e.Image)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
@@ -90,6 +88,10 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.RIGISTRATION_COURSE)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DETAIL_ORDERS>()
+                .Property(e => e.IDOrders)
+                .IsUnicode(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.IDRobot)
@@ -130,10 +132,6 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<PRODUCT>()
-                .Property(e => e.Image)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.DETAIL_ORDERS)
                 .WithRequired(e => e.PRODUCT)
                 .WillCascadeOnDelete(false);
@@ -149,6 +147,10 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<RIGISTRATION_COURSE>()
+                .Property(e => e.NameParent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
