@@ -1,47 +1,78 @@
 ﻿@using doan_htttdn.FF;
 @model List<TEACHER>
+
 @{
     ViewBag.Title = "GiaoVien";
     Layout = "~/Areas/ADMIN/Views/Shared/_LayoutADD.cshtml";
 }
+<h2>thay doi thạt met moi</h2>
+<h2>thay doi thạt met moi</h2>
+<h2>thay doi thạt met moi</h2>
+<div class="content_table">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> QUẢN LÝ GIÁO VIÊN </h3>
+                </div>
+                <div style="float:right">
+                    <a href="@Url.Action("Them","GiaoVien")"> <button> Thêm Giáo Viên</button> </a>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("GiaoVien","GiaoVien", FormMethod.Get))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-md-4">
+                                    <input type="text" name="Search" />
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" Tìm Kiếm />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Giáo Viên</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Địa Chỉ</th>
+                                <th>Email</th>
+                                <th>Trình Độ</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
 
-<h2>GiaoVien</h2>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Tên Giáo Viên</th>
-        <th>Số Điện Thoại</th>
-        <th>Địa Chỉ</th>
-        <th>Email</th>
-        <th>Trình Độ</th>
-        <th colspan="2"></th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.IDTeacher</td>
-            <td>@item.Name</td>
-            <td>@item.Phone</td>
-            <td>@item.ADDRESS</td>
-            <td>@item.Email</td>
-            <td>@item.Knowledge</td>
-            <td>Sửa</td>
-            <td>Xóa</td>
-        </tr>
-    }
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Sources One month tracking </h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="shieldui-grid1" role="grid" aria-readonly="true" class="sui-grid sui-grid-core">
-                            <div class="sui-gridheader">
-                                <table class="sui-table"><colgroup><col style="width:170px"><col><col><col></colgroup>
-                                <thead><tr role="row" class="sui-columnheader"><th data-field="Source" role="columnheader" tabindex="-1" class="sui-headercell"><a href="#" class="sui-link sui-unselectable" unselectable="on" tabindex="-1">Source</a></th><th data-field="Amount" role="columnheader" tabindex="-1" class="sui-headercell"><a href="#" class="sui-link sui-unselectable" unselectable="on" tabindex="-1">Amount</a></th><th data-field="Percent" role="columnheader" tabindex="-1" class="sui-headercell"><a href="#" class="sui-link sui-unselectable" unselectable="on" tabindex="-1">Percent</a></th><th data-field="Target" role="columnheader" tabindex="-1" class="sui-headercell"><a href="#" class="sui-link sui-unselectable" unselectable="on" tabindex="-1">Target</a></th></tr></thead><tbody class="sui-hide"><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div><div class="sui-gridcontent"><table class="sui-table"><colgroup><col style="width:170px"><col><col><col></colgroup><tbody><tr class="sui-row" role="row"><td role="gridcell" tabindex="-1" class="sui-cell">Direct</td><td role="gridcell" tabindex="-1" class="sui-cell">323</td><td role="gridcell" tabindex="-1" class="sui-cell">23 %</td><td role="gridcell" tabindex="-1" class="sui-cell">600</td></tr><tr class="sui-alt-row" role="row"><td role="gridcell" tabindex="-1" class="sui-cell">Refer</td><td role="gridcell" tabindex="-1" class="sui-cell">345</td><td role="gridcell" tabindex="-1" class="sui-cell">45 %</td><td role="gridcell" tabindex="-1" class="sui-cell">567</td></tr><tr class="sui-row" role="row"><td role="gridcell" tabindex="-1" class="sui-cell">Social</td><td role="gridcell" tabindex="-1" class="sui-cell">567</td><td role="gridcell" tabindex="-1" class="sui-cell">23 %</td><td role="gridcell" tabindex="-1" class="sui-cell">456</td></tr><tr class="sui-alt-row" role="row"><td role="gridcell" tabindex="-1" class="sui-cell">Search</td><td role="gridcell" tabindex="-1" class="sui-cell">234</td><td role="gridcell" tabindex="-1" class="sui-cell">56 %</td><td role="gridcell" tabindex="-1" class="sui-cell">890</td></tr><tr class="sui-row" role="row"><td role="gridcell" tabindex="-1" class="sui-cell">Internal</td><td role="gridcell" tabindex="-1" class="sui-cell">111</td><td role="gridcell" tabindex="-1" class="sui-cell">12 %</td><td role="gridcell" tabindex="-1" class="sui-cell">345</td></tr></tbody></table></div></div>Demo Version<a href="http://www.shieldui.com" target="_blank" style="color: grey; text-decoration: none;"> by ShieldUI</a>
-                    </div>
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr id="row_@item.IDTeacher">
+                                    <td>@item.IDTeacher</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.ADDRESS</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Knowledge</td>
+                                    <td> <a href="@Url.Action("sua", "GiaoVien", new { @id = item.IDTeacher})"> Sửa </a></td>
+                                    <td>
+                                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IDTeacher }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có Chắc Xóa ?",
+                                       OnComplete = "$('#row _"+@item.IDTeacher+"').remove()",
+                                       HttpMethod = "Delete"
+                                   })
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        }
+
+                    </table>
                 </div>
             </div>
         </div>
-</table>
+    </div>
+   
+</div>

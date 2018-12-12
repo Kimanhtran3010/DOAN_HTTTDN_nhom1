@@ -10,7 +10,6 @@ namespace doan_htttdn.FF
     public partial class ARTICLE
     {
         [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Article { get; set; }
 
@@ -23,25 +22,16 @@ namespace doan_htttdn.FF
         [Required]
         public string Contents { get; set; }
 
-        public DateTime Date { get; set; }
+        [StringLength(100)]
+        public string Image { get; set; }
 
-        [Required]
-        public string Img { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? Day { get; set; }
 
-        public int State { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDAdmin { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID_Menu { get; set; }
+        public int? State { get; set; }
 
-        public virtual ADMIN1 ADMIN { get; set; }
-
-        public virtual Menu_Article Menu_Article { get; set; }
+        public virtual Admin_Article Admin_Article { get; set; }
     }
 }

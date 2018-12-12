@@ -8,7 +8,7 @@ namespace doan_htttdn.Common
     [Serializable]
     public class UserLogin
     { 
-        public string IDuser { get; set; }
+        public int IDuser { get; set; }
     }
    
 }

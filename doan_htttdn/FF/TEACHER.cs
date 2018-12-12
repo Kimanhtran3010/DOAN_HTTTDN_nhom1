@@ -16,9 +16,9 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDTeacher { get; set; }
+        public int IDTeacher { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
 
