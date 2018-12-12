@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.DAO.GIAOVIEN;
 using doan_htttdn.FF;
+using doan_htttdn.Areas.ViewModel;
 using doan_htttdn.Areas.GIAOVIEN.Models;
 
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers

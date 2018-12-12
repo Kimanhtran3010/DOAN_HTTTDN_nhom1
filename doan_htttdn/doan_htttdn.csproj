@@ -178,6 +178,7 @@
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
     <Compile Include="Areas\USER\Models\Web1.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
+    <Compile Include="Areas\ViewModel\ChamCongIndexViewModel.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\SessionTeacher.cs" />
@@ -819,7 +820,6 @@
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\ADMIN\Views\Base\" />
     <Folder Include="Areas\USER\Views\CMS\" />
-    <Folder Include="Areas\ViewModel\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -875,4 +875,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>
