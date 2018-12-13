@@ -28,10 +28,16 @@ namespace doan_htttdn.FF
         [Column(TypeName = "date")]
         public DateTime? Day { get; set; }
 
-        public int IDAdmin { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string IDAdmin { get; set; }
 
         public int? State { get; set; }
 
+        public int ID_Menu { get; set; }
+
         public virtual Admin_Article Admin_Article { get; set; }
+
+        public virtual Menu_Article Menu_Article { get; set; }
     }
 }

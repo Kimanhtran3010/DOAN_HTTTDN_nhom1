@@ -19,6 +19,7 @@ namespace doan_htttdn.FF
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
         public virtual DbSet<COURSE> COURSEs { get; set; }
         public virtual DbSet<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
+        public virtual DbSet<Menu_Article> Menu_Article { get; set; }
         public virtual DbSet<ORDER> ORDERS { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
@@ -34,6 +35,10 @@ namespace doan_htttdn.FF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Admin_Article>()
+                .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin_Article>()
                 .Property(e => e.Pass)
                 .IsUnicode(false);
 
@@ -44,6 +49,10 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<ARTICLE>()
                 .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ARTICLE>()
+                .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -90,6 +99,11 @@ namespace doan_htttdn.FF
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
 
+            modelBuilder.Entity<Menu_Article>()
+                .HasMany(e => e.ARTICLEs)
+                .WithRequired(e => e.Menu_Article)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
@@ -127,6 +141,11 @@ namespace doan_htttdn.FF
             modelBuilder.Entity<PROMOTION>()
                 .Property(e => e.IDPromotion)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<PROMOTION>()
+                .HasMany(e => e.ORDERS)
+                .WithRequired(e => e.PROMOTION)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)

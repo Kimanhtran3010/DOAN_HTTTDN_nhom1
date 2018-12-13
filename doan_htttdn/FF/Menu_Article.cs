@@ -6,22 +6,19 @@ namespace doan_htttdn.FF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Admin_Article
+    public partial class Menu_Article
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Admin_Article()
+        public Menu_Article()
         {
             ARTICLEs = new HashSet<ARTICLE>();
         }
 
         [Key]
-        [StringLength(50)]
-        public string IDAdmin { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID_Menu { get; set; }
 
-        [StringLength(50)]
-        public string Pass { get; set; }
-
-        public int? Status { get; set; }
+        public string Name_Menu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ARTICLE> ARTICLEs { get; set; }

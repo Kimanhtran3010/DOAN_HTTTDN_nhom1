@@ -201,6 +201,7 @@
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
+    <Compile Include="FF\Menu_Article.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
