@@ -1,37 +1,38 @@
-﻿@using doan_htttdn.FF;
-@model List<TEACHER>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<doan_htttdn.FF.TEACHER>
 
 @{
     ViewBag.Title = "GiaoVien";
     Layout = "~/Areas/ADMIN/Views/Shared/_LayoutADD.cshtml";
 }
-<h2>thay doi thạt met moi</h2>
-<h2>thay doi thạt met moi</h2>
-<h2>thay doi thạt met moi</h2>
-<div class="content_table">
+
+<div class="content_table" >
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> QUẢN LÝ GIÁO VIÊN </h3>
-                </div>
-                <div style="float:right">
-                    <a href="@Url.Action("Them","GiaoVien")"> <button> Thêm Giáo Viên</button> </a>
-                </div>
-                <div class="panel-body">
-                    @using (Html.BeginForm("GiaoVien","GiaoVien", FormMethod.Get))
+                    @using (Html.BeginForm("GiaoVien", "GiaoVien", FormMethod.Get))
                     {
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="col-md-4">
-                                    <input type="text" name="Search" />
+                                    <input style="color:gray" type="text" name="Search" value="Nhập từ khóa cần tìm" />
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="submit" Tìm Kiếm />
+                                    <input style="color:black" type="submit" value="Tìm" />
                                 </div>
                             </div>
                         </div>
                     }
+
+                </div>
+                <div>
+                    <a href="@Url.Action("Them", "GiaoVien")" id="them011"> <button> Thêm Giáo Viên </button> </a>
+                </div>
+                <div  class="panel-body">
+
+
                     <table border="1">
                         <thead>
                             <tr>
@@ -44,7 +45,7 @@
                                 <th colspan="2"></th>
                             </tr>
                         </thead>
-
+                        @Html.Raw(TempData["msg"]) 
                         @foreach (var item in Model)
                         {
                             <tbody>
@@ -57,10 +58,14 @@
                                     <td>@item.Knowledge</td>
                                     <td> <a href="@Url.Action("sua", "GiaoVien", new { @id = item.IDTeacher})"> Sửa </a></td>
                                     <td>
-                                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IDTeacher }, new AjaxOptions
+                                        @Ajax.ActionLink("Xóa", "Delete","GiaoVien",new { @id = item.IDTeacher }, new AjaxOptions
                                    {
-                                       Confirm = "Bạn có Chắc Xóa ?",
-                                       OnComplete = "$('#row _"+@item.IDTeacher+"').remove()",
+                                       //Confirm = "Bạn có Chắc Xóa ?",
+                                       UpdateTargetId = "testid",
+
+                                       OnComplete = "$('#row _" + @item.IDTeacher + "').remove()",
+
+
                                        HttpMethod = "Delete"
                                    })
                                     </td>
@@ -70,9 +75,11 @@
                         }
 
                     </table>
+                    @Html.PagedListPager(Model, Page => Url.Action("GiaoVien", new { Page, Search=ViewBag.Search}))
                 </div>
             </div>
         </div>
     </div>
-   
+
 </div>
+

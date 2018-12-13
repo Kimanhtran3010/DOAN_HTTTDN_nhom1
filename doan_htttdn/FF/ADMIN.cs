@@ -1,4 +1,4 @@
-namespace doan_htttdn.Areas.USER.Models
+namespace doan_htttdn.FF
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,15 @@ namespace doan_htttdn.Areas.USER.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Admin_Article
+    [Table("ADMIN")]
+    public partial class ADMIN
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID_Admin { get; set; }
+        [StringLength(20)]
+        public string IDAmin { get; set; }
 
         [Required]
-        public string Pass { get; set; }
+        [StringLength(200)]
+        public string Password { get; set; }
     }
 }

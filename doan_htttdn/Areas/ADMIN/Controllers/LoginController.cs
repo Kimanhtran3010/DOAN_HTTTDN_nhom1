@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using doan_htttdn.DAO;
+using doan_htttdn.DAO;
 using doan_htttdn.FF;
 using doan_htttdn.Common;
-using doan_htttdn.DAO;
 
 namespace doan_htttdn.Areas.ADMIN.Controllers
 {
@@ -20,7 +19,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Admin_Article objUser)
+        public ActionResult Login(doan_htttdn.FF.Admin_Article objUser)
         {
 
             if (ModelState.IsValid) // kiem tra rong
@@ -31,7 +30,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
                 {
 
                     var userSession = new UserLogin();
-                    userSession.IDuser = objUser.IDAdmin;
+                    userSession.IDuser = objUser.IDAdmin.ToString();
                     Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
                     return RedirectToAction("Index", "Home");
                 }
