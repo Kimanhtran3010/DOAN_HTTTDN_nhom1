@@ -6,32 +6,32 @@
 //using doan_htttdn.FF;
 
 
-//namespace doan_htttdn.DAO
-//{
-//    public class DAO_GIAOVIEN
-//    {
-//        public QL_SCN db = new QL_SCN();
-//        //public ADMIN Getby(String user, string pass)
-//        //{
-//        //    return db.ADMINs.Where(x => x.IDAmin == user && x.Password == pass).SingleOrDefault();
-//        //}
-//        public int Login_Giaovien(int user, string pass)
-//        {
-//            var result = db.ACCOUNTs.SingleOrDefault(x => x.IDTeacher == user);
-//            if (result == null)
-//                return 0;
-//            else
-//            {
-//                if (result.Status == 0)
-//                    return -1;
-//                else
-//                {
-//                    if (result.Password == pass)
-//                        return 1;
-//                    else
-//                        return -2;
-//                }
-//            }
+namespace doan_htttdn.DAO
+{
+    public class DAO_GIAOVIEN
+    {
+        public QL_SCN db = new QL_SCN();
+        public ACCOUNT GetbyAccpunt(String user, string pass)
+        {
+            return db.ACCOUNTs.Where(x => x.Username == user && x.Password == pass).SingleOrDefault();
+        }
+        public int Login_Giaovien(string user, string pass)
+        {
+            var result = db.ACCOUNTs.SingleOrDefault(x => x.Username == user);
+            if (result == null)
+                return 0;
+            else
+            {
+                if (result.Status == 0)
+                    return -1;
+                else
+                {
+                    if (result.Password == pass)
+                        return 1;
+                    else
+                        return -2;
+                }
+            }
 
 //        }
 //        public TEACHER GetbyID(int ID)

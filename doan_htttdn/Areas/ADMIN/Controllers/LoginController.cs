@@ -1,12 +1,12 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-////using doan_htttdn.DAO;
-//using doan_htttdn.FF;
-//using doan_htttdn.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 //using doan_htttdn.DAO;
+using doan_htttdn.FF;
+using doan_htttdn.Common;
+using doan_htttdn.DAO;
 
 //namespace doan_htttdn.Areas.ADMIN.Controllers
 //{
@@ -18,10 +18,10 @@
 //            return View();
 //        }
 
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Login(Admin_Article objUser)
-//        {
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(doan_htttdn.FF.Admin_Article objUser)
+        {
 
 //            if (ModelState.IsValid) // kiem tra rong
 //            {
@@ -30,14 +30,14 @@
 //                if (obj == 1)
 //                {
 
-//                    var userSession = new UserLogin();
-//                    userSession.IDuser = objUser.IDAdmin;
-//                    Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
-//                    return RedirectToAction("Index", "Home");
-//                }
-//                else if (obj == 0)
-//                {
-//                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
+                    var userSession = new UserLogin();
+                    userSession.IDuser = objUser.IDAdmin.ToString();
+                    Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (obj == 0)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
 
 //                }
 //                else if (obj == -1)

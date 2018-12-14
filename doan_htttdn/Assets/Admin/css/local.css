@@ -113,7 +113,7 @@ textarea {
 button {
   overflow: visible;
   position:absolute;
-  top:2%;
+  top:1%;
   right:3%
 }
 button:hover{
@@ -1266,6 +1266,9 @@ pre code {
   }
   .col-lg-6 {
     width: 50%;
+    position:absolute;
+    top:0.5em;
+    right:-10%;
   }
   .col-lg-5 {
     width: 41.66666667%;

@@ -7,37 +7,44 @@
 //using doan_htttdn.FF;
 //using doan_htttdn.Common;
 
-//namespace doan_htttdn.Areas.GIAOVIEN.Controllers
-//{
-//    public class LoginController : Controller
-//    {
-//        //GET: GIAOVIEN/Login
-//        public ActionResult Index()
-//        {
-//            return View();
-//        }
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Login(ACCOUNT objUser)
-//        {
+namespace doan_htttdn.Areas.GIAOVIEN.Controllers
+{
+    public class LoginController : Controller
+    {
+        // GET: GIAOVIEN/Login
+        public ActionResult Index()
+        {
+            //Session.Add(CommonConstant.USER_SESSION, null);
+            //Session.Add(CommonConstant.ID_SESSION, null);
+            //Session.Add(CommonConstant.USER_STATE,null);
+            //Session.Add(CommonConstant.ID_TEACHING_CLASS, null);
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(ACCOUNT objUser)
+        {
 
-//            if (ModelState.IsValid) // kiem tra rong
-//            {
-//                var dao = new DAO_GIAOVIEN();
-//                var obj = dao.Login_Giaovien(objUser.IDTeacher, Encryptor.MD5Hash(objUser.Password).ToString());
-//                if (obj == 1)
-//                {
-
-//                    var userTeacher = new SessionTeacher();
-//                    userTeacher.IDuser = objUser.IDTeacher;
-//                    userTeacher.user = dao.GetbyID(objUser.IDTeacher).Name;
-//                    Session.Add(CommonConstant.USER_SESSION, userTeacher.user);
-//                    Session.Add(CommonConstant.ID_SESSION, userTeacher.IDuser);
-//                    return RedirectToAction("Index", "thongtin");
-//                }
-//                else if (obj == 0)
-//                {
-//                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
+            if (ModelState.IsValid) // kiem tra rong
+            {
+                var dao = new DAO_GIAOVIEN();
+                var obj = dao.Login_Giaovien(objUser.Username, Encryptor.MD5Hash(objUser.Password).ToString());
+                if (obj == 1)
+                {
+                    var _teacher = dao.GetbyAccpunt(objUser.Username, Encryptor.MD5Hash(objUser.Password).ToString());
+                    var userTeacher = new SessionTeacher ();
+                    userTeacher.IDuser = _teacher.IDTeacher;
+                    userTeacher.user = dao.GetbyID(_teacher.IDTeacher).Name;
+                    userTeacher.state = 1;
+                    Session.Add(CommonConstant.USER_SESSION, userTeacher.user);
+                    Session.Add(CommonConstant.ID_SESSION, userTeacher.IDuser);
+                    Session.Add(CommonConstant.USER_STATE, userTeacher.state);
+                    Session.Add(CommonConstant.ID_TEACHING_CLASS,null);
+                    return RedirectToAction("Index", "thongtin");
+                }
+                else if (obj == 0)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
 
 //                }
 //                else if (obj == -1)
