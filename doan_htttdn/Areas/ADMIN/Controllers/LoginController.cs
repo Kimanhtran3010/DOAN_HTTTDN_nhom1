@@ -25,12 +25,12 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             if (ModelState.IsValid) // kiem tra rong
             {
                 var dao = new DAO_Admin();
-                var obj = dao.Login(objUser.IDAdmin, Encryptor.MD5Hash(objUser.Pass).ToString());
+                var obj = dao.Login(objUser.IDAdmin.ToString(), Encryptor.MD5Hash(objUser.Pass).ToString());
                 if (obj == 1)
                 {
 
                     var userSession = new UserLogin();
-                    userSession.IDuser = objUser.IDAdmin.ToString();
+                    userSession.IDuser = objUser.IDAdmin;
                     Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
                     return RedirectToAction("Index", "Home");
                 }

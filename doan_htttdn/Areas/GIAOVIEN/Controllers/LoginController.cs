@@ -1,32 +1,33 @@
-﻿////using doan_htttdn.DAO;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-//using doan_htttdn.FF;
-//using doan_htttdn.Common;
+﻿//using doan_htttdn.DAO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using doan_htttdn.FF;
+using doan_htttdn.Common;
+using doan_htttdn.DAO;
 
-//namespace doan_htttdn.Areas.GIAOVIEN.Controllers
-//{
-//    public class LoginController : Controller
-//    {
-//        // GET: GIAOVIEN/Login
-//        public ActionResult Index()
-//        {
-//            return View();
-//        }
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        //public ActionResult Login(ACCOUNT objUser)
-//        //{
+namespace doan_htttdn.Areas.GIAOVIEN.Controllers
+{
+    public class LoginController : Controller
+    {
+        // GET: GIAOVIEN/Login
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(ACCOUNT objUser)
+        {
 
-//        //    if (ModelState.IsValid) // kiem tra rong
-//        //    {
-//        //        var dao = new DAO_GIAOVIEN();
-//        //        var obj = dao.Login_Giaovien(objUser.IDTeacher, Encryptor.MD5Hash(objUser.Password).ToString());
-//        //        if (obj == 1)
-//        //        {
+            if (ModelState.IsValid) // kiem tra rong
+            {
+                var dao = new DAO_GIAOVIEN();
+                var obj = dao.Login_Giaovien(objUser.IDTeacher, Encryptor.MD5Hash(objUser.Password).ToString());
+                if (obj == 1)
+                {
 
                     var userTeacher = new SessionTeacher ();
                     userTeacher.IDuser = objUser.IDTeacher;

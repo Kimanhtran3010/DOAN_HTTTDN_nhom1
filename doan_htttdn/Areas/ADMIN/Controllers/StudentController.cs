@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.DAO;
 using PagedList;
+using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.ADMIN.Controllers
 {
@@ -24,9 +25,60 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             int pagenumber = (page ?? 1);
             return View(model.ToPagedList(pagenumber, pagesize));
         }
+
+        
         public ActionResult Them()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Them(STUDENT student)
+        {
+            if (dao.Insert_Student(student))
+            {
+                TempData["msg"] = "<script>alert('Thêm Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Thêm Không Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
+        }
+
+        public ActionResult Sua(int id)
+        {
+            var bien = dao.Get_student(id);
+            return View(bien);
+        }
+        [HttpPost]
+        public ActionResult Sua(STUDENT student)
+        {
+            if (dao.Update_Student(student))
+            {
+                TempData["msg"] = "<script>alert('Sửa Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Sửa Không Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
+        }
+        
+        public ActionResult xoa(int id)
+        {
+            if (dao.Delete_Student(id))
+            {
+                TempData["msg"] = "<script>alert('Xóa Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Xóa Không Thành Công !');</script>";
+                return RedirectToAction("Student");
+            }
         }
     }
 }

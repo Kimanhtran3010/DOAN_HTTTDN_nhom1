@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using doan_htttdn.FF;
 using doan_htttdn.Common;
+using doan_htttdn.Areas.GIAOVIEN.Models;
 
 namespace doan_htttdn.DAO
 {
@@ -34,20 +35,7 @@ namespace doan_htttdn.DAO
 
         }
 
-        public bool Insert(Admin_Article aDMIN)
-        {
-            try
-            {
-                db.Admin_Article.Add(aDMIN);
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-
-        }
+        
 
 
         //TEACHER-------------------------------------------------
@@ -102,6 +90,7 @@ namespace doan_htttdn.DAO
                 if (bien != null)
                 {
                     bien.Name = tc.Name;
+                    bien.Sex = tc.Sex;
                     bien.Phone = tc.Phone;
                     bien.ADDRESS = tc.ADDRESS;
                     bien.Email = tc.Email;
@@ -167,6 +156,135 @@ namespace doan_htttdn.DAO
 
             return db.STUDENTs.Where(x => x.Name.Contains(key) || x.ADDRESS.Contains(key) || x.NameParent.Contains(key)).ToList();
 
+        }
+        public bool Insert_Student(STUDENT student)
+        {
+            try
+            {
+                db.STUDENTs.Add(student);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public STUDENT Get_student(int id)
+        {
+            return db.STUDENTs.Find(id);
+        }
+        public bool Update_Student(STUDENT student)
+        {
+            var bien = db.STUDENTs.Where(x => x.IDStudent == student.IDStudent).SingleOrDefault();
+            if (bien != null)
+            {
+                bien.Name = student.Name;
+                bien.Sex = student.Sex;
+                bien.Born = student.Born;
+                bien.NameParent = student.NameParent;
+                bien.PHONE = student.PHONE;
+                bien.ADDRESS = student.ADDRESS;
+                bien.EMAIL = student.EMAIL;
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
+        }
+         public bool Delete_Student(int id)
+        {
+            var bien = db.STUDENTs.Find(id);
+            if (bien != null)
+            {
+                CLASS_STUDENT bien1 = db.CLASS_STUDENT.Where(x => x.IDStudent == id).SingleOrDefault();
+                if (bien1 != null)
+                {
+                    db.CLASS_STUDENT.Remove(bien1);
+                    db.SaveChanges();
+                    db.STUDENTs.Remove(bien);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    db.STUDENTs.Remove(bien);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            else
+                return false;
+        }
+
+
+        //Class----------------------------------------------------------------------------
+        public IEnumerable<Class_model> Get_Class()
+        {
+            var list = (from x in db.CLASSes
+                        join y in db.COURSEs
+                        on x.IDCourse equals y.IDCourse
+                        select new Class_model
+                        {
+                            IDClass = x.IDClass,
+                            NameClass = x.NameClass,
+                            NameCourse = y.Name,
+                            StartDay = x.StartDay,
+                            FinishDay = x.FinishDay,
+                            Number = x.Number,
+                            State = x.State
+                        }
+                        );
+            return list.ToList();
+        }
+
+        public List<Class_model> Search_Class(string key)
+        {
+            var bien1 = Get_Class();
+            return bien1.Where(x => x.NameClass.Contains(key) || x.NameCourse.Contains(key)).ToList();
+        }
+
+        public IEnumerable<COURSE> GetName_Course()
+        {
+            var bien = (from a in db.COURSEs
+                        select a);
+            return bien.ToList().Distinct();
+        }
+         public bool Insert_Class(CLASS lop)
+        {
+            try
+            {
+                lop.Number = 0;
+                db.CLASSes.Add(lop);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+        public CLASS Get_DetailClass(int id)
+        {
+            return db.CLASSes.Find(id);
+        }
+        public bool Update_Class(CLASS lop)
+        {
+            var bien = db.CLASSes.Where(x => x.IDClass == lop.IDClass).SingleOrDefault();
+            if (bien != null)
+            {
+                bien.IDCourse = lop.IDCourse;
+                bien.NameClass = lop.NameClass;
+                bien.StartDay = lop.StartDay;
+                bien.FinishDay = lop.FinishDay;
+                bien.State = lop.State;
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

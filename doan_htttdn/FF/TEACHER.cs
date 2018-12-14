@@ -22,6 +22,9 @@ namespace doan_htttdn.FF
         [StringLength(100)]
         public string Name { get; set; }
 
+        [StringLength(10)]
+        public string Sex { get; set; }
+
         [StringLength(12)]
         public string Phone { get; set; }
 

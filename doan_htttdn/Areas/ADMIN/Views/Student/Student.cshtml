@@ -11,7 +11,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> QUẢN LÝ GIÁO VIÊN </h3>
+                        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> QUẢN LÝ HỌC SINH </h3>
                         @using (Html.BeginForm("Student", "Student", FormMethod.Get))
                         {
                             <div class="row">
@@ -37,6 +37,7 @@
                             <thead>
                                 <tr>
                                     <th>Tên Học Sinh</th>
+                                    <th>Giới Tính</th>
                                     <th>Ngày Sinh</th>
                                     <th>Tên Phụ Huynh</th>
                                     <th>Số Điện Thoại</th>
@@ -51,20 +52,14 @@
                                 <tbody>
                                     <tr id="row_@item.IDStudent">
                                         <td>@item.Name</td>
+                                        <td>@item.Sex</td>
                                         <td>@item.Born</td>
                                         <td>@item.NameParent</td>
                                         <td>@item.PHONE</td>
                                         <td>@item.ADDRESS</td>
                                         <td>@item.EMAIL</td>
-                                        <td> <a href="@Url.Action("sua", "Student", new { @id = item.IDStudent})"> Sửa </a></td>
-                                        <td>
-                                            @Ajax.ActionLink("Xóa", "Delete","Student",new { @id = item.IDStudent }, new AjaxOptions
-                                       {
-                                           Confirm = "Bạn có Chắc Xóa ?",
-                                           OnComplete = "$('#row _"+@item.IDStudent+"').remove()",
-                                           HttpMethod = "Delete"
-                                       })
-                                        </td>
+                                        <td> <a href="@Url.Action("Sua", "Student", new { @id = item.IDStudent})"> Sửa </a></td>
+                                        <td> <a href="@Url.Action("Xoa", "Student", new { @id = item.IDStudent})"> Xóa </a> </td>
                                     </tr>
                                 </tbody>
 

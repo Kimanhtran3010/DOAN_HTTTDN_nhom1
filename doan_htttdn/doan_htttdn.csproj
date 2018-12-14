@@ -278,8 +278,8 @@
     <Content Include="Assets\GIAOVIEN\css\memenu.css" />
     <Content Include="Assets\GIAOVIEN\css\style.css" />
     <Content Include="Assets\GIAOVIEN\js\bootstrap.min.js" />
-    <Content Include="Assets\GIAOVIEN\js\controller\cartController.js" />
     <Content Include="Assets\GIAOVIEN\js\ddtf.js" />
+    <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.flexslider.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.min.js" />
     <Content Include="Assets\GIAOVIEN\js\main.js" />
@@ -829,6 +829,9 @@
     <Content Include="Areas\ADMIN\Views\Student\Student.cshtml" />
     <Content Include="Areas\ADMIN\Views\Student\Them.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\web.config" />
+    <Content Include="Areas\ADMIN\Views\Student\Sua.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Class\Them.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Class\Sua.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -869,6 +872,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
+    <Folder Include="Assets\GIAOVIEN\js\controller\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

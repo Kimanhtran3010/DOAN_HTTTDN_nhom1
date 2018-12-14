@@ -14,8 +14,9 @@ namespace doan_htttdn.FF
 
         public int IDTeacher { get; set; }
 
-        [Key]
-        [Column(Order = 2, TypeName = "date")]
+        public int session { get; set; }
+
+        [Column(TypeName = "date")]
         public DateTime Day { get; set; }
 
         public int? State { get; set; }

@@ -40,7 +40,6 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             
             if(dao.Insert_Teacher(teacher))
             {
-                TempData["msg"] = "<script>alert('Thêm Thành Công !');</script>";
                 return RedirectToAction("GiaoVien");
             }
             else
@@ -71,7 +70,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
                     TempData["msg"] = "<script>alert('Cập Nhật Không Thành Công !');</script>";
 
             }
-            return RedirectToAction("GiaoVien");
+            return RedirectToAction("Sua","GiaoVien");
         }
 
         [HttpDelete]
