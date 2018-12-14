@@ -12,14 +12,14 @@ namespace doan_htttdn.DAO
     public class DAO_Cart
     {
         QL_SCN db = new QL_SCN();
-        public int get_id(FF.ORDERS od)
+        public int get_id(FF.ORDER od)
         {
             db.ORDERS.Add(od);
             db.SaveChanges();
             return od.IDOrders;
         }
 
-        public ORDERS getby_id(int id)
+        public ORDER getby_id(int id)
         {
             return db.ORDERS.Where(x => x.IDOrders == id).SingleOrDefault();
         }

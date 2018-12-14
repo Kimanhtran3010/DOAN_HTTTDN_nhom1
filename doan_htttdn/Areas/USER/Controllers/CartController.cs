@@ -101,7 +101,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         {
             int id;
             var cart = (List<Cart_items>)Session[CommonConstant.CartSession];
-            FF.ORDERS od = new FF.ORDERS();
+            FF.ORDER od = new FF.ORDER();
             
             try
             {
@@ -126,7 +126,7 @@ namespace doan_htttdn.Areas.USER.Controllers
                 od.Payment = txt_tt;
                 od.Note = txt_ghichu;
                 od.State = 0;
-                od.ConfirmEmail = false;
+                od.Verify = false;
                 id = dc.get_id(od);
                 string url = "http://localhost:51852/USER/gio-hang/xac-nhan?ID=" + id;
                 dc.sendmail("Xác nhận đơn hàng", url, od.Email);
@@ -177,7 +177,7 @@ namespace doan_htttdn.Areas.USER.Controllers
             try
             {
                 var or = db.ORDERS.Where(x => x.IDOrders == ID).SingleOrDefault();
-                or.ConfirmEmail = true;
+                or.Verify = true;
                 db.SaveChanges();
 
             }

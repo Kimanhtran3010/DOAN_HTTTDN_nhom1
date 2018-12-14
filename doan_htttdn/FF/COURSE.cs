@@ -12,7 +12,7 @@ namespace doan_htttdn.FF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public COURSE()
         {
-            CLASS = new HashSet<CLASS>();
+            CLASSes = new HashSet<CLASS>();
             RIGISTRATION_COURSE = new HashSet<RIGISTRATION_COURSE>();
         }
 
@@ -39,7 +39,7 @@ namespace doan_htttdn.FF
         public string Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLASS> CLASS { get; set; }
+        public virtual ICollection<CLASS> CLASSes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RIGISTRATION_COURSE> RIGISTRATION_COURSE { get; set; }

@@ -1,10 +1,10 @@
-﻿//using doan_htttdn.DAO;
-//using doan_htttdn.FF;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
+﻿using doan_htttdn.DAO;
+using doan_htttdn.FF;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -42,7 +42,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         [ChildActionOnly]
         public ActionResult Top3_Product()
         {
-            ViewData["Top3"] = db.PRODUCT.Take(3).ToList();
+            ViewData["Top3"] = db.PRODUCTs.Take(3).ToList();
             return PartialView();
         }
 

@@ -23,7 +23,7 @@ namespace doan_htttdn.FF
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 
-        public virtual ORDERS ORDERS { get; set; }
+        public virtual ORDER ORDER { get; set; }
 
         public virtual PRODUCT PRODUCT { get; set; }
     }

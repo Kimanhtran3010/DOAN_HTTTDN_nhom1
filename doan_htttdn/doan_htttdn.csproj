@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -52,9 +53,6 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -71,7 +69,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
@@ -208,13 +207,13 @@
     <Compile Include="DAO\GIAOVIEN\DAO_Lop.cs" />
     <Compile Include="DAO\GIAOVIEN\DAO_Teaching_class.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
-    <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
+    <Compile Include="FF\Admin_Article.cs" />
     <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
+    <Compile Include="FF\Menu_Article.cs" />
     <Compile Include="FF\ORDER.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
@@ -806,6 +805,40 @@
     <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Create.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Luong.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Chamcong\Update.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Diemdanh\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Diemdanh\UpdateDiemdanh.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\DShocvien\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Login\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\lophoc\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\matkhau\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\thongtin\Index.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\web.config" />
+    <Content Include="Areas\GIAOVIEN\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\USER\Views\Login\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Login\Login.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Aredit.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Detail.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\EditAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Index.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\InNewscate.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ListAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ListNews.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ListNews_1.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\Menu.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\PartialListAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\ShowAr.cshtml" />
+    <Content Include="Areas\USER\Views\tintuc\TrangChu.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\Index.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\ViewDetail.cshtml" />
+    <Content Include="Areas\USER\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\USER\Views\RoBo\Top3_Product.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\Rating.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\RatingShow.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />

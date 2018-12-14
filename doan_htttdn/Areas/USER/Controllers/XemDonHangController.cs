@@ -33,7 +33,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         {
             
             var query = (from a in db.DETAIL_ORDERS
-                         join b in db.PRODUCT on a.IDRobot equals b.IDRobot
+                         join b in db.PRODUCTs on a.IDRobot equals b.IDRobot
                          where a.IDOrders == id
                          select new doan_htttdn.Areas.USER.Models.ViewDonHang()
                          {
