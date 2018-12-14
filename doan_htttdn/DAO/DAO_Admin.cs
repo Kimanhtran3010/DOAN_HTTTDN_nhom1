@@ -286,5 +286,28 @@ namespace doan_htttdn.DAO
             else
                 return false;
         }
+
+        //COURSE------------------------------------------------------------------
+        public List<COURSE> Get_Course()
+        {
+            return db.COURSEs.ToList();
+        }
+        public List<COURSE> Search_Course(string key)
+        {
+            return db.COURSEs.Where(x => x.Name.Contains(key)).ToList();
+        }
+        public bool Insert_Course(COURSE course)
+        {
+            try
+            {
+                db.COURSEs.Add(course);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

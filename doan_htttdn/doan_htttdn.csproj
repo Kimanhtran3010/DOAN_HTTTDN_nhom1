@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\ClassController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\CourseController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
@@ -832,6 +833,9 @@
     <Content Include="Areas\ADMIN\Views\Student\Sua.cshtml" />
     <Content Include="Areas\ADMIN\Views\Class\Them.cshtml" />
     <Content Include="Areas\ADMIN\Views\Class\Sua.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Course\Course.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Course\Sua.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Course\Them.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
