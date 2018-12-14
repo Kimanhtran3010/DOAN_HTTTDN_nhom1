@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using doan_htttdn.FF;
-using PagedList;
-using PagedList.Mvc;
+//using PagedList;
+//using PagedList.Mvc;
 
 namespace doan_htttdn.DAO
 {

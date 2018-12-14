@@ -67,6 +67,7 @@ namespace doan_htttdn.Areas.USER
                 new { action = "Index", id = UrlParameter.Optional }
             );
 
+            
         }
     }
 }

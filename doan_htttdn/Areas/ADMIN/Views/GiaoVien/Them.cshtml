@@ -1,0 +1,94 @@
+﻿@model doan_htttdn.FF.TEACHER
+
+@{
+    ViewBag.Title = "Them";
+    Layout = "~/Areas/ADMIN/Views/Shared/_LayoutADD.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Them","GiaoVien",FormMethod.Post, new { @onsubmit = "return matchinfor()" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h3>Thêm Giáo Viên</h3>
+    <hr /> 
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id="namegv"} })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @id = "phonegv", @onsubmit = "return matchinfor()" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" id="email">
+            @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Knowledge, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Knowledge, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Knowledge, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+    <div>
+        @Html.ActionLink("Quay Lại", "GiaoVien")
+        @*<a href="@Url.Action("GiaoVien","GiaoVien")"> <button> Thêm Giáo Viên</button> </a>*@
+    </div>
+    <script type="text/javascript">
+    function test() {
+        alert("ahihi");
+    }
+
+function matchinfor() {
+    var name = document.getElementById('namegv').value;
+    var phone = document.getElementById('phonegv').value;
+    if (phone == '' || (phone != '' && Number.isNaN(phone)) == false)
+    {
+        alert("Bạn phải nhập số ở mục số điện thoại");
+        return false;
+    }
+    else
+        return true;
+    }
+    </script>

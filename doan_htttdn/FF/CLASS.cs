@@ -17,8 +17,7 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDClass { get; set; }
+        public int IDClass { get; set; }
 
         [Required]
         [StringLength(20)]

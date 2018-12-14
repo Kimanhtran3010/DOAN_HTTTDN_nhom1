@@ -1,126 +1,67 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
 }
 
-<div class="blog">
-    <div class="container">
-        <h1>Blog</h1>
-        <div class="blog-top">
-            <div class="col-md-6 grid-top grid_3 canbottom " >
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/sonyXZ4.jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+   
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/Article/magnews/css/bootstrap.min.css" />
+
+    <!-- Owl Carousel -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/Article/magnews/css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="~/Assets/Article/magnews/css/owl.theme.default.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="~/Assets/Article/magnews/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/Article/magnews/css/style.css" />
+
+
+
+</head>
+<div class="container">
+    <!-- ROW -->
+    <div class="row">
+        <!-- Main Column -->
+        <div class="col-md-12">
+            <!-- section title -->
+            @Html.Action("Menu","TinTuc")
+            <!-- /section title -->
+            <!-- Tab content -->
+            <div class="tab-content">
+                <!-- tab1 -->
+                <div id="tab1" class="tab-pane fade in active" style="background-color:#ffffff">
+                    <!-- row -->
+                    <div class="row">
+                  
+                        @Html.Action("ListNews")
+
                     </div>
-                </a>
-                <p><a href="#"><h2>Lộ diện concept Sony XZ4 với màn hình tỉ lệ 21:9, 3 camera</h2> </a></p>
-                <ul class="post-tintuc1">
-                    <li >
-                        Xperia XZ3 đã được Sony ra mắt từ 3 tháng trước, bây giờ những dấu hiệu mới cho thấy thế hệ tiếp theo của chiếc flagship này đã đang được chuẩn bị và sớm ra mắt.
-                    </li>
-                </ul>
+                    <!-- /row -->
+                    <!-- row -->
+                    
+                    <!-- /row -->
+                </div>
+                <!-- /tab1 -->
             </div>
-
-            <div class="col-md-6 grid-top grid_3 canbottom">
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/Camera-hanh-trinh.jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
-                    </div>
-                </a>
-                <p><a href="#"><h2>Top 5 thương hiệu camera hành trình nào tốt</h2> </a></p>
-                <ul class="post-tintuc1">
-                    <li>
-                        Camera hành trình gần trở nên thân quen hơn với chúng ta trên mỗi chặng đường. Nó gắn liền với một phần năm tháng tuổi trẻ của nhiều thế hệ đặc biệt là 8x và 9x trong đó có cả mình.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-6 grid-top grid_3 canbottom">
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/R17-Pro.jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
-                    </div>
-                </a>
-                <p><a href="#"><h2>Oppo R17 Pro trình làng tại VN</h2> </a></p>
-                <ul class="post-tintuc1" >
-                    <li>
-                        Oppo vừa chính thức ra mắt dòng smartphone R17 Pro tại Việt Nam. Bên cạnh thiết kế màn hình giọt nước và mặt lưng chuyển sắc ấn tượng.
-                    </li>
-                </ul>
-            </div>
-
-            
-
-            <div class="col-md-6 grid-top grid_3 canbottom">
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/Galaxy-A8s (Copy).jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
-                    </div>
-                </a>
-                <p><a href="#"><h2>Galaxy A8s lộ màn hình có "nốt ruồi", 4 camera</h2></a></p>
-                <ul class="post-tintuc1">
-                    <li>
-                        Rò rỉ mới nhất xác nhận thiết kế dành cho Galaxy A8s mà Samsung sắp ra mắt, bao gồm thông số kỹ thuật ấn tượng.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-6 grid-top grid_3 canbottom">
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/SSD-860-QVO (Copy).png" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
-                    </div>
-                </a>
-                <p><a href="#"><h2>SSD có giá ngang bằng với ổ HDD truyền thống</h2></a></p>
-                <ul class="post-tintuc1">
-                    <li>
-                        Samsung muốn hướng tới dòng sản phẩm ổ SSD có giá ngang bằng với ổ HDD truyền thống.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-6 grid-top grid_3 canbottom">
-                <a href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="~/Assets/Image/NGUOI DI TIM BUG (Copy).jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-left    b-delay03 ">
-                            <span>Đọc Tiếp</span>
-                        </h3>
-                    </div>
-                </a>
-                <p><a href="#"><h2>Người đi tìm bug</h2></a></p>
-                <ul class="post-tintuc1">
-                    <li>
-                        "Có bàn tay lặng lẽ. Giữa dòng code như nước cuốn".
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"> </div>
+            <!-- /tab content -->
         </div>
-
-        
-        <div class="blog-bottom">
-            
-            
-            <div class="clearfix"> </div>
-        </div>
+        <!-- /Main Column -->
     </div>
+    <!-- /ROW -->
 </div>
+    
+    
+
 

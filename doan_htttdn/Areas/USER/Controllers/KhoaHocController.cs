@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.Areas.USER.Models;
-using PagedList;
+//using PagedList;
 using doan_htttdn.FF;
-
+using PagedList;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -65,7 +65,7 @@ namespace doan_htttdn.Areas.USER.Controllers
             if (string.IsNullOrEmpty(collection["ADDRESS"]) || string.IsNullOrEmpty(collection["BIRTHDAY"])
                 || string.IsNullOrEmpty(collection["Email"]) || string.IsNullOrEmpty(collection["IDCourse"])
                 || string.IsNullOrEmpty(collection["NameParent"]) || string.IsNullOrEmpty(collection["NameStudent"])
-                || string.IsNullOrEmpty(collection["Phone"]) || string.IsNullOrEmpty(collection["State"]))
+                || string.IsNullOrEmpty(collection["Phone"]) )
             {
                 ViewBag.ErrorMsg = "Đăng kí thất bại, vui lòng thử lại sau";
                 ViewBag.IDCourse = collection["IDCourse"];
@@ -81,12 +81,12 @@ namespace doan_htttdn.Areas.USER.Controllers
             rc.NameParent = collection["NameParent"];
             rc.NameStudent = collection["NameStudent"];
             rc.Phone = collection["Phone"];
-            rc.State = collection["State"];
 
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             Random random = new Random();
             rc.IDRegist = new string(Enumerable.Repeat(chars, 6).Select(s => s[random.Next(s.Length)]).ToArray());
             rc.DayRegist = DateTime.Today;
+            rc.State = "Chưa Duyệt";
             bool rs = model.Insert(rc);
             if (rs)
             {
