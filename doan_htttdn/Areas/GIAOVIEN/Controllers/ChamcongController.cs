@@ -44,8 +44,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
             ViewBag.lopsearch = new SelectList(lop1.ToList(), "IDClass", "NameClass");
         }
         private void SetViewBag2() // session
-        {
-            
+        { 
             ViewBag.session = new SelectList(Create_Month(), "ID", "ID"/*, buoi*/);
         }
         private void SetViewBag3() // lop
@@ -185,7 +184,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         public ActionResult LinkThem( )
         {
             Session[Common.CommonConstant.USER_STATE] = 1;
-            return RedirectToAction("Index", "Chamcong"/*,list*/);
+            return RedirectToAction("Index", "Chamcong");
         }
         public ActionResult Luong()
         {

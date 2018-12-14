@@ -9,9 +9,15 @@ namespace doan_htttdn.DAO.GIAOVIEN
     public class DAO_Hocvien
     {
         QL_SCN db = new QL_SCN();
-        public IEnumerable<STUDENT> GetALL()
+        public IEnumerable<STUDENT> GetALL( int IDTeacher)
         {
-            return db.STUDENTs.ToList();
+            IEnumerable<STUDENT> list = (from a in db.TEACHING_CLASS
+                                         join c in db.CLASS_STUDENT  on a.IDClass equals c.IDClass
+                                         join d in db.STUDENTs on c.IDStudent equals d.IDStudent
+                                         where a.IDTeacher == IDTeacher
+                                         select d).Distinct();
+
+            return list.Distinct();
         }
         public IEnumerable<STUDENT> GetbyIDClass (int IDclass)
         {

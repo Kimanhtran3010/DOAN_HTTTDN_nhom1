@@ -17,8 +17,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -282,7 +281,6 @@
     <Content Include="Assets\GIAOVIEN\css\memenu.css" />
     <Content Include="Assets\GIAOVIEN\css\style.css" />
     <Content Include="Assets\GIAOVIEN\js\bootstrap.min.js" />
-    <Content Include="Assets\GIAOVIEN\js\controller\cartController.js" />
     <Content Include="Assets\GIAOVIEN\js\ddtf.js" />
     <Content Include="Assets\GIAOVIEN\js\JavaScript.js" />
     <Content Include="Assets\GIAOVIEN\js\jquery.flexslider.js" />
@@ -838,6 +836,7 @@
     <Content Include="Areas\GIAOVIEN\Views\Chamcong\Update.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Login\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Chamcong\Luong.cshtml" />
+    <Content Include="Areas\GIAOVIEN\Views\Diemdanh\UpdateDiemdanh.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -878,6 +877,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Models\" />
     <Folder Include="Areas\USER\Views\CMS\" />
+    <Folder Include="Assets\GIAOVIEN\js\controller\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

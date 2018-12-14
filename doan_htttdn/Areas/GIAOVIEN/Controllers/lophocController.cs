@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using doan_htttdn.DAO;
 using doan_htttdn.Areas.GIAOVIEN.Models;
 using doan_htttdn.DAO.GIAOVIEN;
+using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers
 {
@@ -40,11 +41,8 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         //    return RedirectToAction("Index","lophoc");
         //    //return View(a);
         //}
-        public ActionResult Xem_DShocvien(int IDclass = 1)
-        {
-            return RedirectToAction("Index", "DShocvien", new { @id = IDclass });
-        }
-
+        
+      
         public ActionResult Search(string search)
         {
 

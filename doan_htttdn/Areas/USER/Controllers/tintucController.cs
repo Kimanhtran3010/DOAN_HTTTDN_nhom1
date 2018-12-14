@@ -42,10 +42,9 @@ namespace doan_htttdn.Areas.USER.Controllers
             cate.Title = model.Title;
             cate.Summary = model.Summary;
             cate.Contents = model.Contents;
-            cate.Img = model.Img;
-            cate.Date = model.Date;
+            cate.Image = model.Image;
+            cate.Day = model.Day;
             cate.State = model.State;
-            cate.Date = model.Date;
             cate.IDAdmin = model.IDAdmin;
             cate.ID_Menu = model.ID_Menu;
             db.Entry(cate).State = EntityState.Modified;
@@ -110,8 +109,8 @@ namespace doan_htttdn.Areas.USER.Controllers
                 ViewBag.tieude = cate.Title;
                 ViewBag.summary = cate.Summary;
                 ViewBag.content = cate.Contents;
-                ViewBag.img = cate.Img;
-                ViewBag.date = cate.Date;
+                ViewBag.img = cate.Image;
+                ViewBag.date = cate.Day;
                 
                 return View();
             }

@@ -10,16 +10,18 @@
     <a href="@Url.Action("Index","DShocvien")">Danh sách học viên</a>
 </b></h4><br />
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Searchlop", "DShocvien",FormMethod.Post))
 {
     <div class="row" style=" width:100%; height:auto; border:double">
         <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
-            <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn mã lớp học</h4>
-            <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
-            <button style="margin-left:20px">Tìm kiếm</button>
+            <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn lớp học</h4>
+            @Html.DropDownList("IDClass", null, new { @type = "text", @style = "width:150px; height:30px ; border:groove;  margin-left:20px" })
+            @*<input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />*@
+            <button type="submit" style="margin-left:20px">Tìm kiếm</button>
         </div>
+        
         <div style="padding-top:20px">
-            <table align="center" border="1" style="width:98%">
+            <table align="center" border="1" style="width:98% ; margin-bottom: 20px;">
                 <tr class="table_th">
                     <th class="th">Mã học viên</th>
                     <th class="th">Tên HV</th>

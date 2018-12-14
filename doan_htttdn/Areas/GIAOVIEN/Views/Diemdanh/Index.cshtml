@@ -1,4 +1,4 @@
-﻿@model IEnumerable<doan_htttdn.FF.STUDENT>
+﻿@model List<doan_htttdn.Areas.GIAOVIEN.Models.Student_Change__Attendance>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
@@ -9,89 +9,60 @@
     <a href="@Url.Action("Index","lophoc")">Danh sách lớp học</a>/
     <a href="@Url.Action("Index","Diemdanh")">Điểm danh</a>
 </b></h4><br />
-@using (Html.BeginForm())
-{
-    <div class="row" style=" width:100%; height:auto; border:double">
-        <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
-            <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn mã lớp học</h4>
-            <input type="text" style="width:200px; height:30px ; border:groove; margin-left:20px" />
-            <button style="margin-left:20px">Tìm kiếm</button>
-        </div>
-        <div style="padding-top:20px ; margin-bottom:20px">
-            <table align="center" border="1" style="width:98%">
-                <tr class="table_th">
-                    <th class="th">MÃ HỌC VIÊN</th>
-                    <th class="th">TÊN HỌC VIÊN</th>
-                    <th class="th">Buổi 1</th>
-                    <th class="th">Buổi 2</th>
-                    <th class="th">Buổi 3</th>
-                    <th class="th">Buổi 4</th>
-                    <th class="th">Buổi 5</th>
-                    <th class="th">Buổi 6</th>
-                    <th class="th">Buổi 7</th>
-                    <th class="th">Buổi 8</th>
-                    <th class="th">Buổi 9</th>
-                    <th class="th">Buổi 10</th>
-                    <th class="th">Buổi 11</th>
-                    <th class="th">Buổi 12</th>
-                </tr>
 
-                <tr class="table_th">
-                    <td class="td">Ngày</td>
-                    <td contenteditable='true' class="td"></td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">0</td>
-                    <td contenteditable='true' class="td">0</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">1</td>
-                    <td contenteditable='true' class="td">0</td>
-                    <td contenteditable='true' class="td">0</td>
-                   
-                </tr>
-                @foreach (var item in Model)
-                {
-                    <tr class="table_th">
-                        <td class="td">@item.Name</td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        <td contenteditable='true' class="td"><input id="Checkbox1" type="checkbox" /></td>
-                        
-                    </tr>
-                }
-                    <tr>
-                        <th class="td">Hoạt động</th>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                        <td><button style="align-self:center">Cập nhập</button></td>
-                    </tr>
+         <div class="row" style=" width:100%; height:auto; border:double">
+             @using (Html.BeginForm("Xem_DiemdanhbyID", "Diemdanh", FormMethod.Post))
+             {
 
+                 <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
+                     <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn lớp học</h4>
+                     @Html.DropDownList("lopsearch", null, new { @type = "text", @style = "width:200px; height:30px ; border:groove;  margin-left:20px" })
+                     @*<input type="text" style="width:200px; height:30px ; border:groove; margin-left:20px" />*@
+                     <button type="submit" style="margin-left:20px">Tìm kiếm</button>
+                 </div>
+             }
+             @Html.Action("UpdateDiemdanh", "Diemdanh")
+             <div style="padding-top:20px ; margin-bottom:20px">
+                 <table align="center" border="1" style="width:98%">
+                     <tr class="table_th">
+                         <th class="th">MÃ HỌC VIÊN</th>
+                         <th class="th">TÊN HỌC VIÊN</th>
+                         <th class="th">Buổi 1</th>
+                         <th class="th">Buổi 2</th>
+                         <th class="th">Buổi 3</th>
+                         <th class="th">Buổi 4</th>
+                         <th class="th">Buổi 5</th>
+                         <th class="th">Buổi 6</th>
+                         <th class="th">Buổi 7</th>
+                         <th class="th">Buổi 8</th>
+                         <th class="th">Buổi 9</th>
+                         <th class="th">Buổi 10</th>
+                         <th class="th">Buổi 11</th>
+                         <th class="th">Buổi 12</th>
+                     </tr>
 
-            </table>
-        </div>
+                     @Html.Raw(TempData["msg"])
+                     @foreach (var item in Model)
+                     {
 
-    </div>
-}
+                         <tr class="table_th">
+                             <td class="td">@item.IDStudent</td>
+                             <td class="td">@item.NameStudent</td>
+
+                             @foreach (var state in item.state)
+                             {
+                                 <td class="td">
+                                     <input type="checkbox" value="true" @(state ? "checked=\"checked\"" : "") disabled />
+                                 </td>
+
+                             }
+                         </tr>
+                     }
+
+                 </table>
+             </div>
+
+         </div>
+
 
 

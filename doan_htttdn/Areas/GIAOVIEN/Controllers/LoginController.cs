@@ -1,11 +1,11 @@
-﻿////using doan_htttdn.DAO;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-//using doan_htttdn.FF;
-//using doan_htttdn.Common;
+﻿using doan_htttdn.DAO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using doan_htttdn.FF;
+using doan_htttdn.Common;
 
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers
 {
@@ -40,6 +40,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                     Session.Add(CommonConstant.ID_SESSION, userTeacher.IDuser);
                     Session.Add(CommonConstant.USER_STATE, userTeacher.state);
                     Session.Add(CommonConstant.ID_TEACHING_CLASS,null);
+                    Session.Add(CommonConstant.ID_CLASS, null);
                     return RedirectToAction("Index", "thongtin");
                 }
                 else if (obj == 0)

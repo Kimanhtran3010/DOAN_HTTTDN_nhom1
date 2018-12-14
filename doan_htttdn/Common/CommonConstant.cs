@@ -12,5 +12,7 @@ namespace doan_htttdn.Common
         public static string USER_SESSION = "USER_SESSION";
         public static string USER_STATE= "USER_STATE";
         public static string ID_TEACHING_CLASS = "ID_TEACHING_CLASS";
+        public static string ID_CLASS = "ID_CLASS"; // Danh sach lop hoc
+
     }
 }
