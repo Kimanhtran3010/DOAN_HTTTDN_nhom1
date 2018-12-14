@@ -9,12 +9,11 @@ namespace doan_htttdn.Areas.GIAOVIEN.Models
 {
     public class Student_Change__Attendance
     {
-        [Key]
+       
         [Column(Order = 0)]
         [StringLength(20)]
-        public string IDClass { get; set; }
-
-        [Key]
+        public int IDClass { get; set; }
+       
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDStudent { get; set; }
@@ -22,7 +21,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Models
         [Column(TypeName = "date")]
         public string NameStudent { get; set; }
 
-        public int[] state = new int[12] { 0 , 0 , 0 , 0 , 0,0,0,0,0,0,0,0 }; 
+        public bool[] state = new bool[12]; /*{0,0,0 ,0 ,0,0,0,0,0,0,0,0 }; */
         
 
     }

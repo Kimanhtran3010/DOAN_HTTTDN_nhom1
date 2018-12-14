@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using doan_htttdn.FF;
 
 
 namespace doan_htttdn.DAO
@@ -11,13 +10,13 @@ namespace doan_htttdn.DAO
     public class DAO_GIAOVIEN
     {
         public QL_SCN db = new QL_SCN();
-        //public ADMIN Getby(String user, string pass)
-        //{
-        //    return db.ADMINs.Where(x => x.IDAmin == user && x.Password == pass).SingleOrDefault();
-        //}
-        public int Login_Giaovien(int user, string pass)
+        public ACCOUNT GetbyAccpunt(String user, string pass)
         {
-            var result = db.ACCOUNTs.SingleOrDefault(x => x.IDTeacher == user);
+            return db.ACCOUNTs.Where(x => x.Username == user && x.Password == pass).SingleOrDefault();
+        }
+        public int Login_Giaovien(string user, string pass)
+        {
+            var result = db.ACCOUNTs.SingleOrDefault(x => x.Username == user);
             if (result == null)
                 return 0;
             else
@@ -38,13 +37,13 @@ namespace doan_htttdn.DAO
         {
             return db.TEACHERs.Where(x => x.IDTeacher == ID).SingleOrDefault();
         }
-        
+
         public bool Update(TEACHER tEACHER)
         {
             var tc = db.TEACHERs.Where(x => x.IDTeacher == tEACHER.IDTeacher).SingleOrDefault();
             if (tc != null)
             {
-               tc.Name = tEACHER.Name;
+                tc.Name = tEACHER.Name;
                 tc.Phone = tEACHER.Phone;
                 tc.ADDRESS = tEACHER.ADDRESS;
                 tc.Email = tEACHER.Email;

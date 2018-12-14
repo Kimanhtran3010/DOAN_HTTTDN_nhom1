@@ -1,200 +1,66 @@
-﻿@model  doan_htttdn.Areas.ViewModel.ChamCongIndexViewModel 
+﻿@model  IEnumerable<doan_htttdn.Areas.GIAOVIEN.Models.Teacher_Attendance>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
-<script type="text/javascript">
-    function them() {
-        $('#chamcong').css({ opacity: 0.0, visibility: "visible" }).animate({ opacity: 1.0 });
-    }
-    function back() {
-        $('#chamcong').css({ opacity: 0.0, visibility: "hidden" }).animate({ opacity: 0 });
-    }
-    function xoa() {
-        $('#xoachamcong').css({ opacity: 0.0, visibility: "visible" }).animate({ opacity: 1.0 });
-    }
-    function back2() {
-        $('#xoachamcong').css({ opacity: 0.0, visibility: "hidden" }).animate({ opacity: 0 });
-    }
-</script>
-<style>
-    input[type=checkbox] + label {
-        display: block;
-        margin: 0.2em;
-        cursor: pointer;
-        padding: 1em;
-    }
+<h4 align="left" style="color:blue; padding-top:30px">
+    <b>
+        <a href="@Url.Action("Index","Login")">Giáo viên</a>/
+        <a href="@Url.Action("Index","Chamcong")">Chấm công</a>
+    </b>
+</h4><br />
+     <div class="row" style=" width:100%; height:auto; padding-bottom:20px; border:groove">
 
-    input[type=checkbox] {
-        display: none;
-    }
+         @Html.Action("Create", "Chamcong")
+         @Html.Action("Update", "Chamcong")
+        
 
-        input[type=checkbox] + label:before {
-            content: "\2714";
-            border: 0.1em solid #000;
-            border-radius: 0.2em;
-            display: inline-block;
-            width: 1.5em;
-            height: 1.5em;
-            padding-left: 0.2em;
-            padding-bottom: 0.3em;
-            margin-right: 0.2em;
-            vertical-align: bottom;
-            color: transparent;
-            transition: .2s;
-        }
-
-        input[type=checkbox] + label:active:before {
-            transform: scale(0);
-        }
-
-        input[type=checkbox]:checked + label:before {
-            background-color: MediumSeaGreen;
-            border-color: MediumSeaGreen;
-            color: #fff;
-        }
-    .button {
-        display: inline-block;
-        border-radius: 4px;
-        background-color: #f4511e;
-        border: none;
-        color: #FFFFFF;
-        text-align: center;
-        font-size: 20px;
-        padding: 10px 10px 10px 10px;
-        width: 100px;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 5px;
-        height: 50px;
-    }
-
-        .button span {
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            transition: 0.5s;
-        }
-
-            .button span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-            }
-
-        .button:hover span {
-            padding-right: 25px;
-        }
-
-            .button:hover span:after {
-                opacity: 1;
-                right: 0;
-            }
-</style>
-<h4 align="left" style="color:blue; padding-top:30px"><b>
-    <a href="@Url.Action("Index","Login")">Giáo viên</a>/
-    <a href="@Url.Action("Index","Chamcong")">Chấm công</a>
-</b></h4><br />
-         <div class="row" style=" width:100%; height:500px; border:groove">
-             <div style="float:left">
-                 <div class="search_khoahoc" style="padding-top:20px;">
-                     <div style="float:left;margin-left:10px">
-                         <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Lớp học</h4>
-                         <input type="text" style="width:150px; height:30px ; border:groove;  margin-left:20px" />
-
-                     </div>
-                     <div style="float:left; ">
-                         <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px;margin-left: 20px;">Buổi học</h4>
-                         <input type="text" style="width:150px; height:30px ; border:groove;  margin-left:20px" />
-                     </div>
-                     <div style="float: left; padding-left: 20px;">
-                         <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Ngày</h4>
-                         <input type="text" style="width:150px; height:30px ; border:groove;  margin-left:20px" />
-
-                     </div>
-                     <div style="float:right; align-self:center;  ">
-                         <button style="margin-left:60px" onclick="them()">Chấm công</button>
-                         <button style="margin-left:80px" onclick="xoa()">Xóa</button>
-                     </div>
-                 </div>
-                 <div class="search_khoahoc" style="padding-top: 50px;
-    padding-left: 200px;
-    margin-top: 40px;">
-
-                     <div style="float:left; ">
-                         <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Tháng</h4>
-                         <input type="text" style="width:200px; height:30px ; border:groove;  margin-left:20px" />
-                     </div>
-                     <div style="float:left; align-self:center;  ">
-                         <button style="margin-left:60px">Tìm kiếm</button>
-                     </div>
-
-
-                 </div>
+         <div style="padding-top:50px;margin-top: 40px;">
+             <div style="margin-left:30px; margin-bottom:20px ;">
+                 <a href="@Url.Action("LinkThem","Chamcong")"><b style="color:red; font-family:'Times New Roman'; font-size:14">Thêm ngày công...</b></a>
              </div>
-
-
-             <div style="padding-top:20px;    margin-top: 150px;">
-                 <table align="center" border="1" style="width:60% ; float:left; margin-left:30px">
-                     <tr class="table_th">
+             <div style="float:left;width: 700px;">
+                 <div class="search_khoahoc" style=" padding-left: 100px; padding-bottom:20px ; margin-bottom:30px">
+                     @using (Html.BeginForm("Searchlop", "Chamcong", FormMethod.Post))
+                     {
+                         <div style="float:left; ">
+                             <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Lớp</h4>
+                             @Html.DropDownList("lopsearch", null, new { @type = "text", @style = "width:200px; height:30px ; border:groove;  margin-left:20px" })
+                             @*<input type="text" style="width:200px; height:30px ; border:groove;  margin-left:20px" />*@
+                         </div>
+                         <div style="float:left; align-self:center;  ">
+                             <button type="submit" style="margin-left:60px">Tìm kiếm</button>
+                         </div>
+                     }
+                 </div>
+                 <table align="center" border="1" style="width:90% ;height:auto; float:left; margin-left:30px">
+                     <tr id="myTable" class="table_th">
                          <th class="th">Tên lớp</th>
                          <th class="th">Ngày</th>
                          <th class="th">Buổi</th>
-
+                         <th class="th">Hoạt động</th>
                      </tr>
-                     @foreach (var item in Model.All_Teacher_Attendance)
+                     @Html.Raw(TempData["msg"])
+                     @foreach (var item in Model)
                      {
                          <tr class="table_th">
                              <td class="td">@item.NameClass</td>
-                             <td class="td">@item.Day</td>
+                             <td class="td">@item.Day.Date</td>
                              <td class="td">@item.session</td>
+                             <td class="td">
+
+                                 <a href="@Url.Action("LinkUpdate","Chamcong",new { @id = item.ID })">Cập nhập |</a>
+                                 <a href="@Url.Action("Delete","Chamcong",new { @id = item.ID })"> |Xóa</a>
+
+                             </td>
 
                          </tr>
                      }
                  </table>
-                 <table align="center" border="1" style="width:30% ; float:left ; margin-left:30px">
-                     <tr class="table_th" style="background-color:orange">
-                         <th class="th" style="background-color:orange">Tháng</th>
-                         <th class="th" style="background-color:orange">Tổng số buổi</th>
-                         <th class="th" style="background-color:orange">Lương</th>
-
-                     </tr>
-                     <tr class="table_th" style="">
-                         <td class="td">9</td>
-                         <td class="td">3</td>
-                         <td class="td">300.000</td>
-
-                     </tr>
-
-                 </table>
-                 <div id="chamcong" style="width:85em; height:30em;background-color:azure; position:absolute; padding: 50px 50px 50px 50px; visibility:hidden;">
-                     <form action="/GIAOVIEN/Chamcong/Add" method="post">
-                         @foreach (var item in Model.Custom_Teacher_Attendance)
-                         {
-                             <input type="checkbox" id="@item.IDClass" name="@item.IDClass" value="@item.IDClass">
-                             <label for="@item.IDClass">@item.NameClass | @item.Day</label>
-                         }
-                         <button class="button" style="vertical-align:middle"><span>Gửi</span></button>
-                         <button class="button" style="vertical-align:middle; float:right" type="button" onclick="back()"><span>Thoát</span></button>
-                     </form>
-                 </div>
-                 <div id="xoachamcong" style="width:85em; height:30em;background-color:azure; position:absolute; padding: 50px 50px 50px 50px; visibility:hidden;">
-                     <form action="/GIAOVIEN/Chamcong/Delete" method="post">
-                         @foreach (var item in Model.Custom_Teacher_Attendance_del)
-                         {
-                             <input type="checkbox" id="@item.IDClass" name="@item.IDClass" value="@item.IDClass">
-                             <label for="@item.IDClass">@item.NameClass | @item.Day</label>
-                         }
-                         <button class="button" style="vertical-align:middle"><span>Xoá</span></button>
-                         <button class="button" style="vertical-align:middle; float:right" type="button" onclick="back2()"><span>Thoát</span></button>
-                     </form>
-                 </div>
-
              </div>
-
+             
+             @Html.Action("Luong", "Chamcong")
          </div>
 
+     </div>
 

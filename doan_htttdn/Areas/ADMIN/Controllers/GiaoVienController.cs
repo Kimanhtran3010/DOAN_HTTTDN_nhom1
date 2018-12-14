@@ -13,13 +13,13 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
     public class GiaoVienController : Controller
     {
         // GET: ADMIN/GiaoVien
-     
+
         DAO_Admin dao = new DAO_Admin();
         public ActionResult GiaoVien(string Search, int? page)
         {
             var model = dao.List_Teacher();
             ViewBag.Search = Search;
-            if(!string.IsNullOrEmpty(Search))
+            if (!string.IsNullOrEmpty(Search))
             {
                 model = dao.Search_Teacher(Search);
             }
@@ -37,20 +37,20 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         [HttpPost]
         public ActionResult Them(TEACHER teacher)
         {
-            
-            if(dao.Insert_Teacher(teacher))
+
+            if (dao.Insert_Teacher(teacher))
             {
                 return RedirectToAction("GiaoVien");
             }
             else
             {
                 TempData["msg"] = "<script>alert('Thêm Thất Bại! Lỗi!');</script>";
-                return RedirectToAction("Them","GiaoVien");
+                return RedirectToAction("Them", "GiaoVien");
             }
         }
-        
 
-        
+
+
         public ActionResult Sua(int id)
         {
             var bien = dao.Get_Teacher(id);
@@ -59,7 +59,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         [HttpPost]
         public ActionResult Sua(TEACHER teacher)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (dao.Update_Teacher(teacher))
                 {
@@ -76,20 +76,20 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            if (dao.Delete_Teacher(id)==true)
+            if (dao.Delete_Teacher(id) == true)
             {
                 TempData["msg"] = "<script>alert(' Thành Công !');</script>";
-                return RedirectToAction("GiaoVien","GiaoVien");
+                return RedirectToAction("GiaoVien", "GiaoVien");
             }
             else
             {
                 TempData["msg"] = "<script>alert('Lỗi Xóa Không Thành Công !');</script>";
                 return RedirectToAction("GiaoVien", "GiaoVien");
             }
-             
+
 
         }
 
-        
+
     }
 }

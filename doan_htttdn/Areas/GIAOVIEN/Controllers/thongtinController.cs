@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using doan_htttdn.DAO;
 using doan_htttdn.FF;
 
+
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers
 {
     public class thongtinController : Controller
@@ -29,14 +30,16 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
         {
            if(dao.Update(tEACHER))
             {
+                TempData["msg"] = "<script>alert('Sửa thông tin thành công');</script>";
                 return RedirectToAction("Index", "thongtin");
             }
            else
             {
-                return Content("Erorr!!!");
+                TempData["msg"] = "<script>alert('Sửa thông tin không thành công');</script>";
+                return RedirectToAction("Index", "thongtin");
             }
 
         }
-       
+
     }
 }

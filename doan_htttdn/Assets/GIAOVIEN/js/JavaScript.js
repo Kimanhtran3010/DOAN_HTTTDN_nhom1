@@ -4,20 +4,37 @@
     var pw2 = document.getElementById('2').value;
     if (pw0 == '') {
         alert("Bạn chưa nhập mật khẩu hiện tại!");
+        return false;
     }
-    if (pw1 == '') {
-        alert("Bạn chưa nhập mật khẩu mới!");
-    }
-    if (pw2 == '') {
-        alert("Bạn chưa nhập lại mật khẩu mới!");
-    }
-    if (pw1 != pw2) {
-        alert("Mật khẩu không khớp!");
-   
-    }
-
     else
-        alert("Đổi mật khẩu thành công!")
+    {
+        if (pw1 == '') {
+            alert("Bạn chưa nhập mật khẩu mới!"); return false;
+        }
+        else
+        {
+            if (pw2 == '') {
+                alert("Bạn chưa nhập lại mật khẩu mới!");
+                return false;
+            }
+            else {
+
+                if (pw1 != pw2) {
+                    alert("Mật khẩu không khớp!");
+                    return false;
+
+                }
+                else
+
+
+                    return true;
+            }
+            
+        }
+        
+
+    }
+        //alert("Đổi mật khẩu thành công!")
 
 }
 function matchinfor() {

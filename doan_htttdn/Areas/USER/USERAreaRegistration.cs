@@ -11,13 +11,17 @@ namespace doan_htttdn.Areas.USER
                 return "USER";
             }
         }
-        // mở bài của tui , thêm mấy cái vào đây , K.A thiểu trang này rồi
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                "Product_RoBo",
                "USER/san-pham",
                new { controller = "RoBo", action = "Index", id = UrlParameter.Optional }
+           );
+            context.MapRoute(
+               "Home Index",
+               "USER/trang-chu",
+               new { controller = "Home", action = "Index", id = UrlParameter.Optional }
            );
             context.MapRoute(
                "Add Cart",
@@ -34,6 +38,21 @@ namespace doan_htttdn.Areas.USER
                "USER/gio-hang/update",
                new { controller = "Cart", action = "Update", id = UrlParameter.Optional }
            );
+            context.MapRoute(
+               "Cart Delete",
+               "USER/gio-hang/delete",
+               new { controller = "Cart", action = "Delete", id = UrlParameter.Optional }
+           );
+            context.MapRoute(
+              "Cart Payment",
+              "USER/gio-hang/thanh-toan",
+              new { controller = "Cart", action = "ThanhToan", id = UrlParameter.Optional }
+          );
+            context.MapRoute(
+              "Confirm",
+              "USER/gio-hang/xac-nhan",
+              new { controller = "Cart", action = "ConfirmEmail", id = UrlParameter.Optional }
+          );
             context.MapRoute(
                "Product_Detail",
                "USER/chi-tiet-san-pham",
