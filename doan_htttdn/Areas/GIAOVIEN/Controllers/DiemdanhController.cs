@@ -8,10 +8,10 @@ using doan_htttdn.Common;
 using doan_htttdn.DAO.GIAOVIEN;
 using doan_htttdn.FF;
 
-namespace doan_htttdn.Areas.GIAOVIEN.Controllers
-{
-    public class DiemdanhController : Controller
-    {
+//namespace doan_htttdn.Areas.GIAOVIEN.Controllers
+//{
+//    public class DiemdanhController : Controller
+//    {
 
         // GET: GIAOVIEN/Diemdanh
         DAO_Class_Student dao1 = new DAO_Class_Student();

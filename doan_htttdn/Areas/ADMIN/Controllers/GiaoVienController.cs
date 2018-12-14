@@ -8,11 +8,11 @@ using doan_htttdn.DAO;
 using doan_htttdn.Common;
 using PagedList;
 
-namespace doan_htttdn.Areas.ADMIN.Controllers
-{
-    public class GiaoVienController : Controller
-    {
-        // GET: ADMIN/GiaoVien
+//namespace doan_htttdn.Areas.ADMIN.Controllers
+//{
+//    public class GiaoVienController : Controller
+//    {
+//        // GET: ADMIN/GiaoVien
      
         DAO_Admin dao = new DAO_Admin();
         public ActionResult GiaoVien(string Search, int? page)
@@ -27,16 +27,21 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             int pagenumber = (page ?? 1);
             return View(model.ToPagedList(pagenumber, pagesize));
         }
+//        DAO_Admin dao = new DAO_Admin();
+//        public ActionResult GiaoVien()
+//        {
+//            return View(dao.List_Teacher());
+//        }
 
-        [HttpGet]
-        public ActionResult Them()
-        {
-            return View();
-        }
+//        [HttpGet]
+//        public ActionResult Them()
+//        {
+//            return View();
+//        }
 
-        [HttpPost]
-        public ActionResult Them(TEACHER teacher)
-        {
+//        [HttpPost]
+//        public ActionResult Them(TEACHER teacher)
+//        {
             
             if(dao.Insert_Teacher(teacher))
             {
@@ -70,9 +75,9 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
                 else
                     TempData["msg"] = "<script>alert('Cập Nhật Không Thành Công !');</script>";
 
-            }
-            return RedirectToAction("GiaoVien");
-        }
+//            }
+//            return RedirectToAction("GiaoVien");
+//        }
 
         [HttpDelete]
         public ActionResult Delete(int id)
@@ -89,8 +94,8 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             }
              
 
-        }
+//        }
 
         
-    }
-}
+//    }
+//}

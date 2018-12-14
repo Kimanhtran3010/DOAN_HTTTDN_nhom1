@@ -1,9 +1,9 @@
-﻿using doan_htttdn.FF;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using doan_htttdn.FF;
+﻿//using doan_htttdn.FF;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Web;
+//using doan_htttdn.FF;
 
 
 namespace doan_htttdn.DAO
@@ -33,28 +33,28 @@ namespace doan_htttdn.DAO
                 }
             }
 
-        }
-        public TEACHER GetbyID(int ID)
-        {
-            return db.TEACHERs.Where(x => x.IDTeacher == ID).SingleOrDefault();
-        }
+//        }
+//        public TEACHER GetbyID(int ID)
+//        {
+//            return db.TEACHERs.Where(x => x.IDTeacher == ID).SingleOrDefault();
+//        }
         
-        public bool Update(TEACHER tEACHER)
-        {
-            var tc = db.TEACHERs.Where(x => x.IDTeacher == tEACHER.IDTeacher).SingleOrDefault();
-            if (tc != null)
-            {
-               tc.Name = tEACHER.Name;
-                tc.Phone = tEACHER.Phone;
-                tc.ADDRESS = tEACHER.ADDRESS;
-                tc.Email = tEACHER.Email;
-                tc.Knowledge = tEACHER.Knowledge;
-                db.SaveChanges();
-                return true;
-            }
-            return false;
+//        public bool Update(TEACHER tEACHER)
+//        {
+//            var tc = db.TEACHERs.Where(x => x.IDTeacher == tEACHER.IDTeacher).SingleOrDefault();
+//            if (tc != null)
+//            {
+//               tc.Name = tEACHER.Name;
+//                tc.Phone = tEACHER.Phone;
+//                tc.ADDRESS = tEACHER.ADDRESS;
+//                tc.Email = tEACHER.Email;
+//                tc.Knowledge = tEACHER.Knowledge;
+//                db.SaveChanges();
+//                return true;
+//            }
+//            return false;
 
-        }
+//        }
 
-    }
-}
+//    }
+//}

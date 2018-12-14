@@ -32,22 +32,22 @@ namespace doan_htttdn.DAO
                 }
             }
 
-        }
+//        }
 
-        public bool Insert(Admin_Article aDMIN)
-        {
-            try
-            {
-                db.Admin_Article.Add(aDMIN);
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+//        public bool Insert(Admin_Article aDMIN)
+//        {
+//            try
+//            {
+//                db.Admin_Article.Add(aDMIN);
+//                db.SaveChanges();
+//                return true;
+//            }
+//            catch
+//            {
+//                return false;
+//            }
 
-        }
+//        }
 
 
         //TEACHER-------------------------------------------------

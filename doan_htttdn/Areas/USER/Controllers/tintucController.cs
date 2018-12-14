@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.FF;
 
+
 namespace doan_htttdn.Areas.USER.Controllers
 {
     public class TinTucController : Controller
@@ -82,6 +83,13 @@ namespace doan_htttdn.Areas.USER.Controllers
             return View(model);
         }
 
+        public ActionResult ListNews_1()
+        {
+            var model = db.ARTICLEs.Where(x => x.ID_Article > 1).ToList() ;
+            return View(model);
+        }
+
+
         public ActionResult InNewscate(string cateid, int? page)
         {
             if (cateid != null)
@@ -91,7 +99,9 @@ namespace doan_htttdn.Areas.USER.Controllers
                 var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
                 var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
                 ViewBag.cateName = cate.Name_Menu;
-                return View(model);
+                //int pagesize = 2;
+                //int pagenumber = (page ?? 1);
+                return View(model/*.ToPagedList(pagenumber,pagesize)*/);
             }
           else
             {

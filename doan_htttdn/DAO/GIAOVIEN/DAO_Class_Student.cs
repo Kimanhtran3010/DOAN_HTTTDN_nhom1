@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using doan_htttdn.FF;
-using doan_htttdn.Areas.GIAOVIEN.Models;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Web;
+//using doan_htttdn.FF;
+//using doan_htttdn.Areas.GIAOVIEN.Models;
 
 namespace doan_htttdn.DAO.GIAOVIEN
 {

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using doan_htttdn.DAO;
-using doan_htttdn.FF;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Web;
+//using System.Web.Mvc;
+//using doan_htttdn.DAO;
+//using doan_htttdn.FF;
 
 namespace doan_htttdn.Areas.GIAOVIEN.Controllers
 {
@@ -38,7 +38,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 return RedirectToAction("Index", "thongtin");
             }
 
-        }
+//        }
        
-    }
-}
+//    }
+//}

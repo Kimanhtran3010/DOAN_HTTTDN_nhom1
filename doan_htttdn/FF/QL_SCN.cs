@@ -34,6 +34,14 @@ namespace doan_htttdn.FF
                 .Property(e => e.Username)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<ACCOUNT>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin_Article>()
+                .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Admin_Article>()
                 .Property(e => e.IDAdmin)
                 .IsUnicode(false);
