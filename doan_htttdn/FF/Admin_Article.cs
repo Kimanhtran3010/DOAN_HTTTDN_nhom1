@@ -15,8 +15,8 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDAdmin { get; set; }
+        [StringLength(50)]
+        public string IDAdmin { get; set; }
 
         [StringLength(50)]
         public string Pass { get; set; }

@@ -30,6 +30,14 @@ namespace doan_htttdn.FF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ACCOUNT>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin_Article>()
+                .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Admin_Article>()
                 .Property(e => e.Pass)
                 .IsUnicode(false);
@@ -39,10 +47,12 @@ namespace doan_htttdn.FF
                 .WithRequired(e => e.Admin_Article)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<CLASS>()
-                .Property(e => e.IDClass)
             modelBuilder.Entity<ARTICLE>()
                 .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ARTICLE>()
+                .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -68,6 +78,10 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
@@ -78,16 +92,17 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
-                .Property(e => e.IDOrders)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.IDRobot)
                 .IsUnicode(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Menu_Article>()
+                .HasMany(e => e.ARTICLEs)
+                .WithRequired(e => e.Menu_Article)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.Phone)
@@ -115,6 +130,10 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<PRODUCT>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.DETAIL_ORDERS)
                 .WithRequired(e => e.PRODUCT)
                 .WillCascadeOnDelete(false);
@@ -123,12 +142,13 @@ namespace doan_htttdn.FF
                 .Property(e => e.IDPromotion)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.IDRegist)
-                .IsUnicode(false);
+            modelBuilder.Entity<PROMOTION>()
+                .HasMany(e => e.ORDERS)
+                .WithRequired(e => e.PROMOTION)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.NameParent)
+                .Property(e => e.IDRegist)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()

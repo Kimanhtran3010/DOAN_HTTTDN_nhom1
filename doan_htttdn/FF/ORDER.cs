@@ -16,8 +16,7 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDOrders { get; set; }
+        public int IDOrders { get; set; }
 
         [StringLength(100)]
         public string NameCustomer { get; set; }
@@ -31,8 +30,9 @@ namespace doan_htttdn.FF
         [StringLength(100)]
         public string Email { get; set; }
 
-        public int? NumberProduct { get; set; }
+        public int NumberProduct { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string IDPromotion { get; set; }
 
@@ -48,6 +48,8 @@ namespace doan_htttdn.FF
         public string Note { get; set; }
 
         public int? State { get; set; }
+
+        public bool? Verify { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }

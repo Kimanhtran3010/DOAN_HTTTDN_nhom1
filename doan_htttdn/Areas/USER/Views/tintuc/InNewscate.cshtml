@@ -47,39 +47,43 @@
 
                     <div class="row" style="margin-top:20px">
                         <!-- Column 1 -->
-
-                        @foreach (var item in Model)
-                        {
-                            if (i < 6)
+                        <div class="col-md-8">
+                            @foreach (var item in Model)
                             {
-                                <div class="col-md-7 col-sm-6">
-                                    <!-- ARTICLE -->
-                                    <article class="article widget-article">
-                                        <div class="article-img" style="width:300px">
-                                            <a href="/User/TinTuc/Detail/@item.ID_Article" >
-                                                <img src="~/Assets/Image/@item.Img" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="article-body">
-                                            <h2 class="article-title" style="font-size:20px"><a href="/User/TinTuc/Detail/@item.ID_Article">@item.Title</a></h2>
-                                            <ul class="article-meta">
-                                                <li><i class="fa fa-clock-o" style="color:#000000;font-size:15px"> @item.Date </i></li>
-                                                <li><i></i> <p style="color:#000000;margin-top:10px;font-size:15px">&#9679  @item.Summary</p></li>
+                                if (i < 6)
+                                {
+                                    <div class="col-md-11 col-sm-6">
+                                        <!-- ARTICLE -->
+                                        <article class="article widget-article">
+                                            <div class="article-img" style="width:300px">
+                                                <a href="/User/TinTuc/Detail/@item.ID_Article">
+                                                    <img src="~/Assets/Image/IMGAR/@item.Image" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="article-body">
+                                                <h2 class="article-title" style="font-size:20px"><a href="/User/TinTuc/Detail/@item.ID_Article">@item.Title</a></h2>
+                                                <ul class="article-meta">
+                                                    <li><i class="fa fa-clock-o" style="color:#000000;font-size:15px"> @item.Day </i></li>
+                                                    <li><i></i> <p style="color:#000000;margin-top:10px;font-size:15px">&#9679  @item.Summary</p></li>
 
-                                            </ul>
+                                                </ul>
 
-                                        </div>
-                                    </article>
+                                            </div>
+                                        </article>
 
-                                </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                                i++;
                             }
-                            else
-                            {
-                                break;
-                            }
-                            i++;
-                        }
+                        </div>
 
+                        <div class="col-md-4">
+                            <div class="col-md-8"> </div>
+                        </div>       
                     </div>
                 }
 

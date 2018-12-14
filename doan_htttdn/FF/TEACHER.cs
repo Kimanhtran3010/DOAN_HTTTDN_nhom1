@@ -22,6 +22,9 @@ namespace doan_htttdn.FF
         [StringLength(100)]
         public string Name { get; set; }
 
+        [StringLength(10)]
+        public string Sex { get; set; }
+
         [StringLength(12)]
         public string Phone { get; set; }
 
@@ -33,6 +36,8 @@ namespace doan_htttdn.FF
 
         [StringLength(100)]
         public string Knowledge { get; set; }
+
+        public int? Status { get; set; }
 
         public virtual ACCOUNT ACCOUNT { get; set; }
 
