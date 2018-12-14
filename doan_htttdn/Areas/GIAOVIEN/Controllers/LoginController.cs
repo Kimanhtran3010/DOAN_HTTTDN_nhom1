@@ -47,22 +47,22 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
                 {
                     ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
 
-//                }
-//                else if (obj == -1)
-//                {
-//                    ModelState.AddModelError("", "Tài Khoản Đang bị Khóa");
-//                }
-//                else if (obj == -2)
-//                {
-//                    ModelState.AddModelError("", "Mật Khẩu Không Đúng");
-//                }
-//                else
-//                    ModelState.AddModelError("", "Đăng Nhập Không Đúng");
+                }
+                else if (obj == -1)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Đang bị Khóa");
+                }
+                else if (obj == -2)
+                {
+                    ModelState.AddModelError("", "Mật Khẩu Không Đúng");
+                }
+                else
+                    ModelState.AddModelError("", "Đăng Nhập Không Đúng");
 
-//            }
+            }
 
 
-//            return View("Index");
-//        }
-//    }
-//}
+            return View("Index");
+        }
+    }
+}

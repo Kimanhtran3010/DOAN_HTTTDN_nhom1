@@ -7,13 +7,13 @@ using doan_htttdn.Areas.GIAOVIEN.Models;
 using doan_htttdn.DAO.GIAOVIEN;
 using doan_htttdn.FF;
 
-//namespace doan_htttdn.Areas.GIAOVIEN.Controllers
-//{
-//    public class DShocvienController : Controller
-//    {
-//        DAO_Hocvien dao = new DAO_Hocvien();
-//        // GET: GIAOVIEN/DShocvien
-      
+namespace doan_htttdn.Areas.GIAOVIEN.Controllers
+{
+    public class DShocvienController : Controller
+    {
+        DAO_Hocvien dao = new DAO_Hocvien();
+        // GET: GIAOVIEN/DShocvien
+
         public ActionResult Index( )
         {
 

@@ -8,18 +8,18 @@ using doan_htttdn.DAO;
 using doan_htttdn.Common;
 using PagedList;
 
-//namespace doan_htttdn.Areas.ADMIN.Controllers
-//{
-//    public class GiaoVienController : Controller
-//    {
-//        // GET: ADMIN/GiaoVien
-     
+namespace doan_htttdn.Areas.ADMIN.Controllers
+{
+    public class GiaoVienController : Controller
+    {
+        // GET: ADMIN/GiaoVien
+
         DAO_Admin dao = new DAO_Admin();
         public ActionResult GiaoVien(string Search, int? page)
         {
             var model = dao.List_Teacher();
             ViewBag.Search = Search;
-            if(!string.IsNullOrEmpty(Search))
+            if (!string.IsNullOrEmpty(Search))
             {
                 model = dao.Search_Teacher(Search);
             }
@@ -27,36 +27,30 @@ using PagedList;
             int pagenumber = (page ?? 1);
             return View(model.ToPagedList(pagenumber, pagesize));
         }
-//        DAO_Admin dao = new DAO_Admin();
-//        public ActionResult GiaoVien()
-//        {
-//            return View(dao.List_Teacher());
-//        }
 
-//        [HttpGet]
-//        public ActionResult Them()
-//        {
-//            return View();
-//        }
+        [HttpGet]
+        public ActionResult Them()
+        {
+            return View();
+        }
 
-//        [HttpPost]
-//        public ActionResult Them(TEACHER teacher)
-//        {
-            
-            if(dao.Insert_Teacher(teacher))
+        [HttpPost]
+        public ActionResult Them(TEACHER teacher)
+        {
+
+            if (dao.Insert_Teacher(teacher))
             {
-                TempData["msg"] = "<script>alert('Thêm Thành Công !');</script>";
                 return RedirectToAction("GiaoVien");
             }
             else
             {
                 TempData["msg"] = "<script>alert('Thêm Thất Bại! Lỗi!');</script>";
-                return RedirectToAction("Them","GiaoVien");
+                return RedirectToAction("Them", "GiaoVien");
             }
         }
-        
 
-        
+
+
         public ActionResult Sua(int id)
         {
             var bien = dao.Get_Teacher(id);
@@ -65,7 +59,7 @@ using PagedList;
         [HttpPost]
         public ActionResult Sua(TEACHER teacher)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (dao.Update_Teacher(teacher))
                 {
@@ -75,27 +69,27 @@ using PagedList;
                 else
                     TempData["msg"] = "<script>alert('Cập Nhật Không Thành Công !');</script>";
 
-//            }
-//            return RedirectToAction("GiaoVien");
-//        }
+            }
+            return RedirectToAction("Sua", "GiaoVien");
+        }
 
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            if (dao.Delete_Teacher(id)==true)
+            if (dao.Delete_Teacher(id) == true)
             {
                 TempData["msg"] = "<script>alert(' Thành Công !');</script>";
-                return RedirectToAction("GiaoVien","GiaoVien");
+                return RedirectToAction("GiaoVien", "GiaoVien");
             }
             else
             {
                 TempData["msg"] = "<script>alert('Lỗi Xóa Không Thành Công !');</script>";
                 return RedirectToAction("GiaoVien", "GiaoVien");
             }
-             
 
-//        }
 
-        
-//    }
-//}
+        }
+
+
+    }
+}

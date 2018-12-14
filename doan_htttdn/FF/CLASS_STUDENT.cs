@@ -24,7 +24,7 @@ namespace doan_htttdn.FF
         public int Session { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime Day { get; set; }
+        public DateTime? Day { get; set; }
 
         public int? State { get; set; }
 
