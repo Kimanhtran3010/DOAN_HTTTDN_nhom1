@@ -10,8 +10,8 @@ namespace doan_htttdn.FF
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(20)]
-        public string IDOrders { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDOrders { get; set; }
 
         [Key]
         [Column(Order = 1)]
@@ -23,7 +23,7 @@ namespace doan_htttdn.FF
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 
-        public virtual ORDER ORDER { get; set; }
+        public virtual ORDERS ORDERS { get; set; }
 
         public virtual PRODUCT PRODUCT { get; set; }
     }

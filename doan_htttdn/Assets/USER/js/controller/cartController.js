@@ -9,10 +9,10 @@
         });
 
         $('#btn_update').on('click', function () {
-            var listproduct = $('#txt_number');
-
+            
+            var listproduct = $('input#txt_number');           
             var cartList = [];
-            jQuery.each(listproduct, function (i, item) {
+            $.each(listproduct, function (i, item) {
                 cartList.push({
                     Quantity: $(item).val(),
                     Product: {
@@ -31,7 +31,7 @@
                     window.location.href = "gio-hang";
                 }
 
-            })
+            });
         });
         $('#btn_delete').on('click', function () {
             $.ajax({
@@ -45,8 +45,8 @@
                     window.location.href = "gio-hang";
                 }
 
-            })
+            });
         });
     }
-}
+};
 cart.init();

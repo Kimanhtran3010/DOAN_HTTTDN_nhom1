@@ -12,7 +12,7 @@ namespace doan_htttdn.FF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public COURSE()
         {
-            CLASSes = new HashSet<CLASS>();
+            CLASS = new HashSet<CLASS>();
             RIGISTRATION_COURSE = new HashSet<RIGISTRATION_COURSE>();
         }
 
@@ -28,16 +28,18 @@ namespace doan_htttdn.FF
 
         public int? Maxnumber { get; set; }
 
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
 
-        [StringLength(200)]
         public string Contents { get; set; }
 
         [Column(TypeName = "money")]
         public decimal? Fee { get; set; }
 
+        [StringLength(100)]
+        public string Image { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLASS> CLASSes { get; set; }
+        public virtual ICollection<CLASS> CLASS { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RIGISTRATION_COURSE> RIGISTRATION_COURSE { get; set; }

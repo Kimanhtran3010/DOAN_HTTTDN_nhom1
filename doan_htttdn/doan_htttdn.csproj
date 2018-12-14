@@ -61,11 +61,29 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="SendGrid, Version=9.10.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.10.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -84,8 +102,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
@@ -151,21 +167,24 @@
     <Compile Include="Areas\USER\Controllers\RoBoController.cs" />
     <Compile Include="Areas\USER\Controllers\tintucController.cs" />
     <Compile Include="Areas\USER\Controllers\VechungtoiController.cs" />
+    <Compile Include="Areas\USER\Controllers\XemDonHangController.cs" />
     <Compile Include="Areas\USER\Models\Cart_items.cs" />
     <Compile Include="Areas\USER\Models\KhoaHocModel.cs" />
+    <Compile Include="Areas\USER\Models\ViewDonHang.cs" />
     <Compile Include="Areas\USER\USERAreaRegistration.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAO\DAO_Cart.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
     <Compile Include="FF\ACCOUNT.cs" />
     <Compile Include="FF\ADMIN.cs" />
-    <Compile Include="FF\ADMIN1.cs" />
+    <Compile Include="FF\ADMINs.cs" />
     <Compile Include="FF\ARTICLE.cs" />
     <Compile Include="FF\CLASS.cs" />
     <Compile Include="FF\CLASS_STUDENT.cs" />
     <Compile Include="FF\COURSE.cs" />
     <Compile Include="FF\DETAIL_ORDERS.cs" />
-    <Compile Include="FF\ORDER.cs" />
+    <Compile Include="FF\ORDERS.cs" />
     <Compile Include="FF\PRODUCT.cs" />
     <Compile Include="FF\PROMOTION.cs" />
     <Compile Include="FF\QL_SCN.cs" />
@@ -262,11 +281,14 @@
     <Content Include="Assets\USER\css\a.css" />
     <Content Include="Assets\USER\css\bootstrap.css" />
     <Content Include="Assets\USER\css\bootstrap.min.css" />
+    <Content Include="Assets\USER\css\controller\jquery.rateyo.css" />
+    <Content Include="Assets\USER\css\controller\x.css" />
     <Content Include="Assets\USER\css\flexslider.css" />
     <Content Include="Assets\USER\css\memenu.css" />
     <Content Include="Assets\USER\css\style.css" />
     <Content Include="Assets\USER\js\bootstrap.min.js" />
     <Content Include="Assets\USER\js\controller\cartController.js" />
+    <Content Include="Assets\USER\js\controller\jquery.rateyo.js" />
     <Content Include="Assets\USER\js\jquery.flexslider.js" />
     <Content Include="Assets\USER\js\jquery.min.js" />
     <Content Include="Assets\USER\js\main.js" />
@@ -288,7 +310,9 @@
     <Content Include="Areas\USER\Views\web.config" />
     <Content Include="Areas\ADMIN\Views\web.config" />
     <Content Include="Areas\USER\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\USER\Views\Home\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Home\Index.cshtml">
+      <BrowseToURL>USER/Home/Index</BrowseToURL>
+    </Content>
     <Content Include="Areas\USER\Views\Vechungtoi\Index.cshtml" />
     <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\Admin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -336,6 +360,11 @@
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
     <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
     <Content Include="Areas\USER\Views\Cart\ThanhToan.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\Index.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\ViewDetail.cshtml" />
+    <Content Include="Areas\USER\Views\RoBo\Top3_Product.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\Rating.cshtml" />
+    <Content Include="Areas\USER\Views\Shared\RatingShow.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

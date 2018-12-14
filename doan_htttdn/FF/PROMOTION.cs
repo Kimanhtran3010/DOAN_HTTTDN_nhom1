@@ -12,7 +12,7 @@ namespace doan_htttdn.FF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PROMOTION()
         {
-            ORDERS = new HashSet<ORDER>();
+            ORDERS = new HashSet<ORDERS>();
         }
 
         [Key]
@@ -28,6 +28,6 @@ namespace doan_htttdn.FF
         public int? State { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERS { get; set; }
+        public virtual ICollection<ORDERS> ORDERS { get; set; }
     }
 }

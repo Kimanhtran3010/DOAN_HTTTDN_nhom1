@@ -28,6 +28,6 @@ namespace doan_htttdn.FF
         [StringLength(20)]
         public string IDAdmin { get; set; }
 
-        public virtual ADMIN1 ADMIN { get; set; }
+        public virtual ADMINs ADMINs { get; set; }
     }
 }

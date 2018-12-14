@@ -13,11 +13,21 @@ namespace doan_htttdn.DAO
         private QL_SCN db = new QL_SCN();
         public IEnumerable<PRODUCT> listpd(int page, int pagesize)
         {
-            return db.PRODUCTs.OrderByDescending(x => x.IDRobot).ToPagedList(page, pagesize);
+            return db.PRODUCT.OrderByDescending(x => x.IDRobot).ToPagedList(page, pagesize);
         }
         public PRODUCT ViewDetail(string ID)
         {
-            return db.PRODUCTs.Where(x => x.IDRobot == ID).SingleOrDefault();
+            return db.PRODUCT.Where(x => x.IDRobot == ID).SingleOrDefault();
+        }
+
+        public IEnumerable<PRODUCT> search(string tk, int page, int pagesize)
+        {
+            return db.PRODUCT.Where(x => x.IDRobot == tk || x.Name == tk).OrderByDescending(x => x.IDRobot).ToPagedList(page, pagesize);
+        }
+
+        public IEnumerable<PRODUCT> top3_pd()
+        {
+            return db.PRODUCT.Take(3).ToList();
         }
     }
 }

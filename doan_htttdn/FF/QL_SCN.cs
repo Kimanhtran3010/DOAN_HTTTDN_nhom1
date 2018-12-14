@@ -12,20 +12,20 @@ namespace doan_htttdn.FF
         {
         }
 
-        public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
-        public virtual DbSet<ADMIN> ADMINs { get; set; }
-        public virtual DbSet<ADMIN1> ADMINs1 { get; set; }
-        public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
-        public virtual DbSet<CLASS> CLASSes { get; set; }
+        public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
+        public virtual DbSet<ADMIN> ADMIN { get; set; }
+        public virtual DbSet<ADMINs> ADMINs { get; set; }
+        public virtual DbSet<ARTICLE> ARTICLE { get; set; }
+        public virtual DbSet<CLASS> CLASS { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
-        public virtual DbSet<COURSE> COURSEs { get; set; }
+        public virtual DbSet<COURSE> COURSE { get; set; }
         public virtual DbSet<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
-        public virtual DbSet<ORDER> ORDERS { get; set; }
-        public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
-        public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
+        public virtual DbSet<ORDERS> ORDERS { get; set; }
+        public virtual DbSet<PRODUCT> PRODUCT { get; set; }
+        public virtual DbSet<PROMOTION> PROMOTION { get; set; }
         public virtual DbSet<RIGISTRATION_COURSE> RIGISTRATION_COURSE { get; set; }
-        public virtual DbSet<STUDENT> STUDENTs { get; set; }
-        public virtual DbSet<TEACHER> TEACHERs { get; set; }
+        public virtual DbSet<STUDENT> STUDENT { get; set; }
+        public virtual DbSet<TEACHER> TEACHER { get; set; }
         public virtual DbSet<TEACHING_CLASS> TEACHING_CLASS { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -46,13 +46,13 @@ namespace doan_htttdn.FF
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ADMIN1>()
+            modelBuilder.Entity<ADMINs>()
                 .Property(e => e.IDAdmin)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ADMIN1>()
-                .HasMany(e => e.ARTICLEs)
-                .WithRequired(e => e.ADMIN)
+            modelBuilder.Entity<ADMINs>()
+                .HasMany(e => e.ARTICLE)
+                .WithRequired(e => e.ADMINs)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ARTICLE>()
@@ -98,7 +98,11 @@ namespace doan_htttdn.FF
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<COURSE>()
-                .HasMany(e => e.CLASSes)
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<COURSE>()
+                .HasMany(e => e.CLASS)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
 
@@ -108,10 +112,6 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DETAIL_ORDERS>()
-                .Property(e => e.IDOrders)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DETAIL_ORDERS>()
                 .Property(e => e.IDRobot)
                 .IsUnicode(false);
 
@@ -119,25 +119,21 @@ namespace doan_htttdn.FF
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<ORDER>()
-                .Property(e => e.IDOrders)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ORDER>()
+            modelBuilder.Entity<ORDERS>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ORDER>()
+            modelBuilder.Entity<ORDERS>()
                 .Property(e => e.IDPromotion)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ORDER>()
+            modelBuilder.Entity<ORDERS>()
                 .Property(e => e.PriceTotal)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<ORDER>()
+            modelBuilder.Entity<ORDERS>()
                 .HasMany(e => e.DETAIL_ORDERS)
-                .WithRequired(e => e.ORDER)
+                .WithRequired(e => e.ORDERS)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCT>()
@@ -163,10 +159,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.NameParent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()

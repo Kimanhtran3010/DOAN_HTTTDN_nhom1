@@ -6,13 +6,12 @@ namespace doan_htttdn.FF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ADMINs")]
-    public partial class ADMIN1
+    public partial class ADMINs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ADMIN1()
+        public ADMINs()
         {
-            ARTICLEs = new HashSet<ARTICLE>();
+            ARTICLE = new HashSet<ARTICLE>();
         }
 
         [Key]
@@ -23,6 +22,6 @@ namespace doan_htttdn.FF
         public string Pass { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICLE> ARTICLEs { get; set; }
+        public virtual ICollection<ARTICLE> ARTICLE { get; set; }
     }
 }

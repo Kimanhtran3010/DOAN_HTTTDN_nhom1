@@ -6,18 +6,16 @@ namespace doan_htttdn.FF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ORDERS")]
-    public partial class ORDER
+    public partial class ORDERS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ORDER()
+        public ORDERS()
         {
             DETAIL_ORDERS = new HashSet<DETAIL_ORDERS>();
         }
 
         [Key]
-        [StringLength(20)]
-        public string IDOrders { get; set; }
+        public int IDOrders { get; set; }
 
         [StringLength(100)]
         public string NameCustomer { get; set; }
@@ -48,6 +46,8 @@ namespace doan_htttdn.FF
         public string Note { get; set; }
 
         public int? State { get; set; }
+
+        public bool ConfirmEmail { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }

@@ -12,11 +12,11 @@ namespace doan_htttdn.Areas.USER.Models
 
         public List<COURSE> GetCOURSEs()
         {
-            return db.COURSEs.ToList();
+            return db.COURSE.ToList();
         }
         public List<COURSE> SearchCOURSEs(string searchString)
         {
-            return db.COURSEs.Where(x => x.Name.Contains(searchString)).ToList();
+            return db.COURSE.Where(x => x.Name.Contains(searchString)).ToList();
         }
         public List<COURSE> FilterCOURSEsByAge(string age)
         {
@@ -28,12 +28,12 @@ namespace doan_htttdn.Areas.USER.Models
                 int maxage = 0;
                 minage = int.Parse(age.Substring(0, index).Trim());
                 maxage = int.Parse(age.Substring(index + 1).Trim());
-                return db.COURSEs.Where(x => x.Age <= maxage && x.Age >= minage).ToList();
+                return db.COURSE.Where(x => x.Age <= maxage && x.Age >= minage).ToList();
             }
             else
             {
                 int minage = int.Parse(age);
-                return db.COURSEs.Where(x => x.Age > minage).ToList();
+                return db.COURSE.Where(x => x.Age > minage).ToList();
             }
         }
         public List<COURSE> FilterCOURSEsByPrice(string price)
@@ -46,17 +46,17 @@ namespace doan_htttdn.Areas.USER.Models
                 decimal maxprice = 0;
                 minprice = decimal.Parse(price.Substring(0, index).Trim());
                 maxprice = decimal.Parse(price.Substring(index + 1).Trim());
-                return db.COURSEs.Where(x => x.Fee < maxprice && x.Fee >= minprice).ToList();
+                return db.COURSE.Where(x => x.Fee < maxprice && x.Fee >= minprice).ToList();
             }
             else
             {
                 decimal minprice = decimal.Parse(price);
-                return db.COURSEs.Where(x => x.Fee >= minprice).ToList();
+                return db.COURSE.Where(x => x.Fee >= minprice).ToList();
             }
         }
         public COURSE GetCOURSE(string ID)
         {
-            return db.COURSEs.Where(x => x.IDCourse == ID).FirstOrDefault();
+            return db.COURSE.Where(x => x.IDCourse == ID).FirstOrDefault();
         }
         public bool Insert(FF.RIGISTRATION_COURSE rc)
         {
