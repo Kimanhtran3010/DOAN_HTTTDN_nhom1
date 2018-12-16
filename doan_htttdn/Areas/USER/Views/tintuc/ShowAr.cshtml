@@ -1,16 +1,15 @@
-﻿@model doan_htttdn.FF.ARTICLE
+﻿@model doan_htttdn.FF.ARTICLEs
 @{
-    ViewBag.Title = "Showar";
-    Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ShowAr";
 }
 
-<div >
+<div>
     <p>
-        <label>ID_Article</label>
+        <label>ID_Article :</label>
         @Html.Label(Model.ID_Article.ToString())
     </p>
     <p>
-        <label>Title </label>
+        <label>Title :</label>
         @Html.Label(Model.Title.ToString())
     </p>
     <p>
@@ -22,11 +21,11 @@
         @Html.Label(Model.Contents.ToString())
     </p>
     <p>
-        <label>Img :</label>
-        @Html.Label(Model.Img.ToString())
+        <label>Image :</label>
+        @Html.Label(Model..ToString())
     </p>
     <p>
-        <label>StartDay :</label>
+        <label>Day : </label>
         @Html.Label(Model.Date.ToString())
     </p>
     <p>

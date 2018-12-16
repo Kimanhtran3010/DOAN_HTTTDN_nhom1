@@ -10,18 +10,12 @@ namespace doan_htttdn.FF
     public partial class ACCOUNT
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDTeacher { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string Username { get; set; }
+        [StringLength(20)]
+        public string IDTeacher { get; set; }
 
         [Required]
         [StringLength(200)]
         public string Password { get; set; }
-
-        public int? Status { get; set; }
 
         public virtual TEACHER TEACHER { get; set; }
     }

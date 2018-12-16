@@ -1,66 +1,88 @@
-﻿@model  IEnumerable<doan_htttdn.Areas.GIAOVIEN.Models.Teacher_Attendance>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
-<h4 align="left" style="color:blue; padding-top:30px">
-    <b>
-        <a href="@Url.Action("Index","Login")">Giáo viên</a>/
-        <a href="@Url.Action("Index","Chamcong")">Chấm công</a>
-    </b>
-</h4><br />
-     <div class="row" style=" width:100%; height:auto; padding-bottom:20px; border:groove">
+<h4 align="left" style="color:blue; padding-top:30px"><b>Giáo viên/Danh sách lớp học/Chấm công</b></h4><br />
+<div class="row" style=" width:100%; height:500px; border:double">
+    <div style="float:left">
+        <div class="search_khoahoc" style="padding-top:20px; padding-left:70px">
 
-         @Html.Action("Create", "Chamcong")
-         @Html.Action("Update", "Chamcong")
-        
+            <div style="float:left; ">
+                <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Tháng</h4>
+                <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
+            </div>
+            <div style="float:left;margin-left:50px">
+                <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn mã lớp học</h4>
+                <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
 
-         <div style="padding-top:50px;margin-top: 40px;">
-             <div style="margin-left:30px; margin-bottom:20px ;">
-                 <a href="@Url.Action("LinkThem","Chamcong")"><b style="color:red; font-family:'Times New Roman'; font-size:14">Thêm ngày công...</b></a>
-             </div>
-             <div style="float:left;width: 700px;">
-                 <div class="search_khoahoc" style=" padding-left: 100px; padding-bottom:20px ; margin-bottom:30px">
-                     @using (Html.BeginForm("Searchlop", "Chamcong", FormMethod.Post))
-                     {
-                         <div style="float:left; ">
-                             <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Tháng</h4>
-                             @Html.DropDownList("lopsearch", null, "--Chọn lớp--", new { @type = "text", @style = "width:200px; height:30px ; border:groove;  margin-left:20px" })
-                             @*<input type="text" style="width:200px; height:30px ; border:groove;  margin-left:20px" />*@
-                         </div>
-                         <div style="float:left; align-self:center;  ">
-                             <button type="submit" style="margin-left:60px">Tìm kiếm</button>
-                         </div>
-                     }
-                 </div>
-                 <table align="center" border="1" style="width:90% ;height:auto; float:left; margin-left:30px">
-                     <tr id="myTable" class="table_th">
-                         <th class="th">Tên lớp</th>
-                         <th class="th">Ngày</th>
-                         <th class="th">Buổi</th>
-                         <th class="th">Hoạt động</th>
-                     </tr>
-                     @Html.Raw(TempData["msg"])
-                     @foreach (var item in Model)
-                     {
-                         <tr class="table_th">
-                             <td class="td">@item.NameClass</td>
-                             <td class="td">@item.Day.Date</td>
-                             <td class="td">@item.session</td>
-                             <td class="td">
+            </div>
 
-                                 <a href="@Url.Action("LinkUpdate","Chamcong",new { @id = item.ID })">Cập nhập |</a>
-                                 <a href="@Url.Action("Delete","Chamcong",new { @id = item.ID })"> |Xóa</a>
+        </div>
+        <div class="search_khoahoc" style="    padding-top: 20px;
+    padding-left: 10px;
+    margin-top: 40px;">
+            <div style="float:left; ">
+                <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn buổi học</h4>
+                <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
+            </div>
+            <div style="float: left; padding-left: 90px;">
+                <h4 style="float:left; font-family:'Times New Roman'; margin-top:8px">Chọn Ngày</h4>
+                <input type="text" style="width:200px; height:30px ; border:groove; border-color:black ; margin-left:20px" />
 
-                             </td>
+            </div>
 
-                         </tr>
-                     }
-                 </table>
-             </div>
-             
-             @Html.Action("Luong", "Chamcong")
-         </div>
 
-     </div>
+        </div>
+    </div>
+   
+    <div style="align-self:center; margin-top:50px; ">
+        <button style="margin-left:60px">Thêm</button>
+        <button style="margin-left:70px">Cập nhập</button>
+        <button style="margin-left:80px">Xóa</button>
+    </div>
+    <div style="padding-top:20px;    margin-top: 50px;">
+        <table align="center" border="1" style="width:60% ; float:left; margin-left:30px">
+            <tr class="table_th">
+                <th class="th">Tên lớp</th>
+                <th class="th">Ngày</th>
+                <th class="th">Buổi</th>
+
+            </tr>
+            <tr class="table_th">
+                <td class="td">Robo2</td>
+                <td class="td">15/09/2018</td>
+                <td class="td">2</td>
+
+            </tr>
+            <tr class="table_th">
+                <td class="td">Robo1</td>
+                <td class="td">15/09/2018</td>
+                <td class="td">5</td>
+            </tr>
+            <tr class="table_th">
+                <td class="td">Robo3</td>
+                <td class="td">15/09/2018</td>
+                <td class="td">1</td>
+            </tr>
+        </table>
+        <table align="center" border="1" style="width:30% ; float:left ; margin-left:30px">
+            <tr class="table_th" style="background-color:orange">
+                <th class="th" style="background-color:orange">Tháng</th>
+                <th class="th" style="background-color:orange">Tổng số buổi</th>
+                <th class="th" style="background-color:orange">Lương</th>
+
+            </tr>
+            <tr class="table_th" style="">
+                <td class="td">9</td>
+                <td class="td">3</td>
+                <td class="td">300.000</td>
+
+            </tr>
+           
+        </table>
+    </div>
+
+</div>
+
 

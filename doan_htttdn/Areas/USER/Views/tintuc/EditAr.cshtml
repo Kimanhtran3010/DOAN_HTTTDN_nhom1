@@ -1,64 +1,69 @@
-﻿@model doan_htttdn.FF.ARTICLE
+﻿@model doan_htttdn.FF.ARTICLEs
 @{
     ViewBag.Title = "EditAr";
     Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    @using (Html.BeginForm("EditAr", "TinTuc", FormMethod.Post))
-    {<div  style="border:1px">
-         <div class="form-group">
-             <h3 style="text-align:center">ID_Article :</h3>
-             @Html.TextBoxFor(x => x.ID_Article, new { @class = "form-control" })
-             
-         </div>
-         <div class="form-group">
-             
-                 <p>
-                     <h3 style="text-align:center">Title :</h3>
-                 </p>
-             
-             @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-            
-         </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Summary :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Summary, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Contents :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Contents, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Day :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Date , new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Image :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Img, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">ID_Admin :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.IDAdmin, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">ID_Menu :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.ID_Menu, new { @class = "form-control" })
-            </div>
-        <div>
-            <input type="submit" style="margin-top:15px"/>
-        </div>
-        </div>}
-</div>
+<h2>EditAr</h2>
+@using (Html.BeginForm("EditAr", "tintuc", FormMethod.Post))
+{
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <label>ID_Article :</label>
+                @Html.TextBoxFor(x => x.ID_Article)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Title :</label>
+                @Html.TextBoxFor(x => x.Title)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Summary :</label>
+                @Html.TextBoxFor(x => x.Summary)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Contents :</label>
+                @Html.TextBoxFor(x => x.Contents)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Image :</label>
+                @Html.TextBoxFor(x => x.Img)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Day : </label>
+                @Html.TextBoxFor(x => x.Date)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>ID_Admin :</label>
+                @Html.TextBoxFor(x => x.IDAdmin)
+            </td>
+        </tr>
+         
+        <tr>
+            <td>
+                <input type="submit" value="update" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+}

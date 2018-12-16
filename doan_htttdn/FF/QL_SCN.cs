@@ -12,14 +12,16 @@ namespace doan_htttdn.FF
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
+        public virtual DbSet<ADMIN> ADMINs { get; set; }
         public virtual DbSet<Admin_Article> Admin_Article { get; set; }
-        public virtual DbSet<ARTICLE> ARTICLEs { get; set; }
+        public virtual DbSet<ADMIN1> ADMINs1 { get; set; }
+        public virtual DbSet<ARTICLEs> ARTICLEs { get; set; }
         public virtual DbSet<CLASS> CLASSes { get; set; }
         public virtual DbSet<CLASS_STUDENT> CLASS_STUDENT { get; set; }
         public virtual DbSet<COURSE> COURSEs { get; set; }
         public virtual DbSet<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
-        public virtual DbSet<Menu_Article> Menu_Article { get; set; }
         public virtual DbSet<ORDER> ORDERS { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
@@ -31,36 +33,36 @@ namespace doan_htttdn.FF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ACCOUNT>()
-                .Property(e => e.Username)
+                .Property(e => e.IDTeacher)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ACCOUNT>()
-                .Property(e => e.Username)
+                .HasOptional(e => e.TEACHER)
+                .WithRequired(e => e.ACCOUNT);
+
+            modelBuilder.Entity<ADMIN>()
+                .Property(e => e.IDAmin)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Admin_Article>()
-                .Property(e => e.IDAdmin)
+            modelBuilder.Entity<ADMIN>()
+                .Property(e => e.Password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Admin_Article>()
-                .Property(e => e.IDAdmin)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin_Article>()
-                .Property(e => e.Pass)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin_Article>()
+            modelBuilder.Entity<ADMIN1>()
                 .HasMany(e => e.ARTICLEs)
-                .WithRequired(e => e.Admin_Article)
+                .WithRequired(e => e.ADMIN)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ARTICLE>()
-                .Property(e => e.Image)
+                .Property(e => e.IDArticler)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ARTICLE>()
                 .Property(e => e.IDAdmin)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CLASS>()
+                .Property(e => e.IDClass)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CLASS>()
@@ -76,6 +78,14 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CLASS_STUDENT>()
+                .Property(e => e.IDClass)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CLASS_STUDENT>()
+                .Property(e => e.IDStudent)
+                .IsUnicode(false);
 
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)
@@ -111,6 +121,10 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.ARTICLEs)
                 .WithRequired(e => e.Menu_Article)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ORDER>()
+                .Property(e => e.IDOrders)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.Phone)
@@ -150,11 +164,6 @@ namespace doan_htttdn.FF
                 .Property(e => e.IDPromotion)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PROMOTION>()
-                .HasMany(e => e.ORDERS)
-                .WithRequired(e => e.PROMOTION)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.IDRegist)
                 .IsUnicode(false);
@@ -168,6 +177,10 @@ namespace doan_htttdn.FF
                 .IsUnicode(false);
 
             modelBuilder.Entity<STUDENT>()
+                .Property(e => e.IDStudent)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<STUDENT>()
                 .Property(e => e.PHONE)
                 .IsUnicode(false);
 
@@ -177,17 +190,25 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TEACHER>()
-                .Property(e => e.Phone)
+                .Property(e => e.IDTeacher)
                 .IsUnicode(false);
 
             modelBuilder.Entity<TEACHER>()
-                .HasOptional(e => e.ACCOUNT)
-                .WithRequired(e => e.TEACHER);
+                .Property(e => e.Phone)
+                .IsUnicode(false);
 
             modelBuilder.Entity<TEACHER>()
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.TEACHER)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TEACHING_CLASS>()
+                .Property(e => e.IDClass)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TEACHING_CLASS>()
+                .Property(e => e.IDTeacher)
+                .IsUnicode(false);
         }
     }
 }

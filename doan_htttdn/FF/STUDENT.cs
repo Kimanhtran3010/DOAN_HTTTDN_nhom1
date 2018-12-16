@@ -16,17 +16,16 @@ namespace doan_htttdn.FF
         }
 
         [Key]
-        public int IDStudent { get; set; }
+        [StringLength(20)]
+        public string IDStudent { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }
 
-        [StringLength(10)]
-        public string Sex { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime? Born { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string NameParent { get; set; }
 

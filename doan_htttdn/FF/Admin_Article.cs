@@ -8,22 +8,11 @@ namespace doan_htttdn.FF
 
     public partial class Admin_Article
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Admin_Article()
-        {
-            ARTICLEs = new HashSet<ARTICLE>();
-        }
-
         [Key]
-        [StringLength(50)]
-        public string IDAdmin { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID_Admin { get; set; }
 
-        [StringLength(50)]
+        [Required]
         public string Pass { get; set; }
-
-        public int? Status { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICLE> ARTICLEs { get; set; }
     }
 }

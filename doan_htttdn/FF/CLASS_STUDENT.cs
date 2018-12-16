@@ -10,13 +10,13 @@ namespace doan_htttdn.FF
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDClass { get; set; }
+        [StringLength(20)]
+        public string IDClass { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IDStudent { get; set; }
+        [StringLength(20)]
+        public string IDStudent { get; set; }
 
         [Key]
         [Column(Order = 2)]

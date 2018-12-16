@@ -1,38 +1,70 @@
-﻿@model List<doan_htttdn.FF.ARTICLE>
+﻿@model List<doan_htttdn.FF.ARTICLEs>
 @{
     Layout = null;
 }
 
 
-<body>
-    @{ int i = 0;
 
-    <div class="grid-in">
-        @foreach (var item in Model)
-        {
-            if (i < 9)
+@{
+    int i = 0;
+
+    <div class="container">
+        <div class="content-top"><h1>TIN TỨC CÔNG NGHỆ</h1></div>
+        <div>
+            <div class="header title" style="margin : 0 0 15px 20px;background-color:#f2ebeb;width:90%;">
+                @*<header>
+            <hgroup>
+                <h2 style="margin-left:20px"><a href="#" title="Thời sự">  </a></h2>
+            </hgroup>
+        </header>*@
+                @Html.Action("Menu", "tintuc")
+            </div>
+           
+
+            @foreach (var item in Model)
+
             {
-                <div class="col-md-4 grid-top" style="margin-top:50px">
-                    <a href="/User/TinTuc/Detail/@item.ID_Article" class="b-link-stripe b-animate-go  thickbox">
-                        <img class="img-responsive" src="~/Assets/Image/IMGAR/@item.Image" alt="" style="height:300px">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>@item.Menu_Article.Name_Menu</span>
-                            </h3>
+                if (i < 6)
+                {
+                    <div class="blog-top">
+                        <div class="col-md-6 grid-top grid_3 canbottom ">
+                            <a href="#" class="b-link-stripe b-animate-go  thickbox">
+                                <img class="img-responsive" src="~/Assets/Image/@item.Img" alt="">
+                                <div class="b-wrapper">
+                                    <h3 class="b-animate b-from-left    b-delay03 ">
+                                        <span>Đọc Tiếp</span>
+                                    </h3>
+                                </div>
+                            </a>
+                            <p><a href="#"><h2>@item.Title</h2> </a></p>
+                            <ul class="post-tintuc1">
+                                <li>
+                                    @item.Summary
+                                </li>
+                            </ul>
                         </div>
-                    </a>
-
-
-                    <p><a href="/User/TinTuc/Detail/@item.ID_Article">@item.Title</a></p>
-                </div>
+                    </div>
+                }
+                else
+                {
+                    break;
+                }
+                i++;
             }
-            else { break; }
-            i++;
-        }
-
-
+        </div>
     </div>
-      }
 
-            
-    </body>
+}
+<div>
+    <nav class="in">
+        <ul class="pagination">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2 <span class="sr-only"></span></a></li>
+            <li><a href="#">3 <span class="sr-only"></span></a></li>
+            <li><a href="#">4 <span class="sr-only"></span></a></li>
+            <li><a href="#">5 <span class="sr-only"></span></a></li>
+            <li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
+        </ul>
+    </nav>
+</div>

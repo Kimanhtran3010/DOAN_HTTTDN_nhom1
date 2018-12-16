@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using doan_htttdn.Areas.USER.Models;
 //using PagedList;
 using doan_htttdn.FF;
-using PagedList;
+
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -47,8 +47,8 @@ namespace doan_htttdn.Areas.USER.Controllers
             }
             int pageSize = 9;
             int pageNumber = (page ?? 1);
-            return View(model.ToPagedList(pageNumber, pageSize));
-            //return View(model);
+            //return View(model.ToPagedList(pageNumber, pageSize));
+            return View(model);
         }
         [HttpGet]
         public ActionResult ChiTiet(string ID)

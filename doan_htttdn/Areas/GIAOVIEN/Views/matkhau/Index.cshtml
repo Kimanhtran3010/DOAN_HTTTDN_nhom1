@@ -1,45 +1,44 @@
-﻿@model  doan_htttdn.Areas.GIAOVIEN.Models.Acount_model
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Assets/GIAOVIEN/css/gv.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="~/Assets/GIAOVIEN/js/JavaScript.js"></script>
+<h2 align="center" style="color:red">ĐỔI MẬT KHẨU</h2><br />
+
+                                                      <div class="row">
+                                                          <form onsubmit="return matchpass()">
+                                                              <table align="center">
+                                                                  <tr>
+                                                                      <td style="width:25%;"><b>Mã giáo viên:</b></td>
+                                                                      <td><input type="text" id="idgv" name="" value="cái này load lên, không được sửa" size="50" style="margin-bottom:10px;" readonly /></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                      <td style="width:25%;"><b>Mật khẩu cũ:</b></td>
+                                                                      <td><input type="password" name="password0" id="0" size="50" style="margin-bottom:10px;" /></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                      <td style="width:25%;"><b>Mật khẩu mới:</b></td>
+                                                                      <td><input type="password" name="password1" id="1" size="50" style="margin-bottom:10px;" /></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                      <td style="width:25%;"><b>Nhập lại mật khẩu mới:</b></td>
+                                                                      <td><input type="password" name="password2" id="2" size="50" style="margin-bottom:10px;" /></td>
+                                                                  </tr>
 
 
-<h4 align="left" style="color:blue; padding-top:30px">
-    <b>
-        <a href="@Url.Action("Index","thongtin")">Giáo viên</a>/
-        <a href="@Url.Action("Index","matkhau")">Ðổi mật khẩu</a>
-    </b>
-</h4><br />
-@Html.Raw(TempData["msg"])
-@using (Html.BeginForm("ChangePassword", "matkhau", FormMethod.Post, new { @onsubmit = "return matchpass()" }))
-{
-    <div class="row" style="height:400px;">
-        <table align="center">
-            <tr style="height: 70px">
-                <td style="width:25%;"><b>Mật khẩu cũ:</b></td>
-                <td>@Html.TextBoxFor(Model => Model.oldpass, new { @type = "password", @name = "password0", @id = "0", @size = "50", @style = "margin-bottom:10px; height: 40px" })</td>
+                                                              </table>
+                                                              <b><input type="submit" name="btchange" value="LƯU" style="margin-left:45%;" /></b>
+                                                              <b><input type="button" name="btsave" value="HỦY" /></b>
+                                                          </form>
 
-            </tr>
-            <tr style="height: 70px">
-                <td style="width:25%;"><b>Mật khẩu mới:</b></td>
-                <td>@Html.TextBoxFor(Model => Model.newpass, new { @type = "password", @name = "password1", @id = "1", @size = "50", @style = "margin-bottom:10px;height: 40px" })</td>
+                                                          
+                                                          <div>
 
-            </tr>
-            <tr style="height: 70px">
-                <td style="width:25%;"><b>Nhập mật khẩu mới:</b></td>
-                <td><input type="password" name="password2" id="2" size="50" style="margin-bottom:10px;;height: 40px" /></td>
-            </tr>
-        </table>
-        <b><input type="submit" name="btchange" value="LƯU" style="margin-left:45%;" /></b>
-        <div>
-        </div>
-       
+                                                          </div>
+                                                      </div>
 
-    </div>
-}
 
 
 
