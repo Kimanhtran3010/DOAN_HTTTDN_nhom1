@@ -14,12 +14,19 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         DAO_Teaching_class dao = new DAO_Teaching_class();
         public ActionResult Index(int? page)
         {
-            var model = dao._GetAllPhanphoi();
-            SetViewBagLop();
-            SetViewBagTeacher();
-            int pagesize = 15;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
+            {
+                var model = dao._GetAllPhanphoi();
+                SetViewBagLop();
+                SetViewBagTeacher();
+                int pagesize = 15;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public void SetViewBagLop()
         {

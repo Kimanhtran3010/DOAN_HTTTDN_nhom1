@@ -18,21 +18,27 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         // GET: ADMIN/Order
         public ActionResult Index(string tk , Nullable<DateTime> nkq , int? Page )
         {
-            
-            
-            if (tk == null && nkq == null)
+
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                list1 = dod.listod(Page ?? 1 , 6);
-            }
-            else if(nkq == null)
-            {
-                list1 = dod.search(tk, Page ?? 1, 5);
+                if (tk == null && nkq == null)
+                {
+                    list1 = dod.listod(Page ?? 1, 6);
+                }
+                else if (nkq == null)
+                {
+                    list1 = dod.search(tk, Page ?? 1, 5);
+                }
+                else
+                {
+                    list1 = dod.search_date(nkq, Page ?? 1, 10);
+                }
+                return View(list1);
             }
             else
-            { 
-            list1 = dod.search_date(nkq, Page ?? 1, 10);
+            {
+                return RedirectToAction("Index", "Login");
             }
-            return View(list1);
         }
 
         // GET: ADMIN/Order/Details/5

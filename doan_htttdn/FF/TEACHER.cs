@@ -1,4 +1,4 @@
-﻿namespace doan_htttdn.FF
+namespace doan_htttdn.FF
 {
     using System;
     using System.Collections.Generic;
@@ -13,13 +13,12 @@
         public TEACHER()
         {
             TEACHING_CLASS = new HashSet<TEACHING_CLASS>();
-            CLASSes = new HashSet<CLASS>();
         }
 
         [Key]
         public int IDTeacher { get; set; }
-        
-        [Required(ErrorMessage =" Name is required")]
+
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
 
@@ -27,10 +26,6 @@
         public string Sex { get; set; }
 
         [StringLength(12)]
-        [Required(ErrorMessage = "You must provide a phone number")]
-        [Display(Name = "Home Phone")]
-        [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Không phải định dạng của số điện thoại")]
         public string Phone { get; set; }
 
         [StringLength(200)]
@@ -48,8 +43,5 @@
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TEACHING_CLASS> TEACHING_CLASS { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CLASS> CLASSes { get; set; }
     }
 }
