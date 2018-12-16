@@ -218,6 +218,53 @@ namespace doan_htttdn.DAO
                 return false;
         }
 
+        public bool Exit_idstudent(int id)
+        {
+            if (db.STUDENTs.Find(id) != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Check(int id_student, int id_class)
+        {
+            var bien = db.CLASS_STUDENT.Where(x => x.IDStudent == id_student && x.IDClass == id_class).SingleOrDefault();
+            if (bien != null)
+                return true;
+            else
+                return false;
+        }
+        public bool Class_student(int id_student, int id_class)
+        {
+            if (Exit_idstudent(id_student))
+            {
+                for (int i = 1; i <= 12; i++)
+                {
+                    CLASS_STUDENT add_class = new CLASS_STUDENT();
+                    add_class.IDClass = id_class;
+                    add_class.IDStudent = id_student;
+                    add_class.Session = i;
+                    add_class.Day = null;
+                    add_class.State = 0;
+                    db.CLASS_STUDENT.Add(add_class);
+                    db.SaveChanges();
+
+                    var bien = db.CLASSes.Find(id_class);
+                    if (bien != null)
+                    {
+                        bien.Number = bien.Number + 1;
+                        db.SaveChanges();
+                    }
+                    
+                    
+                }
+                return true;
+            }   
+            else
+                return false;
+        }
 
         //Class----------------------------------------------------------------------------
         public IEnumerable<Class_model> Get_Class()
@@ -286,6 +333,24 @@ namespace doan_htttdn.DAO
             else
                 return false;
         }
+        
+        public bool Delete_Class(int id)
+        {
+            var bien = db.CLASSes.Find(id);
+            if (bien != null)
+            {
+                if (bien.Number == 0)
+                {
+                    db.CLASSes.Remove(bien);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
 
         //COURSE------------------------------------------------------------------
         public List<COURSE> Get_Course()
@@ -296,18 +361,82 @@ namespace doan_htttdn.DAO
         {
             return db.COURSEs.Where(x => x.Name.Contains(key)).ToList();
         }
+
+        public bool check_id(string id)
+        {
+            var bien = db.COURSEs.Where(x => x.IDCourse == id);
+            if (bien != null)
+                return true;
+            else
+                return false;
+        }
         public bool Insert_Course(COURSE course)
         {
             try
             {
-                db.COURSEs.Add(course);
-                db.SaveChanges();
-                return true;
+                if (check_id(course.IDCourse) == false)
+                {
+                    db.COURSEs.Add(course);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+                
             }
             catch
             {
                 return false;
             }
+        }
+        public COURSE Get_DetailCourse(string id)
+        {
+            var bien = db.COURSEs.Where(x => x.IDCourse == id).SingleOrDefault();
+            return bien;
+        }
+
+         public bool Update_Course(COURSE course)
+        {
+            var bien = db.COURSEs.Where(x => x.IDCourse == course.IDCourse).SingleOrDefault();
+            if (bien != null)
+            {
+                bien.Name = course.Name;
+                bien.Age = course.Age;
+                bien.Maxnumber = course.Maxnumber;
+                bien.Time = course.Time;
+                bien.Contents = course.Contents;
+                bien.Fee = course.Fee;
+                bien.Image = course.Image;
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Exitclass(string id)
+        {
+            var bien = db.CLASSes.Where(x => x.IDCourse == id).SingleOrDefault();
+            if (bien != null)
+                return true;
+            else
+                return false;
+        }
+        public bool Delete_Course(string id)
+        {
+            var bien = db.COURSEs.Where(x => x.IDCourse == id).SingleOrDefault();
+            if(bien != null)
+            {
+                if (Exitclass(id) == false)
+                {
+                    db.COURSEs.Remove(bien);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return false;
         }
     }
 }

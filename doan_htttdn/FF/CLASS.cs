@@ -14,6 +14,7 @@ namespace doan_htttdn.FF
         {
             CLASS_STUDENT = new HashSet<CLASS_STUDENT>();
             TEACHING_CLASS = new HashSet<TEACHING_CLASS>();
+            TEACHERs = new HashSet<TEACHER>();
         }
 
         [Key]
@@ -43,5 +44,8 @@ namespace doan_htttdn.FF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TEACHING_CLASS> TEACHING_CLASS { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TEACHER> TEACHERs { get; set; }
     }
 }

@@ -76,9 +76,37 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             }
             else
             {
-                TempData["msg"] = "<script>alert('Xóa Không Thành Công !');</script>";
+                TempData["msg"] = "<script>alert('Không Được Xóa Học Sinh !');</script>";
                 return RedirectToAction("Student");
             }
         }
+
+        public ActionResult ChonLop(int id, int? page)
+        {
+            var model = dao.Get_Class();
+            ViewBag.IDStudent = id;
+            int pagesize = 15;
+            int pagenumber = (page ?? 1);
+            return View(model.ToPagedList(pagenumber, pagesize));
+        }
+        [HttpPost]
+        public ActionResult ThemN(int[] a, int id_student)
+        {
+            
+           for (int i=1; i<= a.Length; i++)
+            {
+                if (dao.Check(id_student, a[i]))
+                {
+                    dao.Class_student(id_student, a[i]);
+                }
+                else
+                {
+                    return Content("Lỗi!");
+                }
+                    
+            }
+           return Content("Thêm Lớp cho học viên thành công !");
+        }
+        
     }
 }

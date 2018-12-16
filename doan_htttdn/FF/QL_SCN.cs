@@ -8,7 +8,7 @@ namespace doan_htttdn.FF
     public partial class QL_SCN : DbContext
     {
         public QL_SCN()
-            : base("name=QL_SCN1")
+            : base("name=QL_SCN")
         {
         }
 
@@ -68,6 +68,11 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CLASS>()
+                .HasMany(e => e.TEACHERs)
+                .WithMany(e => e.CLASSes)
+                .Map(m => m.ToTable("Teach_Distribution").MapLeftKey("IDclass").MapRightKey("IDTeacher"));
 
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)

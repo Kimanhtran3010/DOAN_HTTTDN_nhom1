@@ -58,15 +58,7 @@
                                     <td>@item.Fee</td>
                                     <td>@item.Image</td>
                                     <td> <a href="@Url.Action("Sua", "Course", new { @id = item.IDCourse})"> Sửa </a></td>
-                                    <td>
-                                        @Ajax.ActionLink("Xóa", "Delete","Course",new { @id = item.IDCourse }, new AjaxOptions
-                                   {
-                                       Confirm = "Bạn có Chắc Xóa ?",
-                                       UpdateTargetId = "testid",
-                                       OnComplete = "$('#row _" + @item.IDCourse + "').remove()",
-                                       HttpMethod = "Delete"
-                                   })
-                                    </td>
+                                    <td> <a href="@Url.Action("Xoa", "Course", new { @id = item.IDCourse})"> Xóa </a></td>
                                 </tr>
                             </tbody>
                         }
