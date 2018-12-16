@@ -37,31 +37,66 @@
         //alert("Đổi mật khẩu thành công!")
 
 }
-function matchinfor() {
-    var name = document.getElementById('namegv').value;
-    var phone = document.getElementById('phonegv').value;
-    //var dt = document.getElementById('dtgv').value;
-    //var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
- 
-    //if (name == '') {
-    //    alert("Bạn chưa nhập họ và tên!");
-    //}
+    function test() {
+        alert("ahihi");
+    }
 
-    //if (!filter.test(email.value)) {
-    //    alert('Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com');
-    //    email.focus;
-
-    //}
-    
-    if (phone =='' || ( phone != '' && Number.isNaN(phone)) == false) {
-        alert("Bạn phải nhập số ở mục số điện thoại");
+function matchinfor()
+{
+    var name = document.getElementById('namegv');
+            var phone = document.getElementById('phonegv');
+            var sex = document.getElementById('sexgv');
+            var diachi = document.getElementById('diachigv');
+            var trinhdo = document.getElementById('trinhdogv');
+            var trangthai = document.getElementById('trangthaigv');
+    var filter = /^([a-zA-Z0-9_\.\-])+\ @(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (name == null)
+    {
+        alert("Chưa nhập họ tên");
+        //return false;
+    }
+                
+    if (sex == null)
+    {
+        alert("Chưa nhập giới tính");
+        //return false;
+    }
+        
+    if (phone == null || phone != null && Number.isNaN(phone) == false)
+    {
+                alert("Nhập lại số điện thoại");
+                //return false;
+    }
+    if (diachi == null)
+    {
+        alert("Chưa nhập địa chỉ");
+        //return false;
+    }
+       
+    if (trinhdo == null)
+    {
+        alert("Chưa nhập trình độ");
+        //return false;
+    }
+       
+    if (trangthai == null)
+    {
+        alert("Chưa nhập trạng thái");
+        //return false;
+    }
+        
+    if (!filter.test(email.value))
+    {
+        alert("Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com");
+        email.focus;
         return false;
     }
-    //if (dt == '') {
-    //    alert("Bạn chưa nhập trình độ!");
-    //}
-
 
     else
+    {
+        alert("dữ liệu ok");
         return true;
+    }
 }
+     
+

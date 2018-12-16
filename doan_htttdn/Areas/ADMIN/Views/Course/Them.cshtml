@@ -6,7 +6,7 @@
 }
 
 
-@using (Html.BeginForm("Them","Course",FormMethod.Post)) 
+@using (Html.BeginForm("Them", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -95,47 +95,47 @@
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                 <img id="anhnen" src="" height="200px" width="200px" alt="Ảnh Khóa Học" /> <br />
                 <div>
-                    <input required class="form-control" accept="image/*" onchange="readURL(this, '#anhnen')" type="file" name="anhnen" id="anhnen" />
+                    <input required class="form-control" accept="image/.jpg,image/.png" onchange="readURL(this, '#anhnen')" type="file" name="MultipleFiles" id="anhnen" />
                 </div>
-                
+
             </div>
         </div>
-   
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10" >
-                <input type = "submit" value="Thêm" class="btn btn-default" style="position: absolute;right: 65%; margin-top: 5%;width:10%"/>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default" style="position: absolute;right: 65%; margin-top: 5%;width:10%" />
             </div>
         </div>
-        
+
     </div>
 }
 
 @*<div>
-    @Html.ActionLink("Quay lại", "Course")
-</div>*@
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <a href="@Url.Action("Course","Course")"> <button class="btn btn-default" style="position: absolute;right: 83%; margin-top: 3.2%; width:10%">Hủy</button> </a>
-        </div>
+        @Html.ActionLink("Quay lại", "Course")
+    </div>*@
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <a href="@Url.Action("Course","Course")"> <button class="btn btn-default" style="position: absolute;right: 83%; margin-top: 3.2%; width:10%">Hủy</button> </a>
     </div>
+</div>
 <script>
     function readURL(input, id) {
-   
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-           // alert("fff");
-            $(id)
-              .attr('src', e.target.result)
-              .width(200)
-              .height(200);           
-            
-        };
-        reader.readAsDataURL(input.files[0]);
-       
-        //$("#anhdaidientxtfor").val()=dt;
-    }
-   
 
-}
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // alert("fff");
+                $(id)
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(200);
+
+            };
+            reader.readAsDataURL(input.files[0]);
+
+            //$("#anhdaidientxtfor").val()=dt;
+        }
+
+
+    }
 </script>

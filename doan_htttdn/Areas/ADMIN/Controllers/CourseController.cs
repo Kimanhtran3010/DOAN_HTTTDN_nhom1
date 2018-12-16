@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using doan_htttdn.DAO;
 using PagedList;
 using doan_htttdn.FF;
+using System.IO;
 
 namespace doan_htttdn.Areas.ADMIN.Controllers
 {
@@ -32,8 +33,25 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         }
 
         [HttpPost]
-        public ActionResult Them(COURSE course)
+        [ValidateAntiForgeryToken]
+        public ActionResult Them(COURSE course, HttpPostedFileBase[] MultipleFiles)
         {
+            if (MultipleFiles != null)
+            {
+ 
+                foreach (var fileBase in MultipleFiles)
+                {
+                    if (fileBase != null && fileBase.ContentLength > 0)
+                    {
+
+                        // Retrieve a reference to a container 
+                        var path = Path.Combine(Server.MapPath("~/Assets/Image"), course.IDCourse+ "1.jpg");
+                        fileBase.SaveAs(path);
+                    }
+
+                }
+            }
+            course.Image = "~/Assets/Image/" + course.IDCourse + "1.jpg";
             if (dao.Insert_Course(course))
             {
                 TempData["msg"] = "<script>alert('Thêm Thành Công!');</script>";
@@ -45,9 +63,56 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
                 return RedirectToAction("Them", "Course");
             }
         }
-        //public ActionResult Sua(int id)
-        //{
+        public ActionResult Sua(string id)
+        {
+            var bien = dao.Get_DetailCourse(id);
+            return View(bien);
+        }
+         
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Sua(COURSE course, HttpPostedFileBase[] MultipleFiles)
+        {
+            if (MultipleFiles != null)
+            {
 
-        //}
+                foreach (var fileBase in MultipleFiles)
+                {
+                    if (fileBase != null && fileBase.ContentLength > 0)
+                    {
+
+                        // Retrieve a reference to a container 
+                        var path = Path.Combine(Server.MapPath("~/Assets/Image"), course.IDCourse + "update.jpg");
+                        fileBase.SaveAs(path);
+                    }
+
+                }
+            }
+            course.Image = "~/Assets/Image/" + course.IDCourse + "update.jpg";
+            if (dao.Update_Course(course))
+            {
+                TempData["msg"] = "<script>alert('Cập Nhật Thành Công!');</script>";
+                return RedirectToAction("Course", "Course");
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Cập Nhật Thất Bại! Lỗi!');</script>";
+                return RedirectToAction("Sua", "Course");
+            }
+        }
+        
+        public ActionResult Xoa(string id)
+        {
+            if (dao.Delete_Course(id))
+            {
+                TempData["msg"] = "<script>alert('Xóa Thành Công!');</script>";
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Xóa Không Thành Công! Lỗi');</script>";
+            }
+
+            return RedirectToAction("Course", "Course");
+        }
     }
 }

@@ -74,5 +74,17 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             }
         }
 
+        public ActionResult Xoa(int id)
+        {
+            if (dao.Delete_Class(id))
+            {
+                TempData["msg"] = "<script>alert('Xóa Thành Công');</script>";
+            }
+            else
+            {
+                TempData["msg"] = "<script>alert('Không Thể Xóa Lớp!');</script>";
+            }
+            return RedirectToAction("Index", "Class");
+        }
     }
 }

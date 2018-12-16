@@ -871,6 +871,8 @@
     <Content Include="Areas\ADMIN\Views\Rigistration_course\Details.cshtml" />
     <Content Include="Areas\ADMIN\Views\Rigistration_course\Edit.cshtml" />
     <Content Include="Areas\ADMIN\Views\Rigistration_course\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Login\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Student\ChonLop.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />
@@ -926,6 +928,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
