@@ -15,7 +15,6 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         // GET: ADMIN/Course
 
         DAO_Admin dao = new DAO_Admin();
-
         public ActionResult Course(string Search, int? page)
         {
             var model = dao.Get_Course();
