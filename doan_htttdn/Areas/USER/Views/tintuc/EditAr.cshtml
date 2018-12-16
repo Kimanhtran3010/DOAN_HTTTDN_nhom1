@@ -4,61 +4,60 @@
     Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    @using (Html.BeginForm("EditAr", "TinTuc", FormMethod.Post))
-    {<div  style="border:1px">
-         <div class="form-group">
-             <h3 style="text-align:center">ID_Article :</h3>
-             @Html.TextBoxFor(x => x.ID_Article, new { @class = "form-control" })
-             
-         </div>
-         <div class="form-group">
-             
-                 <p>
-                     <h3 style="text-align:center">Title :</h3>
-                 </p>
-             
-             @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-            
-         </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Summary :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Summary, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Contents :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Contents, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Day :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Date , new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">Image :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.Img, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">ID_Admin :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.IDAdmin, new { @class = "form-control" })
-            </div>
-            <div>
-                <p>
-                    <h3 style="text-align:center">ID_Menu :</h3>
-                </p>
-                @Html.TextBoxFor(x => x.ID_Menu, new { @class = "form-control" })
-            </div>
-        <div>
-            <input type="submit" style="margin-top:15px"/>
+<div class="row" style="border:groove;width: 80%;
+        height:100%;
+        margin-left: 150px">
+
+    @using (Html.BeginForm("EditAr", "TinTuc", FormMethod.Post, new { @class = "col-md-8", @style = "padding-top:30px;margin-left : 100px", @onsubmit = "return matchin4()" }))
+    {
+
+        <table>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>ID_Article</b></td>
+                <td> @Html.TextBoxFor(x => x.ID_Article, new { @class = "form-control", @Readonly = "" })</td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%"><b>Tiêu Đề:</b></td>
+                <td>@Html.TextBoxFor(Model => Model.Title, new { @class = "dtoid", @type = "Text", @autofocus = "autofocus", @id = "id", @placeholder = "Nhập Tiêu Đề", @size = "50px", @required = "", @readonly = "readonly" })</td>
+
+            </tr>
+            <tr style=" height:70px">
+                <td style="width:25%"><b>Tóm Tắt:</b></td>
+                <td> @Html.TextBoxFor(Model => Model.Summary, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "email", @placeholder = "Tóm tắt nội dung", @size = "50px", @required = "" })</td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>Nội Dung:</b></td>
+                <td>  @Html.TextBoxFor(Model => Model.Contents, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "Nội dung ....", @required = "", @size = "50px" }) </td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>Ảnh:</b></td>
+                <td> @Html.TextBoxFor(Model => Model.Image, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "tdgv", @placeholder = "Nhập ảnh", @size = "50px", @required = "" })</td>
+            </tr>
+            <tr style=" height:70px">
+                <td style="width:25%"><b>Ngày:</b></td>
+                <td> @Html.TextBoxFor(Model => Model.Day, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "email", @placeholder = "12/12/2012", @size = "50px", @required = "" })</td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>Trạng Thái:</b></td>
+                <td>  @Html.TextBoxFor(Model => Model.State, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "'1' or '0'", @required = "", @size = "50px" }) </td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>ID_Admin:</b></td>
+                <td> @Html.TextBoxFor(Model => Model.IDAdmin, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "tdgv", @placeholder = "Nhập ID_Admin", @size = "50px", @required = "" })</td>
+            </tr>
+            <tr style="height: 70px">
+                <td style="width:25%;"><b>ID_Menu:</b></td>
+                <td> @Html.TextBoxFor(Model => Model.ID_Menu, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "tdgv", @placeholder = "ID_Menu", @size = "50px", @required = "" })</td>
+            </tr>
+
+
+
+
+        </table>
+        <div class="row">
+             <input type="submit" style="margin:0 0 20px 300px" /> 
         </div>
-        </div>}
+            
+        
+    }
 </div>

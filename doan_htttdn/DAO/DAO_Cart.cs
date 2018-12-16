@@ -39,6 +39,7 @@ namespace doan_htttdn.DAO
                 IsBodyHtml = true,
             };
             smtp.Send(mail);
+            // thôi vâ cai úer cũng ok rô , h chơ cái admin
 
         }
 
