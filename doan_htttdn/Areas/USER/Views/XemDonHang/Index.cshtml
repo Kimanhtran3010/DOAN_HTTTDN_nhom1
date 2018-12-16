@@ -1,4 +1,6 @@
-﻿@model IEnumerable<doan_htttdn.FF.ORDERS>
+﻿@model PagedList.IPagedList<doan_htttdn.FF.ORDER>
+
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/USER/Views/Shared/_Layout.cshtml";
@@ -11,16 +13,17 @@
     <hr style="width:100%" />
     <div><p class="text-center text-capitalize" style="font:bold 36px arial,verdana">Xem Đơn Hàng</p> </div>
     <div class="container">
-        <div style="margin-left:400px">
-            <input style="width:300px" class="search" name="timkiem" type="search" />
-        </div>
-        <div style="margin-top :12px">
-            <input type="submit" value="Tìm kiếm" />
-        </div>
+        <form action="Index">
+            <div style="margin-left:400px; margin-bottom:50px">
+                <input style="width:300px" class="search" name="timkiem" placeholder="Nhập Emmail" type="search" />
+            
+                <input style="margin-top:10px" type="submit" value="Tìm kiếm" />
+            </div>
+        </form>
     </div>
     @foreach (var item in Model)
     {
-    <div class="cart-header">
+    <div class="cart-header" style="background-color:gainsboro">
         <div class="cart-sec simpleCart_shelfItem">
             <div class="cart-item-info">
                 <h3><a href="#"></a></h3>
@@ -43,8 +46,14 @@
                         <td>
                             <p> <b> Phương Thức Thanh Toán :</b> @item.Payment</p>
                         </td>
-                        <td></td>
-                        <td ><a href="ViewDetail?id=@item.IDOrders" class="xem_ct" >Xem Chi Tiết</a></td>
+                        @if (item.Verify == true)
+                        {
+                            <td> Đã Xác Nhận Email  </td>}
+                        else
+                        {
+                            <td> Chưa Xác Nhận Email  </td>
+                        }
+                        <td><a href="ViewDetail?id=@item.IDOrders" class="xem_ct">Xem Chi Tiết</a></td>
                     </tr>
                 </table>
             </div>
@@ -60,6 +69,7 @@
                     }
                     else if (item.State == 1)
                     {
+                        <a href="Huy?id=@item.IDOrders" class="order" style="width:200px ">Hủy</a>
             <div class="tt" >Chưa Giao</div>
                     }
                     else if (item.State == 2)
@@ -80,6 +90,11 @@
     </div>
         
     }
+    <nav class="in">
+        <ul class="pagination">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
+        </ul>
+    </nav>
 </div>
 
 

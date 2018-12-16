@@ -1,0 +1,15 @@
+﻿@foreach (var item in ViewData["Top3"] as List<doan_htttdn.FF.PRODUCT>)
+{
+    <div class="col-md-4 men">
+        <a href="chi-tiet-san-pham?id=@item.IDRobot" class="b-link-stripe b-animate-go  thickbox">
+            <img class="img-responsive" src="@Url.Content(item.Image)" alt="">
+            <div class="b-wrapper">
+                <h3 class="b-animate b-from-left    b-delay03 ">
+                    <span>@item.Name</span>
+                </h3>
+            </div>
+        </a>
+
+
+    </div>
+}

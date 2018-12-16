@@ -161,8 +161,10 @@
     <Compile Include="Areas\ADMIN\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\LoginController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\OrderRoBoController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\Phanbo_giangdayController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\Rigistration_courseController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\RoBoController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\StudentController.cs" />
     <Compile Include="Areas\ADMIN\Controllers\Teaching_classController.cs" />
     <Compile Include="Areas\ADMIN\Models\Teaching_class_model.cs" />
@@ -809,9 +811,7 @@
     <Content Include="Areas\USER\Views\KhoaHoc\ChiTiet.cshtml" />
     <Content Include="Areas\USER\Views\KhoaHoc\Register.cshtml" />
     <Content Include="Areas\USER\Views\Shared\Header_Cart.cshtml" />
-    <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Detail.cshtml" />
-    <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Chamcong\Create.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Chamcong\Index.cshtml" />
     <Content Include="Areas\GIAOVIEN\Views\Chamcong\Luong.cshtml" />
@@ -856,8 +856,6 @@
     <Content Include="Areas\USER\Views\tintuc\PartialListAr.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\ShowAr.cshtml" />
     <Content Include="Areas\USER\Views\tintuc\TrangChu.cshtml" />
-    <Content Include="Areas\USER\Views\XemDonHang\Index.cshtml" />
-    <Content Include="Areas\USER\Views\XemDonHang\ViewDetail.cshtml" />
     <Content Include="Areas\USER\Views\_ViewStart.cshtml" />
     <Content Include="Areas\USER\Views\RoBo\Top3_Product.cshtml" />
     <Content Include="Areas\USER\Views\Shared\Rating.cshtml" />
@@ -873,6 +871,17 @@
     <Content Include="Areas\ADMIN\Views\Rigistration_course\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Login\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Student\ChonLop.cshtml" />
+    <Content Include="Areas\ADMIN\Views\OrderRoBo\Details.cshtml" />
+    <Content Include="Areas\ADMIN\Views\OrderRoBo\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\RoBo\RoBo.cshtml" />
+    <Content Include="Areas\ADMIN\Views\RoBo\Sua.cshtml" />
+    <Content Include="Areas\ADMIN\Views\RoBo\Them.cshtml" />
+    <Content Include="Areas\USER\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Cart\ThanhToan.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\Index.cshtml" />
+    <Content Include="Areas\USER\Views\XemDonHang\ViewDetail.cshtml" />
+    <Content Include="Areas\USER\Views\RoBo\Index.cshtml" />
+    <Content Include="Areas\USER\Views\Home\SanPham.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />

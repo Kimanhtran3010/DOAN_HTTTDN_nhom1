@@ -6,9 +6,9 @@
 }
 
 
+<script type="text/javascript" src="~/Assets/GIAOVIEN/js/JavaScript.js"></script>
 
-
-@using (Html.BeginForm("Them","GiaoVien",FormMethod.Post))
+@using (Html.BeginForm("Them","GiaoVien",FormMethod.Post, new { @onsubmit = "return botdiche()" }))
 {
     @Html.AntiForgeryToken()
     
@@ -51,7 +51,7 @@
 
         <div class="form-group">
             @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10" id="email">
+            <div class="col-md-10" @*id="email"*@>
                 @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id="email" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
@@ -69,14 +69,15 @@
             @Html.Label("Trạng Thái", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control",@id="trangthaigv" } })
-                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @*<input type="submit" value="Thêm" class="btn btn-default"  />*@ 
-                <input type="button" value="thêm" onclick="return  matchinfor()"/>
+                @*<input type="submit" value="Thêm" class="btn btn-default" />*@
+                @*<input type="button" value="thêm" onclick="return  matchinfor()"/>*@
+                <input type="submit" name="btchange" value="Lưu" class="btn btn-default" />
             </div>
         </div>
 

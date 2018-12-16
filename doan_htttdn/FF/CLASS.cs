@@ -29,9 +29,15 @@ namespace doan_htttdn.FF
         public string NameClass { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? StartDay { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FinishDay { get; set; }
 
         public int? Number { get; set; }

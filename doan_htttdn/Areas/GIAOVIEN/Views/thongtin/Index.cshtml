@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/GIAOVIEN/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript" src="~/Assets/GIAOVIEN/js/JavaScript.js"></script>
 <h4 align="left" style="color:blue; padding-top:30px" ><b>
     <a href="@Url.Action("Index","Login")">Giáo viên</a>/
     <a href="@Url.Action("Index","thongtin")">Thông tin giáo viên</a>
@@ -14,7 +15,7 @@
         margin-left: 150px;
 ">
              @Html.Raw(TempData["msg"])
-             @using (Html.BeginForm("Update", "thongtin", FormMethod.Post, new { @class = "col-md-8", @style = "padding-top:30px", @onsubmit = "return matchin4()" }))
+             @using (Html.BeginForm("Update", "thongtin", FormMethod.Post, new { @class = "col-md-8", @style = "padding-top:30px", @onsubmit = "return uagidayta()" }))
              {
                  //<div class="col-md-8" style="padding-top:30px">
 
@@ -22,7 +23,7 @@
                      <tr style="height: 70px">
                          <td style="width:25%;"><b>Mã giáo viên:</b></td>
 
-                         <td>@Html.TextBoxFor(Model => Model.IDTeacher, new { @class = "dtoid", @type = "Text", @autofocus = "autofocus", @id = "id", @placeholder = "Nhập max giáo viên", @size = "50px", @required = "", @readonly = "readonly" })</td>
+                         <td>@Html.TextBoxFor(Model => Model.IDTeacher, new { @class = "dtoid", @type = "Text", @autofocus = "autofocus", @id = "id", @placeholder = "Nhập mã giáo viên", @size = "50px", @required = "", @readonly = "readonly" })</td>
 
                      </tr>
                      <tr style="height: 70px">
@@ -38,12 +39,14 @@
                      <tr style="height: 70px">
                          <td style="width:25%;"><b>Số điện thoại:</b></td>
 
-                         <td> @Html.TextBoxFor(Model => Model.Phone, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "Nhập mail", @size = "50px", @required = "" })</td>
+                         <td> @Html.TextBoxFor(Model => Model.Phone, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "Số điện thoại", @size = "50px" })</td>
+
+                         @Html.ValidationMessageFor(Model => Model.Phone)
                      </tr>
                      <tr style="height: 70px">
                          <td style="width:25%;"><b>Trình độ:</b></td>
 
-                         <td> @Html.TextBoxFor(Model => Model.Knowledge, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "tdgv", @placeholder = "Nhập mail", @size = "50px", @required = "" })</td>
+                         <td> @Html.TextBoxFor(Model => Model.Knowledge, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "tdgv", @placeholder = "Trình độ", @size = "50px", @required = "" })</td>
                      </tr>
 
                  </table>
