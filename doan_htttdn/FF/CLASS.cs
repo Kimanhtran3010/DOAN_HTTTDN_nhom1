@@ -13,6 +13,7 @@ namespace doan_htttdn.FF
         public CLASS()
         {
             CLASS_STUDENT = new HashSet<CLASS_STUDENT>();
+            PHANBOes = new HashSet<PHANBO>();
             TEACHING_CLASS = new HashSet<TEACHING_CLASS>();
         }
 
@@ -40,6 +41,9 @@ namespace doan_htttdn.FF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLASS_STUDENT> CLASS_STUDENT { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHANBO> PHANBOes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TEACHING_CLASS> TEACHING_CLASS { get; set; }

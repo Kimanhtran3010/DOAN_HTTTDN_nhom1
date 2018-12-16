@@ -13,7 +13,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
         QL_SCN db = new QL_SCN();
         public IEnumerable<STUDENT> GetALL( int IDTeacher)
         {
-            IEnumerable<STUDENT> list = (from a in db.TEACHING_CLASS
+            IEnumerable<STUDENT> list = (from a in db.PHANBOes
                                          join c in db.CLASS_STUDENT  on a.IDClass equals c.IDClass
                                          join d in db.STUDENTs on c.IDStudent equals d.IDStudent
                                          where a.IDTeacher == IDTeacher

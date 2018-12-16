@@ -80,7 +80,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
         public List<Student_Change__Attendance> GetALL(int IDteacher)
         {
             var model = (from b in db.CLASS_STUDENT
-                         join a in db.TEACHING_CLASS
+                         join a in db.PHANBOes
                          on b.IDClass equals a.IDClass
                          where a.IDTeacher == IDteacher
                          orderby b.IDStudent

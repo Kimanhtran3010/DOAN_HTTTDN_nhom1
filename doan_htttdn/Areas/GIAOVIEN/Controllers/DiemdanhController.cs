@@ -90,7 +90,7 @@ namespace doan_htttdn.Areas.GIAOVIEN.Controllers
             List<SelectListItem> trangthai = new List<SelectListItem>()
                 {
                 new SelectListItem() {Text="Tham gia", Value="1"},
-                new SelectListItem() { Text="Vắng", Value="1"}
+                new SelectListItem() { Text="Vắng", Value="0"}
                 };
             ViewBag.State = new SelectList(trangthai, "Value", "Text");
         }

@@ -46,7 +46,6 @@ namespace doan_htttdn.Areas.USER.Controllers
             cate.Image = model.Image;
             cate.Day = model.Day;
             cate.State = model.State;
-            cate.Date = model.Date;
             cate.IDAdmin = model.IDAdmin;
             cate.ID_Menu = model.ID_Menu;
             db.Entry(cate).State = EntityState.Modified;
