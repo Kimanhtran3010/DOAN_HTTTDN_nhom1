@@ -10,6 +10,7 @@
     <link href="~/Assets/USER/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="~/Assets/USER/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="~/Assets/USER/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -24,19 +25,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
     <link href="~/Assets/USER/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-   
+
     <script type="text/javascript" src="~/Assets/USER/js/memenu.js"></script>
     <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
     <script src="~/Assets/USER/js/simpleCart.min.js"></script>
     <script type="text/javascript" src="~/Assets/USER/js/slideshow_banner.js"></script>
-   
+    <script>$(function () {
+
+            $("#rateYo").rateYo({
+                rating: 3.6
+            });
+
+        });</script>
 
 </head>
 <body>
     <!--header-->
     <div class="header">
-        
+
         @{Html.RenderAction("Header_Cart", "Home");}
+
 
     </div>
 

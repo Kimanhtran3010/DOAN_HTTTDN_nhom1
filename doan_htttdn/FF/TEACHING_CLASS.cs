@@ -8,19 +8,12 @@ namespace doan_htttdn.FF
 
     public partial class TEACHING_CLASS
     {
-        [Key]
-        [Column(Order = 0)]
-        [StringLength(20)]
-        public string IDClass { get; set; }
+        public int ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(20)]
-        public string IDTeacher { get; set; }
+        public int IDClass { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDTeacher { get; set; }
+
         public int session { get; set; }
 
         [Column(TypeName = "date")]

@@ -29,13 +29,13 @@
                 //  <form style="padding-top:30px">
                 <div>
                     <label class="label" for="account-form_email">Users</label>
-                    @Html.TextBoxFor(Model => Model.IDAdmin, new { @class = "input", @type = "Text", @autofocus = "autofocus", @id = "account-form_email", @name = "j_username", @placeholder = "Nhập user name", @required = "" })
+                    @Html.TextBoxFor(Model => Model.Username, new { @class = "input", @type = "Text", @autofocus = "autofocus", @id = "account-form_email", @name = "j_username", @placeholder = "Nhập user name", @required = "" })
 
                     <label></label>
                 </div>
                 <div style=" padding-top:30px">
                     <label style="padding-left:50px" class="" for="account-form_password">Password</label>
-                    @Html.TextBoxFor(Model => Model.Pass, new { @class = "input", @type = "password", @autocomplete = "password", @id = "account-form_password", @name = "j_password", @placeholder = "Nhập Password", @required = "" })
+                    @Html.TextBoxFor(Model => Model.Password, new { @class = "input", @type = "password", @autocomplete = "password", @id = "account-form_password", @name = "j_password", @placeholder = "Nhập Password", @required = "" })
                 </div>
                 <div style="padding-left:150px ; padding-top:30px;">
                     <input style="width:100px; height:30px;background-color:#00ffff ; font-family:Tahoma" type="submit" data-test-id="www-leadgen-submit" value="Log In">

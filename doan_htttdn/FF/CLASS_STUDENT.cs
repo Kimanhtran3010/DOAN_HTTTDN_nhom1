@@ -10,13 +10,13 @@ namespace doan_htttdn.FF
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(20)]
-        public string IDClass { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDClass { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(20)]
-        public string IDStudent { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IDStudent { get; set; }
 
         [Key]
         [Column(Order = 2)]
@@ -24,9 +24,9 @@ namespace doan_htttdn.FF
         public int Session { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime Day { get; set; }
+        public DateTime? Day { get; set; }
 
-        public int? State { get; set; }
+        public int State { get; set; }
 
         public virtual CLASS CLASS { get; set; }
 

@@ -7,7 +7,7 @@
     position: relative;
     font-size: 20px;
     padding-top: 20px;
-    padding-right: 50px;
+    /*padding-right: 50px;*/
 }
 .memenu li{margin-bottom:-5px;display:inline}
 .memenu>li>a{float:left;padding:8px 30px;text-decoration:none;text-transform:capitalize;font-size:1em; font-weight: 500; -webkit-transition: all 0.3s ease-in-out;
@@ -54,7 +54,7 @@
     color: #1607e2;
 }
 .memenu > li.active > a {
-    color: #1607e2;
+    color: WHITE;
 }
 .skyblue li > a, .skyblue > li.showhide span {
     color: #000000;

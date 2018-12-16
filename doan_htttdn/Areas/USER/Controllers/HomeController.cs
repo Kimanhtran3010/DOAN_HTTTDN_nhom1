@@ -7,7 +7,7 @@ namespace doan_htttdn.Areas.USER.Controllers
 {
     public class HomeController : Controller
     {
-        
+        doan_htttdn.FF.QL_SCN db = new FF.QL_SCN();
         // GET: USER/Home
         public ActionResult Index()
         {
@@ -25,6 +25,7 @@ namespace doan_htttdn.Areas.USER.Controllers
             }
             return PartialView(list);
         }
+        
     }
     
        

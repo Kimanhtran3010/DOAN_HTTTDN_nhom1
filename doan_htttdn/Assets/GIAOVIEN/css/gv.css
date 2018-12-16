@@ -152,6 +152,13 @@ dropdown-menu
     width: 300px;
     height: 40px;
 }
+.dtoid {
+    margin-bottom: 10px;
+    width: 350px;
+    height: 40px;
+    width: 300px;
+    height: 40px;
+}
 .sm{
     color:white;
     background-color:coral;
@@ -164,7 +171,7 @@ dropdown-menu
     .table_th .th {
         text-align: center;
         height: 40px;
-        background-color: #7bf7f5
+        background-color: #f7e67b
     }
     .table_th .td {
         text-align: center;

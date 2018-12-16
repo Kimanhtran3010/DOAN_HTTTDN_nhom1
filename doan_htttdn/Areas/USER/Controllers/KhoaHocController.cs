@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using doan_htttdn.Areas.USER.Models;
 //using PagedList;
 using doan_htttdn.FF;
-
+using PagedList;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -47,8 +47,8 @@ namespace doan_htttdn.Areas.USER.Controllers
             }
             int pageSize = 9;
             int pageNumber = (page ?? 1);
-            //return View(model.ToPagedList(pageNumber, pageSize));
-            return View(model);
+            return View(model.ToPagedList(pageNumber, pageSize));
+            //return View(model);
         }
         [HttpGet]
         public ActionResult ChiTiet(string ID)
@@ -82,10 +82,10 @@ namespace doan_htttdn.Areas.USER.Controllers
             rc.NameStudent = collection["NameStudent"];
             rc.Phone = collection["Phone"];
 
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            //const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             Random random = new Random();
-            rc.IDRegist = new string(Enumerable.Repeat(chars, 6).Select(s => s[random.Next(s.Length)]).ToArray());
-            rc.DayRegist = DateTime.Today;
+            //rc.IDRegist = new string(Enumerable.Repeat(chars, 6).Select(s => s[random.Next(s.Length)]).ToArray());
+            //rc.DayRegist = DateTime.Today;
             rc.State = "Chưa Duyệt";
             bool rs = model.Insert(rc);
             if (rs)

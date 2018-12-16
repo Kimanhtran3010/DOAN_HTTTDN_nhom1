@@ -9,8 +9,7 @@ namespace doan_htttdn.FF
     public partial class RIGISTRATION_COURSE
     {
         [Key]
-        [StringLength(20)]
-        public string IDRegist { get; set; }
+        public int IDRegist { get; set; }
 
         [StringLength(100)]
         public string NameParent { get; set; }
@@ -24,19 +23,16 @@ namespace doan_htttdn.FF
         [StringLength(100)]
         public string NameStudent { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? BIRTHDAY { get; set; }
 
-        [Required]
+        public string ADDRESS { get; set; }
+
         [StringLength(20)]
         public string IDCourse { get; set; }
 
         [StringLength(200)]
         public string State { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? DayRegist { get; set; }
-
-        public string ADDRESS { get; set; }
 
         public virtual COURSE COURSE { get; set; }
     }
