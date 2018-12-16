@@ -91,8 +91,8 @@
         <div class="form-group" style="float:right; border:0;width:30%">
             <br />
             <div class="col-md-10" style="width:100%">
-                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
                 <img id="anhnen" src="" height="200px" width="200px" alt="Ảnh Khóa Học" /> <br />
                 <div>
                     <input required class="form-control" accept="image/.jpg,image/.png" onchange="readURL(this, '#anhnen')" type="file" name="MultipleFiles" id="anhnen" />
@@ -110,9 +110,6 @@
     </div>
 }
 
-@*<div>
-        @Html.ActionLink("Quay lại", "Course")
-    </div>*@
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         <a href="@Url.Action("Course","Course")"> <button class="btn btn-default" style="position: absolute;right: 83%; margin-top: 3.2%; width:10%">Hủy</button> </a>

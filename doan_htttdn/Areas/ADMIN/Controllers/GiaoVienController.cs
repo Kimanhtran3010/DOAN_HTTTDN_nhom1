@@ -17,15 +17,22 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         DAO_Admin dao = new DAO_Admin();
         public ActionResult GiaoVien(string Search, int? page)
         {
-            var model = dao.List_Teacher();
-            ViewBag.Search = Search;
-            if (!string.IsNullOrEmpty(Search))
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                model = dao.Search_Teacher(Search);
+                var model = dao.List_Teacher();
+                ViewBag.Search = Search;
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    model = dao.Search_Teacher(Search);
+                }
+                int pagesize = 15;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
             }
-            int pagesize = 15;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         [HttpGet]

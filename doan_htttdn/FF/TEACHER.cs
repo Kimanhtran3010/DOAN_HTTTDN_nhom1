@@ -18,8 +18,8 @@ namespace doan_htttdn.FF
 
         [Key]
         public int IDTeacher { get; set; }
-
-        [Required]
+        
+        [Required(ErrorMessage =" Name is required")]
         [StringLength(100)]
         public string Name { get; set; }
 

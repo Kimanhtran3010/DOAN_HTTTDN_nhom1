@@ -6,10 +6,10 @@
 }
 
 
-@using (Html.BeginForm("Them","Class", FormMethod.Post)) 
+@using (Html.BeginForm("Them", "Class", FormMethod.Post, new { @onsubmit = "return matchpass() " }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>THÊM LỚP</h4>
         <hr />
@@ -17,7 +17,7 @@
         <div class="form-group">
             @Html.Label("Tên Lớp", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.NameClass, new { htmlAttributes = new { @class = "form-control" }, @style = "height:30px" })
+                @Html.TextBoxFor(model => model.NameClass, new { htmlAttributes = new { @class = "form-control",@id="name" }, @style = "height:30px" })
                 @Html.ValidationMessageFor(model => model.IDCourse, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="form-group">
             @Html.Label("Ngày Bắt Đầu", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDay, new { htmlAttributes = new { @class = "form-control", @type = "Date", @style="width:170px"} })
+                @Html.EditorFor(model => model.StartDay, new { htmlAttributes = new { @class = "form-control", @type = "Date", @style = "width:170px" } })
                 @Html.ValidationMessageFor(model => model.StartDay, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.Label("Ngày Kết Thúc", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FinishDay, new { htmlAttributes = new { @class = "form-control", @type="Date", @style = "width:170px" } })
+                @Html.EditorFor(model => model.FinishDay, new { htmlAttributes = new { @class = "form-control", @type = "Date", @style = "width:170px" } })
                 @Html.ValidationMessageFor(model => model.FinishDay, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,3 +65,43 @@
 <div>
     @Html.ActionLink("Quay Lại", "Index")
 </div>
+
+<script type="text/javascript">
+    function matchpass() {
+        var pw0 = document.getElementById('name').value;
+        
+        if (pw0 == '') {
+            alert("Bạn chưa nhập mật khẩu hiện tại!");
+            return false;
+        }
+        //else {
+        //    if (pw1 == '') {
+        //        alert("Bạn chưa nhập mật khẩu mới!"); return false;
+        //    }
+        //    else {
+        //        if (pw2 == '') {
+        //            alert("Bạn chưa nhập lại mật khẩu mới!");
+        //            return false;
+        //        }
+        //        else {
+
+        //            if (pw1 != pw2) {
+        //                alert("Mật khẩu không khớp!");
+        //                return false;
+
+        //            }
+        //            else
+
+
+        //                return true;
+        //        }
+
+        //    }
+
+
+        //}
+        //alert("Đổi mật khẩu thành công!")
+
+    }
+
+</script>

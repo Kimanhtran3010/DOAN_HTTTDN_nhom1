@@ -17,14 +17,21 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         DAO_Admin dao = new DAO_Admin();
         public ActionResult Course(string Search, int? page)
         {
-            var model = dao.Get_Course();
-            if (!string.IsNullOrEmpty(Search))
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                model = dao.Search_Course(Search);
+                var model = dao.Get_Course();
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    model = dao.Search_Course(Search);
+                }
+                int pagesize = 15;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
             }
-            int pagesize = 15;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public ActionResult Them()
