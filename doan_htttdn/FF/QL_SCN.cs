@@ -21,6 +21,7 @@ namespace doan_htttdn.FF
         public virtual DbSet<DETAIL_ORDERS> DETAIL_ORDERS { get; set; }
         public virtual DbSet<Menu_Article> Menu_Article { get; set; }
         public virtual DbSet<ORDER> ORDERS { get; set; }
+        public virtual DbSet<PHANBO> PHANBOes { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PROMOTION> PROMOTIONs { get; set; }
         public virtual DbSet<RIGISTRATION_COURSE> RIGISTRATION_COURSE { get; set; }
@@ -65,6 +66,11 @@ namespace doan_htttdn.FF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CLASS>()
+                .HasMany(e => e.PHANBOes)
+                .WithRequired(e => e.CLASS)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CLASS>()
                 .HasMany(e => e.TEACHING_CLASS)
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
@@ -88,11 +94,6 @@ namespace doan_htttdn.FF
 
             modelBuilder.Entity<COURSE>()
                 .HasMany(e => e.CLASSes)
-                .WithRequired(e => e.COURSE)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<COURSE>()
-                .HasMany(e => e.RIGISTRATION_COURSE)
                 .WithRequired(e => e.COURSE)
                 .WillCascadeOnDelete(false);
 
@@ -151,10 +152,6 @@ namespace doan_htttdn.FF
                 .HasMany(e => e.ORDERS)
                 .WithRequired(e => e.PROMOTION)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<RIGISTRATION_COURSE>()
-                .Property(e => e.IDRegist)
-                .IsUnicode(false);
 
             modelBuilder.Entity<RIGISTRATION_COURSE>()
                 .Property(e => e.Phone)

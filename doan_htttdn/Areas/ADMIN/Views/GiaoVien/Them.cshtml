@@ -6,6 +6,7 @@
 }
 
 
+<script type="text/javascript" src="~/Assets/GIAOVIEN/js/JavaScript.js"></script>
 
 
 @using (Html.BeginForm("Them","GiaoVien",FormMethod.Post , new { @onsubmit = "return uagiza() " }))
@@ -51,7 +52,7 @@
 
         <div class="form-group">
             @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10" id="email">
+            <div class="col-md-10" @*id="email"*@>
                 @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id="email" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>

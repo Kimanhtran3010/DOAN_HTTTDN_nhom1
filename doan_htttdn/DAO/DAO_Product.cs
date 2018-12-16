@@ -29,5 +29,23 @@ namespace doan_htttdn.DAO
         {
             return db.PRODUCTs.Take(3).ToList();
         }
+
+        public bool Update(PRODUCT pd)
+        {
+            var up = db.PRODUCTs.SingleOrDefault(x => x.IDRobot == pd.IDRobot);
+            if (up != null)
+            {
+                up.Name = pd.Name;
+                up.Image = pd.Image;
+                up.Number = pd.Number;
+                up.Price = pd.Price;
+                up.State = pd.State;
+                db.SaveChanges();
+                return true;
+
+            }
+            return false;
+        }
+
     }
 }

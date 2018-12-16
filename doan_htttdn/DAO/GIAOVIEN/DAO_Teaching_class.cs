@@ -16,7 +16,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
                         join b in db.TEACHING_CLASS
                         on a.IDClass equals b.IDClass
                         orderby a.NameClass descending
-                        where b.IDTeacher == IDTeacher
+                        where b.IDTeacher == IDTeacher 
                         select new Teacher_Attendance
                         {
                             ID = b.ID,
@@ -36,7 +36,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
                         join b in db.TEACHING_CLASS
                         on a.IDClass equals b.IDClass
                         orderby b.Day descending
-                        where b.IDTeacher == IDTeacher && b.Day.Month == month
+                        where b.IDTeacher == IDTeacher && b.Day.Month == month 
                         select new Teacher_Attendance
                         {
                             ID = b.ID,
@@ -55,7 +55,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
                         join b in db.TEACHING_CLASS
                         on a.IDClass equals b.IDClass
                         orderby b.Day descending
-                        where b.IDTeacher == IDTeacher && b.IDClass == IDlop
+                        where b.IDTeacher == IDTeacher && b.IDClass == IDlop  
                         select new Teacher_Attendance
                         {
                             ID = b.ID,

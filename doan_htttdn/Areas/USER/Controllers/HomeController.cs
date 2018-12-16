@@ -25,8 +25,13 @@ namespace doan_htttdn.Areas.USER.Controllers
             }
             return PartialView(list);
         }
-        
+        public ActionResult SanPham()
+        {
+            ViewData["Top3"] = db.PRODUCTs.Take(3).ToList();
+            return PartialView();
+        }
+
     }
-    
-       
+
+
 }

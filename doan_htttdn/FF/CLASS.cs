@@ -13,6 +13,7 @@ namespace doan_htttdn.FF
         public CLASS()
         {
             CLASS_STUDENT = new HashSet<CLASS_STUDENT>();
+            PHANBOes = new HashSet<PHANBO>();
             TEACHING_CLASS = new HashSet<TEACHING_CLASS>();
             TEACHERs = new HashSet<TEACHER>();
         }
@@ -28,9 +29,15 @@ namespace doan_htttdn.FF
         public string NameClass { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? StartDay { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FinishDay { get; set; }
 
         public int? Number { get; set; }
@@ -41,6 +48,9 @@ namespace doan_htttdn.FF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLASS_STUDENT> CLASS_STUDENT { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHANBO> PHANBOes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TEACHING_CLASS> TEACHING_CLASS { get; set; }

@@ -16,7 +16,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
         public IEnumerable<Class_model> GetByIDTeacher(int IDteacher)
         {
             // return db.CLASSes.ToList();
-            var list = (from x in db.TEACHING_CLASS
+            var list = (from x in db.PHANBOes
                         join y in db.CLASSes
                         on x.IDClass equals y.IDClass
                         join z in db.COURSEs
@@ -38,7 +38,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
         public IEnumerable<Class_model> GetByIDTeacherandNameCourse(int IDteacher, string nameCouser)
         {
             // return db.CLASSes.ToList();
-            var list = (from x in db.TEACHING_CLASS
+            var list = (from x in db.PHANBOes
                         join y in db.CLASSes
                         on x.IDClass equals y.IDClass
                         join z in db.COURSEs
@@ -60,7 +60,7 @@ namespace doan_htttdn.DAO.GIAOVIEN
 
         public List<Class_model> GetClassModels(string searchNameCourse , int IDteacher)
         {
-            List<Class_model> list = (from x in db.TEACHING_CLASS
+            List<Class_model> list = (from x in db.PHANBOes
                                      join y in db.CLASSes
                                      on x.IDClass equals y.IDClass
                                      join z in db.COURSEs

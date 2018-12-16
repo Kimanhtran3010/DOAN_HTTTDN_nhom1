@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using doan_htttdn.FF;
-
+using PagedList;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -94,14 +94,14 @@ namespace doan_htttdn.Areas.USER.Controllers
         {
             if (cateid != null)
                 {
-
+                ViewBag.cateid = cateid;
                 int idcate = int.Parse(cateid);
                 var model = db.ARTICLEs.Where(x => x.ID_Menu == idcate).ToList();
                 var cate = db.Menu_Article.FirstOrDefault(x => x.ID_Menu == idcate);
                 ViewBag.cateName = cate.Name_Menu;
-                //int pagesize = 2;
-                //int pagenumber = (page ?? 1);
-                return View(model/*.ToPagedList(pagenumber,pagesize)*/);
+                int pagesize = 3;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber,pagesize));
             }
           else
             {

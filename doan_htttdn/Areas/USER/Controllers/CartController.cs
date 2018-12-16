@@ -122,10 +122,10 @@ namespace doan_htttdn.Areas.USER.Controllers
                 od.NumberProduct = count;
                 od.IDPromotion = txt_km;
                 od.PriceTotal = tien;
-                od.DATE = DateTime.Today;
+                od.DATE = DateTime.Now;
                 od.Payment = txt_tt;
                 od.Note = txt_ghichu;
-                od.State = 0;
+                od.State = 1;
                 od.Verify = false;
                 id = dc.get_id(od);
                 string url = "http://localhost:51852/USER/gio-hang/xac-nhan?ID=" + id;
@@ -161,7 +161,7 @@ namespace doan_htttdn.Areas.USER.Controllers
                     db.SaveChanges();
 
                     DAO_Product dp = new DAO_Product();
-                    var sp = dp.ViewDetail(item.product.IDRobot);
+                    var sp = db.PRODUCTs.SingleOrDefault(x => x.IDRobot == d_od.IDRobot);
                     sp.Number = sp.Number - item.Quantity;
                     db.SaveChanges();
                 }

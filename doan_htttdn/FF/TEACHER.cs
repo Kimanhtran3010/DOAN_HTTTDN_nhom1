@@ -1,4 +1,4 @@
-namespace doan_htttdn.FF
+﻿namespace doan_htttdn.FF
 {
     using System;
     using System.Collections.Generic;
@@ -27,6 +27,10 @@ namespace doan_htttdn.FF
         public string Sex { get; set; }
 
         [StringLength(12)]
+        [Required(ErrorMessage = "You must provide a phone number")]
+        [Display(Name = "Home Phone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Không phải định dạng của số điện thoại")]
         public string Phone { get; set; }
 
         [StringLength(200)]

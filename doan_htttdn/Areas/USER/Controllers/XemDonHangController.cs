@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data;
 using doan_htttdn.FF;
+using PagedList;
+using PagedList.Mvc;
 
 namespace doan_htttdn.Areas.USER.Controllers
 {
@@ -12,10 +14,10 @@ namespace doan_htttdn.Areas.USER.Controllers
     {
         QL_SCN db = new QL_SCN();
         // GET: USER/XemDonHang
-        public ActionResult Index(string timkiem="duc222s@yahoo.com")
+        public ActionResult Index(string timkiem)
         {
 
-            var list = db.ORDERS.Where(x => x.Email == timkiem).ToList();
+            var list = db.ORDERS.Where(x => x.Email == timkiem).OrderByDescending(x => x.IDOrders).ToPagedList(1, 5);
 
             //var query = (from a in db.ORDERS
             //            join b in db.DETAIL_ORDERS on a.IDOrders equals b.IDOrders
@@ -31,7 +33,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         }
         public ActionResult ViewDetail(int id)
         {
-            
+
             var query = (from a in db.DETAIL_ORDERS
                          join b in db.PRODUCTs on a.IDRobot equals b.IDRobot
                          where a.IDOrders == id
@@ -45,6 +47,25 @@ namespace doan_htttdn.Areas.USER.Controllers
                              Contents = b.Contents,
                          }).ToList();
             return View(query);
+        }
+        
+        public ActionResult Huy(int id)
+        {
+            var od = db.ORDERS.SingleOrDefault(x => x.IDOrders == id);
+            od.State = 0;
+            db.SaveChanges();
+            List<DETAIL_ORDERS> dod = db.DETAIL_ORDERS.Where(x => x.IDOrders == od.IDOrders).ToList();
+
+            foreach (var item in dod)
+            {
+                var pd = db.PRODUCTs.SingleOrDefault(x => x.IDRobot == item.IDRobot);
+
+                pd.Number = pd.Number + item.Number;             
+                db.SaveChanges();
+            }
+            
+
+            return RedirectToAction("Index", "XemDonHang");
         }
     }
 }

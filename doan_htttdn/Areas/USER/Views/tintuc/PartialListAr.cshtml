@@ -1,15 +1,33 @@
 ﻿@model IEnumerable<doan_htttdn.FF.ARTICLE>
 
-@foreach (var item in Model)
-{
-<tr>
-    <td>@item.ID_Article</td>
-    <td>@item.Title</td>
-    <td>@item.Summary</td>
-    <td>@item.Img</td>
-    <td>@item.Date</td>
-    <td>@item.IDAdmin</td>
-    <td><a href="@Url.Action("Showar", "TinTuc", new { id = item.ID_Article })">Show</a></td>
-    <td><a href="@Url.Action("Aredit", "TinTuc", new { id = item.ID_Article })">Update</a></td>
-</tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+
+
+            <tr>
+                
+                <td style="text-align:center">
+                @item.ID_Article
+                </td>
+                <td class="column1" style="text-align:center">@item.Title</td>
+
+                <td class="column2" style="text-align:center">@item.Day</td>
+                <td class="column2" style="text-align:center">@item.IDAdmin</td>
+                <td class="column3" style="text-align:center">
+                    
+                    <a href="@Url.Action("EditAr", "TinTuc", new { id = item.ID_Article })">Sửa</a>
+                    @using (Html.BeginForm("DeleteAr", "TinTuc", FormMethod.Post))
+                    {
+                        <a href="@Url.Action("DeleteAr", "TinTuc", new { id = item.ID_Article })">Delete</a>
+                    }
+                </td>
+
+            </tr>
+
+        </tbody>
+    }
+
+    
+   
