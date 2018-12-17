@@ -24,9 +24,9 @@ namespace doan_htttdn.Areas.GIAOVIEN.Models
         public int session { get; set; }
 
         [Column(TypeName = "date")]
-        //[Display(Name = "Start Date")]
-        //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Day { get; set; }
 
         public int? State { get; set; }

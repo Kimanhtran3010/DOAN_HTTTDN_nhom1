@@ -26,7 +26,7 @@ namespace doan_htttdn.FF
         [Column(TypeName = "date")]
         public DateTime? Day { get; set; }
 
-        public int State { get; set; }
+        public int? State { get; set; }
 
         public virtual CLASS CLASS { get; set; }
 

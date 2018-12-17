@@ -39,7 +39,7 @@
                      <tr style="height: 70px">
                          <td style="width:25%;"><b>Số điện thoại:</b></td>
 
-                         <td> @Html.TextBoxFor(Model => Model.Phone, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "Số điện thoại", @size = "50px" })</td>
+                         <td> @Html.TextBoxFor(Model => Model.Phone, new { @class = "dto", @type = "Text", @autofocus = "autofocus", @id = "phonegv", @placeholder = "Số điện thoại", @size = "50px" , @required = "" })</td>
 
                          @Html.ValidationMessageFor(Model => Model.Phone)
                      </tr>

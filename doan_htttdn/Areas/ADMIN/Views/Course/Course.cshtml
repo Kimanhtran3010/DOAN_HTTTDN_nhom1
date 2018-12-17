@@ -56,7 +56,7 @@
                                     <td>@item.Time</td>
                                     <td>@item.Contents</td>
                                     <td>@item.Fee</td>
-                                    <td>@item.Image</td>
+                                    <td>@Url.Content(item.Image)</td>
                                     <td> <a href="@Url.Action("Sua", "Course", new { @id = item.IDCourse})"> Sửa </a></td>
                                     <td> <a href="@Url.Action("Xoa", "Course", new { @id = item.IDCourse})"> Xóa </a></td>
                                 </tr>

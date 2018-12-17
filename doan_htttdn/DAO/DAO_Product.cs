@@ -22,7 +22,7 @@ namespace doan_htttdn.DAO
 
         public IEnumerable<PRODUCT> search(string tk, int page, int pagesize)
         {
-            return db.PRODUCTs.Where(x => x.IDRobot == tk || x.Name == tk).OrderByDescending(x => x.IDRobot).ToPagedList(page, pagesize);
+            return db.PRODUCTs.Where(x => x.IDRobot.Contains(tk) || x.Name.Contains(tk)).OrderByDescending(x => x.IDRobot).ToPagedList(page, pagesize);
         }
 
         public IEnumerable<PRODUCT> top3_pd()

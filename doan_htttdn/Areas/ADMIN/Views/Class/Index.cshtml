@@ -51,8 +51,8 @@
                                 <tr>
                                     <td>@item.NameClass</td>
                                     <td>@item.NameCourse</td>
-                                    <td>@item.StartDay</td>
-                                    <td>@item.FinishDay</td>
+                                    <td>@item.StartDay.Value.ToShortDateString()</td>
+                                    <td>@item.FinishDay.Value.ToShortDateString()</td>
                                     <td>@item.Number</td>
                                     <td>@item.State</td>
                                     <td> <a href="@Url.Action("Sua", "Class", new { @id = item.IDClass})"> Sửa </a></td>

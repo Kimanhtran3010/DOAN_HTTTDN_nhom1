@@ -19,14 +19,12 @@
                     <input type="search" name="txt_search" style="width:150px" class="search" placeholder="Nhập Mã SP hoặc Tên SP" />
                     <input type="submit" id="sm_search" class="search" value="Tìm" />
                 </form>
-
+                
                 <br />
-                <div class="of-left" style="margin-top: 35px; margin-bottom: 35px">
-                    <h3 class="cate" >Quảng Cáo</h3>
-                </div>
-                <img class="img-responsive"  src="~/Assets/Image/st_1.jpg" style="height:225px;width:225px" alt="">
-                <img style="margin-top: 35px; margin-bottom: 35px"class="img-responsive" src="~/Assets/Image/st_2.jpg" alt="">
-               </div>
+                
+                <img class="img-responsive" src="~/Assets/Image/st_1.jpg" style="height:225px;width:225px" alt="">
+                <img style="margin-top: 35px; margin-bottom: 35px" class="img-responsive" src="~/Assets/Image/st_2.jpg" alt="">
+            </div>
   
               <!--initiate accordion-->
   
@@ -60,14 +58,14 @@
             <div class=" bottom-product">
                 @foreach (var items in Model)
                 {
-                    <div class="col-md-4 bottom-cd simpleCart_shelfItem" >
+                    <div class="col-md-4 bottom-cd simpleCart_shelfItem" style="margin-top:5%">
                         <div class="product-at ">
                             <a href="chi-tiet-san-pham?id=@items.IDRobot">
                                 <img class="img-responsive" src="@Url.Content(items.Image)" style="height:230px ; width:220px" alt="">
                             </a>
                         </div>
                         <p class="tun">@Html.DisplayFor(model => items.Name) </p>
-                        
+
                         <h4 style="color:red; text-align:center">@items.Price</h4>
 
                         <a href="them-gio-hang?product_id=@items.IDRobot&&number=1" class="item_add"><p class="number item_price">Add To Cart</p></a>
@@ -88,4 +86,3 @@
     </div>
 
 </div>
-

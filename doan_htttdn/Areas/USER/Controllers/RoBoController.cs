@@ -16,7 +16,7 @@ namespace doan_htttdn.Areas.USER.Controllers
         DAO_Product dp = new DAO_Product();
         private object list;
 
-        public ActionResult Index(string txt_search,int page = 1, int pagesize = 6  )
+        public ActionResult Index(string txt_search,int page = 1, int pagesize = 9  )
         {
             
             if (txt_search == null)

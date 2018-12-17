@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container" id="testid">
-        <div id="wrapper">
+        <div id="wrapper" >
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -50,16 +50,18 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul id="active" class="nav navbar-nav side-nav">
-                        <li class="selected"><a href="@Url.Action("ListAr","TinTuc")"><i class="fa fa-bullseye"></i> Tin Tức</a></li>
-                        <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Quản Lý Robot</a></li>
+                        <li class="selected"><a href="@Url.Action("Index","Rigistration_course")">Trang chủ</a></li>
+                        <li ><a href="@Url.Action("ListAr","TinTuc")"> Tin Tức</a></li>
+                        <li><a href="@Url.Action("RoBo","RoBo")"><i class="fa fa-tasks"></i> Quản Lý Robot</a></li>
                         <li><a href="@Url.Action("Course","Course")"><i class="fa fa-globe"></i> Quản Lý Khóa Học</a></li>
                         <li><a href="@Url.Action("GiaoVien","GiaoVien")"><i class="fa fa-list-ol"></i> Quản Lý Giáo Viên </a></li>
                         <li><a href="@Url.Action("Index","Class")"><i class="fa fa-font"></i> Quản Lý Lớp Học</a></li>
+                        <li><a href="@Url.Action("Index","Phanbo_giangday")"><i class="fa fa-globe"></i> Phân công giảng dạy</a></li>
                         <li><a href="@Url.Action("Student","Student")"><i class="fa fa-font"></i> Quản Lý Học Sinh</a></li>
-                        <li><a href="forms.html"><i class="fa fa-list-ol"></i> Quản Lý Đơn Hàng</a></li>
-                        <li><a href="typography.html"><i class="fa fa-font"></i> khuyến Mãi</a></li>
-                        <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Thống Kê</a></li>
-                        
+                        <li><a href="@Url.Action("Index","OrderRoBo")"><i class="fa fa-list-ol"></i> Quản Lý Đơn Hàng</a></li>
+                        <li><a href="#"><i class="fa fa-font"></i> khuyến Mãi</a></li>
+                        <li><a href="#"><i class="fa fa-list-ul"></i> Thống Kê</a></li>
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-user">
                         <li>

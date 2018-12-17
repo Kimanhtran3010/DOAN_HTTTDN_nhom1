@@ -923,6 +923,13 @@
     <Content Include="Areas\USER\Views\TinTuc\Menu.cshtml" />
     <Content Include="Areas\USER\Views\TinTuc\ListNews_1.cshtml" />
     <Fakes Include="Fakes\PagedList.Mvc.fakes" />
+    <Content Include="Areas\USER\Views\Home\ListNews.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\AddArticle.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\EditAr.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\EditArticle.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\ListAr.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\PartialListAr.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TinTuc\ShowAr.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Assets\USER\dropzone\basic.css" />
     <Content Include="Assets\USER\dropzone\basic.min.css" />

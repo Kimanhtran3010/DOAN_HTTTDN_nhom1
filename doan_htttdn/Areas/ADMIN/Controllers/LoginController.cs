@@ -33,7 +33,7 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
                     var userSession = new UserLogin();
                     userSession.IDuser = objUser.IDAdmin;
                     Session.Add(CommonConstant.USER_SESSION, userSession.IDuser);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Rigistration");
                 }
                 else if (obj == 0)
                 {

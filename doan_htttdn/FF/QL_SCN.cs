@@ -75,11 +75,6 @@ namespace doan_htttdn.FF
                 .WithRequired(e => e.CLASS)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<CLASS>()
-                .HasMany(e => e.TEACHERs)
-                .WithMany(e => e.CLASSes)
-                .Map(m => m.ToTable("Teach_Distribution").MapLeftKey("IDclass").MapRightKey("IDTeacher"));
-
             modelBuilder.Entity<COURSE>()
                 .Property(e => e.IDCourse)
                 .IsUnicode(false);
