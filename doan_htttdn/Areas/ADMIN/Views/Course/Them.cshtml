@@ -22,7 +22,7 @@
                         @Html.Label("Mã khóa Học")
                     </div>
                     <div class="col-md-6" style="float:right">
-                        @Html.TextBoxFor(model => model.IDCourse, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.IDCourse, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.IDCourse, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         @Html.Label("Tên khóa Học")
                     </div>
                     <div class="col-md-6" style="float:right">
-                        @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         @Html.Label("Độ Tuổi")
                     </div>
                     <div class="col-md-6">
-                        @Html.TextBoxFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         @Html.Label("Số Lượng Học Sinh Tối Đa")
                     </div>
                     <div class="col-md-6">
-                        @Html.TextBoxFor(model => model.Maxnumber, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.Maxnumber, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.Maxnumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         @Html.Label("Thời Lượng Khóa Học")
                     </div>
                     <div class="col-md-6">
-                        @Html.TextBoxFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         @Html.Label("Nội Dung Khóa Học")
                     </div>
                     <div class="col-md-6">
-                        @Html.TextAreaFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" }, @cols = "32", @rows = "5" })
+                        @Html.TextAreaFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" }, @cols = "32", @rows = "5", @required = "" })
                         @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         @Html.Label("Học Phí")
                     </div>
                     <div class="col-md-6">
-                        @Html.TextBoxFor(model => model.Fee, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%" })
+                        @Html.TextBoxFor(model => model.Fee, new { htmlAttributes = new { @class = "form-control" }, @style = "width:100%", @required = "" })
                         @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -91,8 +91,8 @@
         <div class="form-group" style="float:right; border:0;width:30%">
             <br />
             <div class="col-md-10" style="width:100%">
-                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
                 <img id="anhnen" src="" height="200px" width="200px" alt="Ảnh Khóa Học" /> <br />
                 <div>
                     <input required class="form-control" accept="image/.jpg,image/.png" onchange="readURL(this, '#anhnen')" type="file" name="MultipleFiles" id="anhnen" />
@@ -110,9 +110,6 @@
     </div>
 }
 
-@*<div>
-        @Html.ActionLink("Quay lại", "Course")
-    </div>*@
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         <a href="@Url.Action("Course","Course")"> <button class="btn btn-default" style="position: absolute;right: 83%; margin-top: 3.2%; width:10%">Hủy</button> </a>

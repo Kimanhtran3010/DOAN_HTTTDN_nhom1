@@ -19,15 +19,22 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         DAO_TinTuc dao = new DAO_TinTuc();
         public ActionResult ListAr(string Search,int? page)
         {
-            var model = dao.Get_Article();
-            ViewBag.Search = Search;
-            if (!string.IsNullOrEmpty(Search))
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                model = dao.Search_Article(Search);
+                var model = dao.Get_Article();
+                ViewBag.Search = Search;
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    model = dao.Search_Article(Search);
+                }
+                int pagesize = 10;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
             }
-            int pagesize = 10;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
 
 
         }

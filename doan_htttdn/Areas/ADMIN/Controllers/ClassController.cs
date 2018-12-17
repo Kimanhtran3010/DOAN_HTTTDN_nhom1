@@ -7,6 +7,7 @@ using doan_htttdn.DAO;
 using PagedList;
 using doan_htttdn.FF;
 
+
 namespace doan_htttdn.Areas.ADMIN.Controllers
 {
     public class ClassController : Controller
@@ -15,15 +16,23 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         DAO_Admin dao = new DAO_Admin();
         public ActionResult Index(string Search, int? page)
         {
-            var model = dao.Get_Class();
-            ViewBag.Search = Search;
-            if (!string.IsNullOrEmpty(Search))
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                model = dao.Search_Class(Search);
+                var model = dao.Get_Class();
+                ViewBag.Search = Search;
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    model = dao.Search_Class(Search);
+                }
+                int pagesize = 15;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
             }
-            int pagesize = 15;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
         }
 
         private void set_viewbag()

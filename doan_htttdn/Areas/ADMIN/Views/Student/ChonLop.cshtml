@@ -1,11 +1,11 @@
-﻿@using PagedList.Mvc;
+﻿ @using PagedList.Mvc;
 @model PagedList.IPagedList<doan_htttdn.Areas.GIAOVIEN.Models.Class_model>
 
 @{
     ViewBag.Title = "ChonLop";
     Layout = "~/Areas/ADMIN/Views/Shared/_LayoutADD.cshtml";
 }
-<label>@ViewBag.IDStudent</label>
+@*<label>@ViewBag.IDStudent</label>*@
 <div class="content_table">
     <div class="row">
         <div class="col-lg-12">
@@ -62,7 +62,7 @@
                     @Html.PagedListPager(Model, Page => Url.Action("Class", new { Page, Search = ViewBag.Search }))
                 </div>
                 <div >
-                    @*<a> <button id="btthem"> Thêm Lớp </button> </a>*@ <input onclick="return check()" type="button" value="LƯU" id="btthem"/>
+                    @*<a> <button id="btthem"> Thêm Lớp </button> </a>*@ <input  type="button" value="LƯU" id="btthem"/>
                 </div>
             </div>
         </div>
@@ -72,11 +72,16 @@
 
 <script language="javascript">
     
-    function check() {
+
+   
+    $('#btthem').on('click', function () {
+        alert(@ViewBag.IDStudent);
+       // var id_st = sURLVariables[sURLVariables.length-3];
         var checkboxes = document.getElementsByName('location');
         var vals = "";
         var x = 0;
         var a = new Array();
+       
         for (var i = 0, n = checkboxes.length; i < n; i++) {
           
             if (checkboxes[i].checked) {
@@ -86,22 +91,26 @@
                 
             }
         }
+        var id_st = @ViewBag.IDStudent;
 
-        }
+        
+       
         $.ajax({
-            url: "/Student/ThemN",
+            url: "Student/ThemN",
             type: 'Post',
-            data: { a: a},
+            data: { a: a, id_student: id_st },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
             success: function (result) {
-                alert(result);
+                console.log(result);
 
             },
             error: function (xhr) {
-                console.log(xhr.responseText);
+                console.log(xhr);
                 alert("Error has occurred..");
             }
         });
 
-    }
-    
+    })
+
 </script>

@@ -374,7 +374,7 @@ namespace doan_htttdn.DAO
         {
             try
             {
-                if (check_id(course.IDCourse) == false)
+                if (check_id(course.IDCourse) == true)
                 {
                     db.COURSEs.Add(course);
                     db.SaveChanges();

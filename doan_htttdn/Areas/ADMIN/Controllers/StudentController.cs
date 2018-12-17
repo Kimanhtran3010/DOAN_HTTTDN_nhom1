@@ -11,19 +11,27 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
 {
     public class StudentController : Controller
     {
+        private QL_SCN db = new QL_SCN();
         // GET: ADMIN/Student
         DAO_Admin dao = new DAO_Admin();
         public ActionResult Student(string Search, int? page)
         {
-            var model = dao.List_Student();
-            ViewBag.Search = Search;
-            if (!string.IsNullOrEmpty(Search))
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                model = dao.Search_Student(Search);
+                var model = dao.List_Student();
+                ViewBag.Search = Search;
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    model = dao.Search_Student(Search);
+                }
+                int pagesize = 15;
+                int pagenumber = (page ?? 1);
+                return View(model.ToPagedList(pagenumber, pagesize));
             }
-            int pagesize = 15;
-            int pagenumber = (page ?? 1);
-            return View(model.ToPagedList(pagenumber, pagesize));
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         
@@ -89,23 +97,26 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
             int pagenumber = (page ?? 1);
             return View(model.ToPagedList(pagenumber, pagesize));
         }
+
+        
         [HttpPost]
-        public ActionResult ThemN(int[] a, int id_student)
+        public JsonResult ThemN(int[] a, int id_student)
         {
-            
-           for (int i=1; i<= a.Length; i++)
+            //mang a
+            var id = db.STUDENTs.SingleOrDefault(x => x.IDStudent == id_student);
+                if(id != null) { 
+                for (int i = 1; i <= a.Length; i++)
+                {
+                    if (dao.Check(id_student, a[i]))
+                    {
+                        dao.Class_student(id_student, a[i]);
+                    }
+
+                } }
+            return Json(new
             {
-                if (dao.Check(id_student, a[i]))
-                {
-                    dao.Class_student(id_student, a[i]);
-                }
-                else
-                {
-                    return Content("Lỗi!");
-                }
-                    
-            }
-           return Content("Thêm Lớp cho học viên thành công !");
+                status = true
+            });
         }
         
     }

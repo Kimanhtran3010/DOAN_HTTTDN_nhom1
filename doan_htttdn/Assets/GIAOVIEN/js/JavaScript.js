@@ -37,9 +37,7 @@
         //alert("Đổi mật khẩu thành công!")
 
 }
-    function test() {
-        alert("ahihi");
-    }
+
 
 function matchinfor()
 {
@@ -97,6 +95,50 @@ function matchinfor()
         alert("dữ liệu ok");
         return true;
     }
+}
+function matchinfor1()
+{
+    var name = document.getElementById('namegv').value;
+    var phone = document.getElementById('phonegv').value;
+    var sex = document.getElementById('sexgv').value;
+    var diachi = document.getElementById('diachigv').value;
+    var filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (name == '') {
+        alert("Chưa nhập họ tên");
+        return false;
+    }
+    else {
+        if (sex == '') {
+            alert("Chưa nhập giới tính");
+            return false;
+        }
+        else {
+            if (phone == '' || phone != '' && Number.isNaN(phone) == false) {
+                alert("Nhập lại số điện thoại");
+                return false;
+            }
+            else {
+                if (diachi == '') {
+                    alert("Chưa nhập địa chỉ");
+                    return false;
+                }
+                else {
+                    if (!filter.test(email.value)) {
+                        alert("Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com");
+                        email.focus;
+                        return false;
+                    }
+                    else
+                    return false;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }
 
 function uagidayta()

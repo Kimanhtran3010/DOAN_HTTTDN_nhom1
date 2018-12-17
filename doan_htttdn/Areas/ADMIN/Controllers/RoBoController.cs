@@ -19,15 +19,22 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         // GET: ADMIN/RoBo
         public ActionResult RoBo(string tk , int? Page)
         {
-            if(tk == null)
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
             {
-                 list1 = dp.listpd(Page ?? 1,5);
+                if (tk == null)
+                {
+                    list1 = dp.listpd(Page ?? 1, 5);
+                }
+                else
+                {
+                    list1 = dp.search(tk, 1, 5);
+                }
+                return View(list1);
             }
             else
             {
-                list1 = dp.search(tk, 1, 5);
+                return RedirectToAction("Index", "Login");
             }
-            return View(list1);
         }
 
         // GET: ADMIN/RoBo/Details/5

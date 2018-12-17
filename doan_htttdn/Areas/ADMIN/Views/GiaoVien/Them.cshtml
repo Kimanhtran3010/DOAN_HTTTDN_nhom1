@@ -8,7 +8,8 @@
 
 <script type="text/javascript" src="~/Assets/GIAOVIEN/js/JavaScript.js"></script>
 
-@using (Html.BeginForm("Them","GiaoVien",FormMethod.Post, new { @onsubmit = "return botdiche()" }))
+
+@using (Html.BeginForm("Them","GiaoVien",FormMethod.Post , new { @onsubmit = "return uagiza() " }))
 {
     @Html.AntiForgeryToken()
     
@@ -20,7 +21,7 @@
         <div class="form-group">
             @Html.Label("Tên Giáo Viên", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "namegv" } })
+                @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @name = "namegv", @required =""} })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +29,7 @@
         <div class="form-group">
             @Html.Label("Giới Tính", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Sex, new { htmlAttributes = new { @class = "form-control", @id = "sexgv" } })
+                @Html.TextBoxFor(model => model.Sex, new { htmlAttributes = new { @class = "form-control", @name = "sexgv", @required = "" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +37,7 @@
         <div class="form-group">
             @Html.Label("Số Điện Thoại", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @id = "phonegv" } })
+                @Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @name = "phonegv", @required = "" } })
                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +45,7 @@
         <div class="form-group">
             @Html.Label("Địa Chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control", @id="diachigv" } })
+                @Html.TextBoxFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control", @name="diachigv" }, @required = "" })
                 @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,7 +53,7 @@
         <div class="form-group">
             @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" @*id="email"*@>
-                @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id="email" } })
+                @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id="email" } , @required = "" })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +61,7 @@
         <div class="form-group">
             @Html.Label("Trình Độ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Knowledge, new { htmlAttributes = new { @class = "form-control", @id="trinhdogv" } })
+                @Html.TextBoxFor(model => model.Knowledge, new { htmlAttributes = new { @class = "form-control", @name="trinhdogv" }, @required = "" })
                 @Html.ValidationMessageFor(model => model.Knowledge, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,16 +69,15 @@
         <div class="form-group">
             @Html.Label("Trạng Thái", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control",@id="trangthaigv" } })
-                @*@Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })*@
+                @Html.TextBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control",@name="trangthaigv" }, @required = "" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @*<input type="submit" value="Thêm" class="btn btn-default" />*@
-                @*<input type="button" value="thêm" onclick="return  matchinfor()"/>*@
-                <input type="submit" name="btchange" value="Lưu" class="btn btn-default" />
+                <input type="submit" value="Thêm" class="btn btn-default"  />
+               
             </div>
         </div>
 
@@ -88,33 +88,57 @@
     <div>
         @Html.ActionLink("Quay Lại", "GiaoVien")
     </div>
-    @*<script type="text/javascript">
-    function test() {
-        alert("ahihi");
-    }
 
-        function matchinfor() {
-            var name = document.getElementById('namegv');
-            var phone = document.getElementById('phonegv');
-            var sex = document.getElementById('sexgv');
-            var diachi = document.getElementById('diachigv');
-            var filter = /^([a-zA-Z0-9_\.\-])+\ @(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            if (name == null)
-                alert("Chưa nhập họ tên");
-            if (sex == null)
-                alert("Chưa nhập giới tính");
-            if (phone == null || phone != null && Number.isNaN(phone) == false) {
-               alert("Nhập lại số điện thoại");
-            }
-            if (diachi == null)
-                alert("Chưa nhập địa chỉ");
-            if (!filter.test(email.value)) {
-                alert("Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com");
-                email.focus;
+
+
+<script type="text/javascript">
+     
+function uagiza()
+{
+    var name = document.getElementById('namegv');
+    var phone = document.getElementById('phonegv');
+    var sex = document.getElementById('sexgv');
+    var diachi = document.getElementById('diachigv');
+    @*var filter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;*@
+
+    if (name == '') {
+        alert("Chưa nhập họ tên");
+        return false;
+    }
+    else {
+        if (sex == '') {
+            alert("Chưa nhập giới tính");
+            return false;
+        }
+        else {
+            if (phone == '' ) {
+                alert("Nhập lại số điện thoại");
+                return false;
+            } else ìf(phone != '' && Number.isNaN(phone) == false)
+            {
+                alert("Nhập lại số điện thoại");
                 return false;
             }
-            else
-                return false;
+            else {
+                if (diachi == '') {
+                    alert("Chưa nhập địa chỉ");
+                    return false;
+                }
+                //else {
+                //    if (!filter.test(email.value)) {
+                //        alert("Hãy nhập địa chỉ mail hợp lệ.\nExample@gmail.com");
+                //        email.focus;
+                //        return false;
+                //    }
+                    else
+                    return false;
+                }
+                
             }
+            
+        }
+        
+    }
     
-    </script>*@
+
+    </script>    

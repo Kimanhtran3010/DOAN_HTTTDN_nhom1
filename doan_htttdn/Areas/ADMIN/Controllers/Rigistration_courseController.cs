@@ -17,8 +17,15 @@ namespace doan_htttdn.Areas.ADMIN.Controllers
         // GET: ADMIN/Rigistration_course
         public ActionResult Index()
         {
-            var rIGISTRATION_COURSE = db.RIGISTRATION_COURSE.Include(r => r.COURSE);
-            return View(rIGISTRATION_COURSE.ToList());
+            if (Session[Common.CommonConstant.USER_SESSION] != null)
+            {
+                var rIGISTRATION_COURSE = db.RIGISTRATION_COURSE.Include(r => r.COURSE);
+                return View(rIGISTRATION_COURSE.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: ADMIN/Rigistration_course/Details/5

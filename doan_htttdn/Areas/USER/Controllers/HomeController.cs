@@ -25,11 +25,20 @@ namespace doan_htttdn.Areas.USER.Controllers
             }
             return PartialView(list);
         }
-        public ActionResult SanPham()
+        
+
+        public ActionResult ListNews_SP()
         {
-            ViewData["Top3"] = db.PRODUCTs.Take(3).ToList();
-            return PartialView();
+            var model = db.PRODUCTs.Where(x => x.IDRobot != null).ToList();
+            return View(model);
         }
+        public ActionResult ListNews_Course()
+        {
+            var model = db.COURSEs.Where(x => x.IDCourse != null).ToList();
+            return View(model);
+        }
+
+        
 
     }
 
